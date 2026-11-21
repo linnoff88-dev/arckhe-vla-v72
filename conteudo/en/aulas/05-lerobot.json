@@ -1,0 +1,319 @@
+{
+  "slug": "lerobot",
+  "num": 5,
+  "menu": "LeRobot",
+  "titulo": "Hands-on with LeRobot 0.6",
+  "titulo_curto": "Train with LeRobot",
+  "minutos": 18,
+  "lead": "LeRobot, from Hugging Face, puts data, policies, and commands for recording, training, and running in one place. In this lesson you train a real ACT policy for a few steps and end up with a checkpoint on disk. No robot and no account needed.",
+  "objetivo": "install LeRobot 0.6, train a small policy, and understand the record → train → run cycle.",
+  "competencias": [
+    "instalar-lerobot",
+    "treinar-politica-act",
+    "ler-log-de-treino",
+    "dimensionar-hardware"
+  ],
+  "aprende": [
+    {
+      "icone": "fila",
+      "t": "The record → train → eval → rollout cycle"
+    },
+    {
+      "icone": "terminal",
+      "t": "Train an ACT in 200 steps and find the checkpoint"
+    },
+    {
+      "icone": "grafico",
+      "t": "Read the loss in the log without fooling yourself"
+    },
+    {
+      "icone": "chip",
+      "t": "How long it takes on GPU and on CPU"
+    }
+  ],
+  "hero_alt": "A developer's desk with a laptop showing a training curve next to a small robotic arm and a USB camera.",
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "The LeRobot cycle",
+      "sub": "Four commands. The middle two don't need a robot. Click each one.",
+      "nos": [
+        {
+          "icone": "video",
+          "titulo": "Record",
+          "sub": "lerobot-record",
+          "itens": [
+            {
+              "icone": "robo",
+              "t": "SO-101 leader + follower (optional)"
+            },
+            {
+              "icone": "camadas",
+              "t": "Outputs a LeRobotDataset"
+            }
+          ],
+          "detalhe": "You teleoperate the arm and the command records cameras, joints, and actions in episodes. It needs the robot. Without a robot, use a public dataset from the Hub, like PushT from lesson 4."
+        },
+        {
+          "icone": "cerebro",
+          "titulo": "Train",
+          "sub": "lerobot-train",
+          "forte": true,
+          "itens": [
+            {
+              "icone": "lista",
+              "t": "ACT, Diffusion, SmolVLA, Pi0.5, GR00T…"
+            },
+            {
+              "icone": "pasta",
+              "t": "Outputs a checkpoint in outputs/"
+            }
+          ],
+          "detalhe": "The policy learns to imitate the actions in the dataset. You pick the type with --policy.type. This is the hands-on part of this lesson."
+        },
+        {
+          "icone": "alvo",
+          "titulo": "Evaluate",
+          "sub": "lerobot-eval",
+          "itens": [
+            {
+              "icone": "chip",
+              "t": "Runs N episodes in simulation"
+            },
+            {
+              "icone": "grafico",
+              "t": "Outputs the success rate"
+            }
+          ],
+          "detalhe": "Puts the policy in a simulated environment and measures how often it succeeds. That's lesson 6."
+        },
+        {
+          "icone": "robo",
+          "titulo": "Run on the robot",
+          "sub": "lerobot-rollout",
+          "itens": [
+            {
+              "icone": "usuario",
+              "t": "Dagger strategy: you correct"
+            },
+            {
+              "icone": "camadas",
+              "t": "Corrections become new data"
+            }
+          ],
+          "detalhe": "New in 0.6 (Jul 2026). Runs the policy on the real arm. With the dagger strategy, you take over when it makes a mistake, and each correction is recorded with an intervention marker for the next fine-tuning."
+        }
+      ],
+      "volta": "The rollout corrections come back as a dataset for the next training run",
+      "legenda": "Recording and running need the arm. Training and evaluating run on any computer.",
+      "dica": "ACT = Action Chunking with Transformers: a small policy that returns chunks of actions, the idea from lesson 2."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "What you need to know before training",
+      "sub": "Click each step.",
+      "passos": [
+        {
+          "titulo": "Installation 0.6",
+          "sub": "extras",
+          "texto": [
+            "Since 0.6, the base package is lean: to train, install lerobot[training]. For simulation, use extras like [pusht] or [aloha].",
+            "Python 3.12 and PyTorch 2.7 or newer. Some options were renamed: eval_freq became env_eval_freq, and --dataset.vcodec became --dataset.rgb_encoder.vcodec."
+          ]
+        },
+        {
+          "titulo": "Hardware",
+          "sub": "honest",
+          "texto": [
+            "The 200 steps in this exercise took 26 s on an NVIDIA GPU (GB10) and 321 s, about 5 minutes, on just the 20-core CPU of the same machine (10/19/2026). A regular laptop will be slower.",
+            "Real training is a different scale: the LeRobot docs say training on your own robot takes several hours. The 0.6 hardware guide measures memory and time per policy family."
+          ]
+        },
+        {
+          "titulo": "No GPU?",
+          "sub": "alternatives",
+          "texto": [
+            "For this exercise, a CPU is enough. For long training runs, 0.6 supports the same lerobot-train in the cloud with --job.target, through HF Jobs, which is billed by usage and requires an account.",
+            "You don't need it for the course: everything here runs locally."
+          ]
+        },
+        {
+          "titulo": "With the SO-101",
+          "sub": "optional",
+          "texto": [
+            "The SO-101 is LeRobot's entry-level arm. With the leader and follower pair, you record your own dataset with lerobot-record and train the same way.",
+            "LeLab runs the whole flow in the browser, with no command line, and today it only supports the SO-ARM101."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Train an ACT for 200 steps",
+      "sub": "Same venv as lesson 4. Swap cuda for cpu if you don't have an NVIDIA GPU.",
+      "blocos": [
+        {
+          "rot": "Terminal · short training run",
+          "icone": "terminal",
+          "conteudo": "lerobot-train \\\n  --policy.type=act \\\n  --dataset.repo_id=lerobot/pusht \\\n  --steps=200 \\\n  --save_freq=200 \\\n  --log_freq=50 \\\n  --batch_size=8 \\\n  --policy.device=cuda \\\n  --policy.push_to_hub=false \\\n  --wandb.enable=false \\\n  --output_dir=outputs/train/act_pusht_teste \\\n  --job_name=act_pusht_teste"
+        },
+        {
+          "rot": "Terminal · check the checkpoint",
+          "icone": "pasta",
+          "conteudo": "ls outputs/train/act_pusht_teste/checkpoints/\nls outputs/train/act_pusht_teste/checkpoints/last/pretrained_model/"
+        },
+        {
+          "rot": "With the SO-101 (from the docs, needs the arm)",
+          "icone": "robo",
+          "conteudo": "lerobot-record \\\n  --robot.type=so101_follower \\\n  --robot.port=<follower port> \\\n  --teleop.type=so101_leader \\\n  --teleop.port=<leader port> \\\n  --dataset.repo_id=<your username>/meu-dataset \\\n  --dataset.num_episodes=5 \\\n  --dataset.single_task=\"Pick up the black cube\" \\\n  --dataset.streaming_encoding=true \\\n  --dataset.encoder_threads=2"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "Captured output (10/19/2026)",
+            "html": "<pre>INFO ... cfg.steps=200 (200)\nINFO ... dataset.num_frames=25650 (26K)\nINFO ... dataset.num_episodes=206\nINFO ... num_learnable_params=51588994 (52M)\nINFO ... step:50 ... loss:14.587 ...\nINFO ... step:100 ... loss:4.694 ...\nINFO ... step:150 ... loss:3.878 ...\nINFO ... step:200 ... loss:3.473 ... mem_gb:0.95\nINFO ... Checkpoint policy after step 200\nINFO ... End of training\n\n$ ls outputs/train/act_pusht_teste/checkpoints/\n000200  last\n\n$ ls outputs/train/act_pusht_teste/checkpoints/last/pretrained_model/\nconfig.json  model.safetensors  policy_postprocessor.json ...\ntrain_config.json</pre><p>LeRobot 0.6.1, NVIDIA GB10 GPU: 26 s total. CPU only: 321 s, final loss 3.536. Lines shortened with \"...\". The first time, it also downloads the ResNet-18 weights that ACT uses for vision.</p>"
+          },
+          {
+            "rot": "Common mistakes",
+            "html": "<ul><li><b>Forgetting <code>--policy.push_to_hub=false</code></b>: without it, training stops right at the start with <code>ValueError: 'repo_id' argument missing. Please specify it to push the model to the hub.</code> (tested on 10/19/2026): by default it wants to push the policy to the Hub.</li><li><b>Thinking low loss = good robot</b>: the loss measures how well it imitates the dataset. The evaluation in lesson 6 tells you whether the policy works.</li><li><b><code>--policy.device=cuda</code> without an NVIDIA GPU</b>: swap it for <code>cpu</code>.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Exercise: your first checkpoint",
+      "sub": "About 5 minutes on CPU, under 1 minute on GPU.",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · Train for 200 steps",
+          "min": "15 min",
+          "texto": "Run the lerobot-train from the panel (with cpu or cuda). Time it.",
+          "pronto": "ls outputs/train/act_pusht_teste/checkpoints/ shows 000200 and last."
+        },
+        {
+          "id": "e2",
+          "titulo": "E2 · Read the loss",
+          "min": "5 min",
+          "texto": "In the log, find the step:50 and step:200 lines and write down both losses.",
+          "pronto": "the loss at step 200 is lower than at step 50, and you noted how long the training took on your machine."
+        },
+        {
+          "id": "e3",
+          "titulo": "E3 · More steps (optional, with a GPU)",
+          "min": "15 min",
+          "texto": "Repeat with --steps=5000 --save_freq=5000 --batch_size=32 and a different --output_dir. Keep the checkpoint: lesson 6 compares the two.",
+          "pronto": "the checkpoints/005000 folder exists (here it took 474 s on the GPU, with a final loss of 0.329)."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Test what you learned",
+      "sub": "The explanation appears after your answer.",
+      "perguntas": [
+        {
+          "p": "Which commands in the cycle run without a robot?",
+          "opcoes": [
+            "lerobot-record and lerobot-rollout",
+            "lerobot-train and lerobot-eval",
+            "Only lerobot-record",
+            "None"
+          ],
+          "certa": 1,
+          "explica": "Training uses a dataset (it can come from the Hub) and evaluating uses simulation. Recording and rolling out need the arm.",
+          "ref": "diagrama",
+          "cert": true
+        },
+        {
+          "p": "Where is the checkpoint after training?",
+          "opcoes": [
+            "Always on the Hub",
+            "In outputs/train/[name]/checkpoints/",
+            "In the dataset folder",
+            "In ~/.cache"
+          ],
+          "certa": 1,
+          "explica": "With --output_dir=outputs/train/act_pusht_teste, the checkpoints go in checkpoints/000200 and checkpoints/last. With push_to_hub=false, nothing is uploaded.",
+          "ref": "codigo"
+        },
+        {
+          "p": "The loss dropped from 14.6 to 3.5. What does that guarantee?",
+          "opcoes": [
+            "That the policy gets the task right.",
+            "That it imitates the dataset better; whether it gets the task right, only evaluation tells.",
+            "That it can go to the real robot.",
+            "Nothing: loss means nothing."
+          ],
+          "certa": 1,
+          "explica": "Loss measures the imitation error on the training data. In lesson 6 you see that 200 steps still give 0% success on PushT.",
+          "ref": "codigo"
+        },
+        {
+          "p": "What is the dagger strategy in lerobot-rollout for?",
+          "opcoes": [
+            "To train faster on the GPU.",
+            "So you take over the arm when the policy makes a mistake and record the correction as new data.",
+            "To simulate the robot.",
+            "To upload the model to the Hub."
+          ],
+          "certa": 1,
+          "explica": "Run, correct, and fine-tune again: the corrections are tagged with intervention and go into the next training run. This is the link to lesson 7.",
+          "ref": "diagrama"
+        }
+      ]
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Summary",
+      "itens": [
+        {
+          "t": "Four commands",
+          "texto": "record, train, eval, rollout. Train and eval don't need a robot."
+        },
+        {
+          "t": "Installation 0.6",
+          "texto": "lerobot[training], Python 3.12, push_to_hub=false to train without an account."
+        },
+        {
+          "t": "Real time",
+          "texto": "200 steps: 26 s on GPU, 5 min on CPU here. Real training: hours."
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Sources for this lesson",
+      "links": [
+        {
+          "t": "LeRobot on GitHub (README and releases)",
+          "href": "https://github.com/huggingface/lerobot",
+          "icone": "git"
+        },
+        {
+          "t": "LeRobot v0.6.0: what changed (blog)",
+          "href": "https://huggingface.co/blog/lerobot-release-v060",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Installing LeRobot",
+          "href": "https://huggingface.co/docs/lerobot/installation",
+          "icone": "terminal"
+        },
+        {
+          "t": "Imitation learning with real robots (record and train)",
+          "href": "https://huggingface.co/docs/lerobot/il_robots",
+          "icone": "robo"
+        },
+        {
+          "t": "LeLab (browser interface)",
+          "href": "https://github.com/huggingface/leLab",
+          "icone": "git"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "slug": "mundo-real",
+  "num": 8,
+  "menu": "Mundo real",
+  "titulo": "Del laboratorio al mundo real",
+  "titulo_curto": "Mundo real y plan",
+  "minutos": 18,
+  "lead": "Una política que acierta en el simulador todavía está lejos de una línea de producción. En el camino están ROS 2, que conecta el modelo con los motores, las capas de seguridad, que ningún VLA dispensa, y el estado real del mercado, que está menos listo de lo que sugieren los titulares.",
+  "objetivo": "conectar un VLA a ROS 2, armar la lista de verificación de seguridad y trazar tu próximo paso.",
+  "competencias": [
+    "integrar-vla-ros2",
+    "montar-checklist-seguranca",
+    "ler-mercado-com-ressalva",
+    "planejar-estudo"
+  ],
+  "aprende": [
+    {
+      "icone": "camadas",
+      "t": "Dónde entra el VLA en una arquitectura ROS 2"
+    },
+    {
+      "icone": "escudo",
+      "t": "Las capas de seguridad y lo que dicen las normas en 2026"
+    },
+    {
+      "icone": "grafico",
+      "t": "El mercado en 2026: hechos, noticias y proyecciones"
+    },
+    {
+      "icone": "calendario",
+      "t": "Tu plan de estudio con fechas"
+    }
+  ],
+  "hero_alt": "Piso de fábrica con una celda de robot colaborativo detrás de una cortina de luz y marcas de seguridad en el suelo.",
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "El VLA dentro del robot",
+      "sub": "La política es una pieza. La seguridad queda fuera de ella. Haz clic en cada bloque.",
+      "nos": [
+        {
+          "icone": "video",
+          "titulo": "Sensores",
+          "sub": "tópicos ROS 2",
+          "itens": [
+            {
+              "icone": "video",
+              "t": "Cámaras"
+            },
+            {
+              "icone": "robo",
+              "t": "Estado de las articulaciones"
+            }
+          ],
+          "detalhe": "En ROS 2, cada cámara y el estado del robot publican mensajes en tópicos. La distribución actual es Lyrical Luth (may/2026), con soporte hasta may/2031."
+        },
+        {
+          "icone": "cerebro",
+          "titulo": "Nodo de la política",
+          "sub": "el VLA",
+          "forte": true,
+          "itens": [
+            {
+              "icone": "terminal",
+              "t": "Nodo Python con LeRobot, openpi o GR00T"
+            },
+            {
+              "icone": "seta",
+              "t": "Publica el chunk de acciones"
+            }
+          ],
+          "detalhe": "La investigación de este curso no encontró un paquete oficial de VLA en ROS 2 (oct/2026). Un diseño simple: un nodo Python se suscribe a las cámaras y al estado, llama a la política y publica comandos para el controlador."
+        },
+        {
+          "icone": "chip",
+          "titulo": "ros2_control",
+          "sub": "el controlador",
+          "itens": [
+            {
+              "icone": "relogio",
+              "t": "Lazo rápido de los motores"
+            },
+            {
+              "icone": "check",
+              "t": "Límites de articulación y de velocidad"
+            }
+          ],
+          "detalhe": "Recibe los objetivos y cierra el lazo de los motores a su propio ritmo. Aquí entran los límites de posición, velocidad y fuerza."
+        },
+        {
+          "icone": "escudo",
+          "titulo": "Seguridad",
+          "sub": "fuera del modelo",
+          "itens": [
+            {
+              "icone": "x",
+              "t": "Parada de emergencia"
+            },
+            {
+              "icone": "portao",
+              "t": "Cortina de luz, zona, límite de fuerza"
+            }
+          ],
+          "detalhe": "Independiente de la política: si el VLA se equivoca, la parada y los límites siguen vigentes. No se encontró ninguna norma ISO o IEEE específica para VLA (oct/2026)."
+        }
+      ],
+      "legenda": "El VLA decide; el controlador ejecuta; la seguridad vale incluso cuando el VLA se equivoca.",
+      "dica": "Humble aún tiene soporte hasta may/2027 y Jazzy hasta may/2029. Proyecto nuevo: Lyrical (Ubuntu 26.04)."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "Seguridad, mercado y hardware en 2026",
+      "sub": "Las normas y el mercado vienen con su fuente: buena parte solo salió en fuentes secundarias.",
+      "passos": [
+        {
+          "titulo": "Normas",
+          "sub": "según las fuentes",
+          "texto": [
+            "Según la página de ISO vista en un resultado de búsqueda, las ISO 10218-1 y 10218-2:2025 se publicaron en feb/2025 y siguen en dos partes: la -1 para el robot y la -2 para la aplicación y la celda. Según fuentes secundarias, la -2 absorbió el contenido de la ISO/TS 15066 sobre robots colaborativos.",
+            "Según la revista Drives & Controls (18/10/2026), la ISO 25785-1, para humanoides y otros robots con equilibrio activo, todavía es un borrador (CD): ningún fabricante puede afirmar que tiene certificación en ella."
+          ]
+        },
+        {
+          "titulo": "Europa",
+          "sub": "AI Act y máquinas",
+          "texto": [
+            "El portal de la Comisión Europea (ago/2026) informa que el Digital Omnibus aplazó las reglas de alto riesgo del AI Act y sacó las máquinas de la lista del propio AI Act: los requisitos de IA para máquinas pasan al Reglamento de Máquinas.",
+            "Según análisis jurídicos (Freshfields, Gibson Dunn), los nuevos plazos son el 02/12/2027 (Anexo III) y el 02/08/2028 (Anexo I)."
+          ]
+        },
+        {
+          "titulo": "Mercado",
+          "sub": "hechos de 2026",
+          "texto": [
+            "Según CNBC, Unitree salió a bolsa en Shanghái con una valoración de cerca de US$ 9 mil millones (ago/2026). Se informó de la ronda de Skild AI por más de US$ 14 mil millones (ene/2026), la de Apptronik (US$ 520 millones, feb/2026), la fusión de Agility con una SPAC (jun/2026) y la solicitud de IPO de AgiBot en Hong Kong (jul/2026).",
+            "La ronda de ~US$ 1 mil millones de Physical Intelligence fue informada por Bloomberg, sin anuncio oficial. Las proyecciones de mercado de los bancos tienen alcances diferentes (2035 frente a 2050, solo hardware frente a servicios) y no son comparables entre sí."
+          ]
+        },
+        {
+          "titulo": "Humanoides",
+          "sub": "estado real",
+          "texto": [
+            "Según la prensa, el Atlas de producción se lanzó en CES 2026 con el lote del año ya comprometido; el NEO de 1X no tenía entrega confirmada a clientes hasta jul/2026; y el Optimus V3 de Tesla no se había mostrado hasta ago/2026. La mayoría de las implementaciones sigue siendo piloto o tarea acotada.",
+            "Cómputo: según el sitio CNX Software, el kit Jetson AGX Thor pasó de US$ 3.499 a US$ 5.499 y el Orin Nano Super de US$ 249 a US$ 399 (jul/2026)."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "El checklist para llevar un VLA al mundo real",
+      "sub": "Copia y completa para un caso tuyo. Cada línea sin respuesta es un motivo para no encender el robot.",
+      "blocos": [
+        {
+          "rot": "checklist-mundo-real.md",
+          "icone": "lista",
+          "conteudo": "# Checklist: <tarea> en <lugar>\n\n## Modelo\n- [ ] ¿La licencia de los pesos permite este uso? (cuál: ______)\n- [ ] Evaluado en simulación: tasa de éxito ____ % en ____ episodios\n- [ ] Evaluado en el robot real: ____ % en ____ intentos\n- [ ] Falla más común anotada: ______\n\n## Integración\n- [ ] Distribución de ROS 2 y fecha de fin de soporte: ______\n- [ ] El nodo de la política publica al controlador (no directo al motor)\n- [ ] Tiempo de inferencia medido: ____ ms; el chunk cubre ____ ms\n\n## Seguridad (fuera del modelo)\n- [ ] Parada de emergencia probada\n- [ ] Límites de posición, velocidad y fuerza en el controlador\n- [ ] Zona de trabajo / protección (cortina, cerca, área marcada)\n- [ ] Norma aplicable verificada con quien certifica (ISO 10218-1/-2:2025 o local)\n- [ ] Qué pasa si la cámara falla o el modelo se traba: ______\n\n## Personas\n- [ ] Quién puede tomar el control y cómo: ______\n- [ ] Registro de cada intervención (se vuelve dato de corrección)"
+        }
+      ],
+      "saida": {
+        "selo": "simulacao",
+        "abas": [
+          {
+            "rot": "Ejemplo completado (ficticio)",
+            "html": "<ul><li><b>Tarea</b>: brazo colaborativo separa piezas en una mesa de laboratorio.</li><li><b>Licencia</b>: Apache-2.0 (π0.5 de openpi).</li><li><b>Sim</b>: 72% en 50 episodios. <b>Real</b>: 55% en 20 intentos; falla más común: pieza brillante.</li><li><b>ROS 2</b>: Lyrical, soporte hasta may/2031.</li><li><b>Inferencia</b>: 180 ms; chunk de 25 a 50 Hz cubre 500 ms.</li><li><b>Seguridad</b>: parada probada, límite de fuerza en el controlador, área marcada; norma verificada con el integrador.</li></ul><p>Números inventados para mostrar cómo se completa. Los tuyos vienen de las clases 2, 5 y 6.</p>"
+          },
+          {
+            "rot": "Errores comunes",
+            "html": "<ul><li><b>Poner la seguridad dentro del prompt</b>: \"no golpees a nadie\" en la instrucción no es protección. Protección es parada y límite fuera del modelo.</li><li><b>Usar un ranking como prueba</b>: la tasa de éxito en tu caso, medida por ti, vale más que la nota de un benchmark.</li><li><b>Tratar un anuncio como producto</b>: GR00T N2 y Optimus V3, por ejemplo, no estaban disponibles en oct/2026.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Práctica: el checklist de un caso tuyo",
+      "sub": "Elige un caso real, aunque sea pequeño (mesa de casa, laboratorio, línea de un cliente).",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · Completar el checklist",
+          "min": "25 min",
+          "texto": "Copia el checklist y complétalo con los números de tus prácticas (clases 2, 5 y 6) y el modelo elegido en la clase 3.",
+          "pronto": "toda línea tiene respuesta o está marcada \"falta\", y la sección Seguridad no depende del modelo."
+        },
+        {
+          "id": "e2",
+          "titulo": "E2 · Separar hecho de noticia",
+          "min": "10 min",
+          "texto": "Elige dos afirmaciones de mercado de esta clase y marca cada una como hecho con fuente primaria, noticia o proyección.",
+          "pronto": "las dos están marcadas y sabes decir por qué la ronda de PI es solo noticia."
+        },
+        {
+          "id": "e3",
+          "titulo": "E3 · Tu plan",
+          "min": "10 min",
+          "texto": "Usa el generador de abajo para armar el plan con fechas y descarga el .md.",
+          "pronto": "tienes el plan.md con fecha de inicio y de término y el primer paso marcado en la agenda."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Prueba lo que aprendiste",
+      "sub": "La explicación aparece después de tu respuesta.",
+      "perguntas": [
+        {
+          "p": "¿Dónde debe estar la parada de emergencia?",
+          "opcoes": [
+            "Dentro del prompt del VLA.",
+            "Fuera del modelo, independiente de él: hardware y controlador.",
+            "En el dataset de entrenamiento.",
+            "Solo en el simulador."
+          ],
+          "certa": 1,
+          "explica": "Si el VLA se equivoca o se traba, la parada y los límites siguen valiendo. Una seguridad que depende del modelo falla junto con él.",
+          "ref": "diagrama",
+          "cert": true
+        },
+        {
+          "p": "¿Qué distribución de ROS 2 es la más nueva con soporte largo en oct/2026?",
+          "opcoes": [
+            "Humble (hasta may/2027)",
+            "Jazzy (hasta may/2029)",
+            "Lyrical Luth (hasta may/2031)",
+            "Kilted (hasta dic/2026)"
+          ],
+          "certa": 2,
+          "explica": "Lyrical Luth salió el 22/05/2026 y es LTS hasta may/2031. Humble aún tiene soporte hasta may/2027, pero un proyecto nuevo debe empezar en Lyrical.",
+          "ref": "diagrama"
+        },
+        {
+          "p": "¿Hay una norma ISO específica para VLA en oct/2026?",
+          "opcoes": [
+            "Sí, la ISO 25785-1, ya publicada.",
+            "No se encontró ninguna. La ISO 25785-1 (humanoides) aún es borrador y no trata sobre VLA.",
+            "Sí, la ISO/TS 15066.",
+            "Sí, el AI Act."
+          ],
+          "certa": 1,
+          "explica": "No se encontró ninguna norma específica para VLA hasta oct/2026. La 25785-1 es para robots con equilibrio activo y, según Drives & Controls (oct/2026), está en borrador.",
+          "ref": "passos"
+        },
+        {
+          "p": "¿Por qué no comparar la proyección de un banco para 2035 con la de otro para 2050?",
+          "opcoes": [
+            "Porque una de ellas es falsa.",
+            "Porque tienen alcances distintos (año, solo hardware o con servicios) y no miden lo mismo.",
+            "Porque los bancos no hacen proyecciones.",
+            "Porque 2050 está lejos."
+          ],
+          "certa": 1,
+          "explica": "Las proyecciones varían en alcance y método. Para decidir, usa hechos con fecha (rondas, IPOs, estado del producto) y trata la proyección como opinión con fuente.",
+          "ref": "passos"
+        }
+      ]
+    },
+    {
+      "tipo": "mapa",
+      "titulo": "El mapa del curso",
+      "sub": "Los cuatro niveles prácticos y lo que entrega cada uno. Haz clic en un ejercicio para ver el \"listo cuando\".",
+      "degraus": [
+        {
+          "aula": "modelos",
+          "icone": "lupa",
+          "quando": "Semana 1",
+          "titulo": "Elegir",
+          "sub": "Conceptos y licencia",
+          "saida": "Un modelo elegido por licencia, tamaño y acceso.",
+          "passo": "Empieza por las clases 1 a 3: separar las familias de modelos, entender el chunk de acciones y leer model cards. Sin eso, el resto se vuelve copiar comandos."
+        },
+        {
+          "aula": "lerobot",
+          "icone": "terminal",
+          "quando": "Semana 2",
+          "titulo": "Entrenar",
+          "sub": "Datos y LeRobot",
+          "saida": "Un dataset abierto y un checkpoint tuyo en outputs/.",
+          "passo": "Requiere el nivel 1. Clases 4 y 5: abrir el PushT, entrenar la ACT y leer la loss. Corre en CPU."
+        },
+        {
+          "aula": "simulacao",
+          "icone": "alvo",
+          "quando": "Semana 3",
+          "titulo": "Evaluar",
+          "sub": "Simulación",
+          "saida": "Una tasa de éxito medida por ti.",
+          "passo": "Requiere el checkpoint del nivel 2. Clase 6: lerobot-eval, videos y comparación entre dos entrenamientos."
+        },
+        {
+          "aula": "mundo-real",
+          "icone": "escudo",
+          "quando": "Semana 4",
+          "titulo": "Llevarlo al mundo real",
+          "sub": "ROS 2 y seguridad",
+          "saida": "El checklist completado para un caso tuyo.",
+          "passo": "Requiere los tres anteriores. Clases 7 y 8: el ciclo de corrección y el checklist, con la seguridad fuera del modelo."
+        }
+      ],
+      "resultado": {
+        "titulo": "Al final del curso",
+        "texto": "Eliges un modelo por su licencia, entrenas y evalúas una política con LeRobot y sabes qué falta para conectar un robot de verdad.",
+        "total": "8 clases"
+      },
+      "rolagem_fim": {
+        "titulo": "El curso completo",
+        "texto": "Elegir, entrenar, evaluar y llevar al mundo real. Cada nivel usa lo que entregó el anterior."
+      },
+      "legenda": "Orden sugerido: cada nivel usa lo que armó el anterior."
+    },
+    {
+      "tipo": "gerador",
+      "titulo": "Genera tu plan con fechas",
+      "sub": "Elige la fecha de inicio y cuánto tiempo tienes por semana.",
+      "curso": "VLA: robots que ven, entienden y actúan",
+      "horas_padrao": 4,
+      "degraus": [
+        {
+          "titulo": "Clase 1 · De LLM a robot que actúa",
+          "aula": "cenario"
+        },
+        {
+          "titulo": "Clase 2 · Por dentro de un VLA",
+          "aula": "anatomia"
+        },
+        {
+          "titulo": "Clase 3 · El mapa de los modelos",
+          "aula": "modelos"
+        },
+        {
+          "titulo": "Clase 4 · Datos",
+          "aula": "dados"
+        },
+        {
+          "titulo": "Clase 5 · Entrenar con LeRobot",
+          "aula": "lerobot"
+        },
+        {
+          "titulo": "Clase 6 · Simulación y evaluación",
+          "aula": "simulacao"
+        },
+        {
+          "titulo": "Clase 7 · RL, WAM y memoria",
+          "aula": "fronteira"
+        },
+        {
+          "titulo": "Clase 8 · Mundo real",
+          "aula": "mundo-real"
+        }
+      ],
+      "txt": {
+        "titulo": "Plan — VLA: robots que ven, entienden y actúan",
+        "inicio": "Inicio",
+        "ritmo": "Ritmo",
+        "termino": "Finalización prevista",
+        "ate": "hasta",
+        "pronto": "listo cuando",
+        "semanas": "semanas",
+        "travou": "## Qué se trabó y qué aprendí",
+        "h": "h por semana",
+        "exs": "ejercicios"
+      }
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "El curso en tres frases",
+      "itens": [
+        {
+          "t": "Mira la salida y la licencia",
+          "texto": "El VLA devuelve acción; elige el modelo según lo que puedas descargar y usar."
+        },
+        {
+          "t": "Mídelo tú mismo",
+          "texto": "Dataset abierto, entrenamiento corto, lerobot-eval: la tasa de éxito es tuya, no del ranking."
+        },
+        {
+          "t": "Seguridad fuera del modelo",
+          "texto": "Parada, límites y norma valen incluso cuando el VLA se equivoca."
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Fuentes de esta clase",
+      "links": [
+        {
+          "t": "ROS 2 Lyrical Luth (notas de la versión)",
+          "href": "https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Distribuciones de ROS 2 y fin de soporte",
+          "href": "https://docs.ros.org/en/rolling/Releases.html",
+          "icone": "calendario"
+        },
+        {
+          "t": "AI Act y Digital Omnibus: plazos y máquinas (Comisión Europea)",
+          "href": "https://transition-pathways.europa.eu/adv-man/legislation/ai-act-digital-omnibus-high-risk-deadlines-postponed-machinery-carved-out",
+          "icone": "escudo"
+        },
+        {
+          "t": "La cuestión de la seguridad de los humanoides (Drives & Controls)",
+          "href": "https://drivesncontrols.com/the-safety-question-that-humanoid-robots-need-to-answer/",
+          "icone": "escudo"
+        },
+        {
+          "t": "Unitree fija el precio de su IPO (CNBC, ago/2026)",
+          "href": "https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html",
+          "icone": "grafico"
+        },
+        {
+          "t": "Gemini Robotics 2 y el informe de seguridad (Google DeepMind)",
+          "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots",
+          "icone": "robo"
+        }
+      ]
+    }
+  ]
+}

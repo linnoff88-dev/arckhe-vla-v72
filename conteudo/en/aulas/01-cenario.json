@@ -1,0 +1,324 @@
+{
+  "slug": "cenario",
+  "num": 1,
+  "menu": "Scenario",
+  "titulo": "From LLM to a robot that acts",
+  "titulo_curto": "LLM → VLA → WAM",
+  "minutos": 14,
+  "lead": "A chatbot returns text. A robot has to return motion, dozens of times per second, while looking at a camera. This lesson separates the four model families you'll hear about in the course and shows what changed between 2023 and October 2026.",
+  "objetivo": "tell LLM, VLM, VLA, and World Action Model apart and say what changed from 2023 to Oct 2026.",
+  "competencias": [
+    "classificar-modelos-robotica",
+    "ler-linha-do-tempo-vla",
+    "cite-primary-source"
+  ],
+  "aprende": [
+    {
+      "icone": "camadas",
+      "t": "What goes in and what comes out of each model family"
+    },
+    {
+      "icone": "robo",
+      "t": "Why a VLA returns an action, not text"
+    },
+    {
+      "icone": "video",
+      "t": "What a World Action Model is, the new category of 2026"
+    },
+    {
+      "icone": "lupa",
+      "t": "Classify real systems with the source next to you"
+    }
+  ],
+  "hero_alt": "Robotics lab with a two-arm station and a humanoid in the background.",
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "The ladder: from text to motion",
+      "sub": "Each step adds an input or an output. Tap each one.",
+      "estilo": "escada",
+      "nos": [
+        {
+          "icone": "chat",
+          "titulo": "LLM",
+          "sub": "text → text",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "In: a sentence"
+            },
+            {
+              "icone": "chat",
+              "t": "Out: a sentence"
+            }
+          ],
+          "detalhe": "Large language model. It reads text and writes text. It knows a lot about the world, but it sees nothing and moves nothing."
+        },
+        {
+          "icone": "lupa",
+          "titulo": "VLM",
+          "sub": "image + text → text",
+          "itens": [
+            {
+              "icone": "video",
+              "t": "In: a photo and a question"
+            },
+            {
+              "icone": "chat",
+              "t": "Out: a text answer"
+            }
+          ],
+          "detalhe": "Vision-language model. It looks at an image and answers questions about it. It is the base of most VLAs: NVIDIA's GR00T N1.7, for example, uses the Cosmos-Reason2-2B VLM as the part that understands the scene (Apr/2026)."
+        },
+        {
+          "icone": "robo",
+          "titulo": "VLA",
+          "sub": "image + text → action",
+          "forte": true,
+          "itens": [
+            {
+              "icone": "video",
+              "t": "In: camera, a sentence, and the robot's state"
+            },
+            {
+              "icone": "seta",
+              "t": "Out: actions (joint positions, gripper)"
+            }
+          ],
+          "detalhe": "Vision, language, and action. It takes the camera feed, the instruction (\"pick up the cup\"), and the robot's state, and returns the next actions. Examples: OpenVLA (7B, Jun/2024), π0 and π0.5 from Physical Intelligence (2024–2025), SmolVLA from Hugging Face (450M, Jun/2025)."
+        },
+        {
+          "icone": "camadas",
+          "titulo": "WAM",
+          "sub": "predicts the future video and the action",
+          "itens": [
+            {
+              "icone": "video",
+              "t": "Out: next video frames"
+            },
+            {
+              "icone": "seta",
+              "t": "and the actions that lead to them"
+            }
+          ],
+          "detalhe": "World Action Model. Instead of only predicting the action, the model also predicts the video of what will happen. NVIDIA's DreamZero (14B, Feb/2026) is the reference example; GR00T N2, announced in Mar/2026, uses this architecture and had no confirmed release as of Oct/2026."
+        }
+      ],
+      "legenda": "LLMs and VLMs answer. VLAs and WAMs act: the output becomes a motor command.",
+      "dica": "The question that settles it: what comes out of the model? Text, action, or video + action."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "What changed from 2023 to October 2026",
+      "sub": "Four milestones. Tap each stage.",
+      "passos": [
+        {
+          "titulo": "Data together",
+          "sub": "2023–2024",
+          "texto": [
+            "Open X-Embodiment (2023) merged dozens of datasets from different labs into a single format. It was the basis for training one model across many robots.",
+            "In Jun/2024, the 7B OpenVLA was pretrained on 970 thousand episodes from that collection, with open weights."
+          ],
+          "exemplo": {
+            "rot": "The idea",
+            "texto": "One model, trained on data from many robots, instead of one model per robot."
+          }
+        },
+        {
+          "titulo": "Continuous action",
+          "sub": "2024–2025",
+          "texto": [
+            "π0 introduced an \"action expert\" using flow matching: instead of picking the action from a list of values, it generates the action as a continuous value. The code and weights are in the openpi repository, under the Apache-2.0 license.",
+            "Action chunking came along with it and remains a foundation (the OpenVLA-OFT recipe, from Feb/2025, uses it): the model returns a chunk of several actions at once. You will understand both in lesson 2."
+          ]
+        },
+        {
+          "titulo": "Whole body",
+          "sub": "2026",
+          "texto": [
+            "Figure's Helix 02 (Jan/2026) controls the entire humanoid and gained a third layer, S0, running at 1 kHz.",
+            "Google DeepMind's Gemini Robotics 2 (07/30/2026) controls humanoids \"from toes to fingertips\" and, according to Google, adapts to a new body usually with fewer than 200 examples."
+          ]
+        },
+        {
+          "titulo": "Predicting the world",
+          "sub": "2026",
+          "texto": [
+            "The World Action Model category emerges: DreamZero (Feb/2026) predicts video and action together. NVIDIA's Cosmos 3 (weights on the Hub on 05/31/2026) can serve as a VLM, a simulator, or a base for this kind of model.",
+            "At the same time, PI's frontier models went closed: π0.7 (Apr/2026) has no weights, and on 10/13/2026 PI opened a commercial API in beta."
+          ],
+          "exemplo": {
+            "rot": "Why it matters",
+            "texto": "Open and closed coexist. In lesson 3 you choose based on what you can actually use."
+          }
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "The classification sheet",
+      "sub": "Copy the table into your own file and fill it in as you practice.",
+      "blocos": [
+        {
+          "rot": "classificacao.md",
+          "icone": "arquivo",
+          "conteudo": "| System | Input | Output | Category | Source (URL) |\n|---|---|---|---|---|\n| OpenVLA | | | | |\n| π0.5 (openpi) | | | | |\n| Gemini Robotics-ER 1.6 | | | | |\n| DreamZero | | | | |\n| Cosmos 3 | | | | |\n| SmolVLA | | | | |"
+        }
+      ],
+      "saida": {
+        "selo": "simulacao",
+        "abas": [
+          {
+            "rot": "Answer key",
+            "html": "<ul><li><b>OpenVLA</b>: camera + sentence → action. VLA. <code>openvla.github.io</code></li><li><b>π0.5</b>: camera + sentence + state → action. VLA. <code>github.com/Physical-Intelligence/openpi</code></li><li><b>Gemini Robotics-ER 1.6</b>: images + question → spatial reasoning, points, instrument reading. Embodied reasoning model (VLM family): it does not move the robot on its own. <code>deepmind.google/blog/gemini-robotics-er-1-6/</code></li><li><b>DreamZero</b>: camera + sentence → future video + action. WAM. <code>arxiv.org/abs/2602.15922</code></li><li><b>Cosmos 3</b>: world foundation model that combines world generation, reasoning, and action prediction; it serves as a base for WAM. <code>huggingface.co/nvidia/Cosmos3-Super</code></li><li><b>SmolVLA</b>: camera + sentence + state → action. Small VLA (450M). <code>huggingface.co/blog/smolvla</code></li></ul>"
+          },
+          {
+            "rot": "Common mistakes",
+            "html": "<ul><li><b>Calling every robot model a VLA</b>: ER 1.6 reasons and points, but a different policy moves the arm.</li><li><b>Secondhand sources</b>: news helps you find things, but the sheet asks for the official blog, the paper, or the model card.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Practice: classify six real systems",
+      "sub": "Use primary sources only: official blog, paper, or model card.",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · Fill in the sheet",
+          "min": "20 min",
+          "texto": "Copy the table, open each system's source (the links are at the end of the lesson), and fill in the input, the output, and the category.",
+          "pronto": "all 6 rows have a category and a primary-source URL, and your answers match the answer key on at least 5."
+        },
+        {
+          "id": "e2",
+          "titulo": "E2 · The question that decides",
+          "min": "5 min",
+          "texto": "For the system you got wrong or were unsure about, write one sentence: what comes out of it?",
+          "pronto": "the sentence says text, action, or video + action, and that explains the category."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Test what you learned",
+      "sub": "The explanation appears after your answer.",
+      "perguntas": [
+        {
+          "p": "What separates a VLA from a VLM?",
+          "opcoes": [
+            "The VLA is always bigger.",
+            "The VLA returns actions for the robot; the VLM returns text.",
+            "The VLM does not accept images.",
+            "The VLA does not use language."
+          ],
+          "certa": 1,
+          "explica": "Both see and read. The difference is the output: the VLA returns action (joints, gripper). Size does not define the category: SmolVLA is 450M.",
+          "ref": "diagrama",
+          "cert": true
+        },
+        {
+          "p": "What does a World Action Model do beyond a VLA?",
+          "opcoes": [
+            "It also predicts video of what will happen.",
+            "It works without a camera.",
+            "It only runs in simulation.",
+            "It generates the instruction text."
+          ],
+          "certa": 0,
+          "explica": "The WAM predicts future video and action together, like DreamZero (Feb/2026). The thesis is that predicting the future teaches physics better than predicting the action alone.",
+          "ref": "diagrama"
+        },
+        {
+          "p": "Which statement about Physical Intelligence models is correct in Oct/2026?",
+          "opcoes": [
+            "All of them have open weights.",
+            "None of them has open weights.",
+            "π0 and π0.5 have open weights in openpi; π0.7 is closed.",
+            "Only π0.7 has open weights."
+          ],
+          "certa": 2,
+          "explica": "openpi (Apache-2.0) ships π0, π0-FAST, and π0.5. Since π*0.6, new models are closed, and on 10/13/2026 PI opened a commercial API in beta.",
+          "ref": "passos"
+        },
+        {
+          "p": "Gemini Robotics-ER 1.6 reads a pressure gauge and points to where to grasp. Which family does it belong to?",
+          "opcoes": [
+            "VLA, because it is from robotics.",
+            "Embodied reasoning model (VLM family): it understands and points, but does not move the robot on its own.",
+            "WAM, because it predicts the future.",
+            "LLM, because it's from Gemini."
+          ],
+          "certa": 1,
+          "explica": "It takes in images and returns reasoning, points, and code. Something else, a separate policy, turns that into movement. Always look at what comes out of the model.",
+          "ref": "codigo"
+        }
+      ]
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Summary",
+      "itens": [
+        {
+          "t": "Look at the output",
+          "texto": "Text is an LLM or VLM. Action is a VLA. Future video + action is a WAM."
+        },
+        {
+          "t": "2026 brought the whole body",
+          "texto": "Helix 02 and Gemini Robotics 2 control entire humanoids, not just the arm."
+        },
+        {
+          "t": "Open and closed coexist",
+          "texto": "π0/π0.5 are open; π0.7, Helix, and Gemini Robotics 2 are closed or partner-only."
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Sources for this lesson",
+      "links": [
+        {
+          "t": "OpenVLA (project)",
+          "href": "https://openvla.github.io/",
+          "icone": "arquivo"
+        },
+        {
+          "t": "openpi: π0, π0-FAST, and π0.5 (GitHub)",
+          "href": "https://github.com/Physical-Intelligence/openpi",
+          "icone": "git"
+        },
+        {
+          "t": "Gemini Robotics-ER 1.6 (Google DeepMind)",
+          "href": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
+          "icone": "arquivo"
+        },
+        {
+          "t": "DreamZero (arXiv 2602.15922)",
+          "href": "https://arxiv.org/abs/2602.15922",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Cosmos 3 Super (model card)",
+          "href": "https://huggingface.co/nvidia/Cosmos3-Super",
+          "icone": "arquivo"
+        },
+        {
+          "t": "SmolVLA (Hugging Face blog)",
+          "href": "https://huggingface.co/blog/smolvla",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Helix 02 (Figure)",
+          "href": "https://www.figure.ai/news/helix-02",
+          "icone": "robo"
+        },
+        {
+          "t": "Gemini Robotics 2 (Google DeepMind)",
+          "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots",
+          "icone": "robo"
+        }
+      ]
+    }
+  ]
+}

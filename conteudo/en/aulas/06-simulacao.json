@@ -1,0 +1,307 @@
+{
+  "slug": "simulacao",
+  "num": 6,
+  "menu": "Simulation",
+  "titulo": "Simulate before you break things: sim, evaluation, and sim-to-real",
+  "titulo_curto": "Simulation and evaluation",
+  "minutos": 16,
+  "lead": "Testing on the real robot costs time, parts, and patience. The simulator lets you fail a thousand times for free and gives you one number: the success rate. But the number only counts if the test is hard enough and if the simulated world looks like the real one.",
+  "objetivo": "evaluate a policy in simulation and know why LIBERO alone is no longer enough.",
+  "competencias": [
+    "avaliar-politica-em-sim",
+    "ler-taxa-de-sucesso",
+    "explicar-reality-gap"
+  ],
+  "aprende": [
+    {
+      "icone": "chip",
+      "t": "The 2026 simulators: MuJoCo, Isaac Sim/Lab, and Newton"
+    },
+    {
+      "icone": "alvo",
+      "t": "Run lerobot-eval and read the success rate"
+    },
+    {
+      "icone": "grafico",
+      "t": "Why a saturated benchmark doesn't separate models"
+    },
+    {
+      "icone": "escudo",
+      "t": "Randomization and system identification against the reality gap"
+    }
+  ],
+  "hero_alt": "Monitor with a 3D simulation of an arm pushing a T-shaped block next to the real arm on the table.",
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "From simulator to the real world",
+      "sub": "Click each step.",
+      "nos": [
+        {
+          "icone": "chip",
+          "titulo": "Simulator",
+          "sub": "physics on the computer",
+          "itens": [
+            {
+              "icone": "chip",
+              "t": "MuJoCo 3.16 + MuJoCo Warp"
+            },
+            {
+              "icone": "chip",
+              "t": "Isaac Sim 6.1 / Isaac Lab 3.0 EA"
+            },
+            {
+              "icone": "chip",
+              "t": "Newton (open engine)"
+            }
+          ],
+          "detalhe": "MuJoCo is at 3.16.0 (10/14/2026); since 3.5.0 (Feb/2026) it has MuJoCo Warp, built by NVIDIA and Google DeepMind to run many simulations in batches on the GPU. Isaac Sim 6.1 came out in Sep/2026; Isaac Lab 3.0 is in early access (09/16/2026) and has no final release yet."
+        },
+        {
+          "icone": "alvo",
+          "titulo": "Benchmark",
+          "sub": "the same test for everyone",
+          "forte": true,
+          "itens": [
+            {
+              "icone": "lista",
+              "t": "LIBERO, LIBERO-plus, Meta-World"
+            },
+            {
+              "icone": "lista",
+              "t": "RoboTwin 2.0, RoboCasa365, VLABench…"
+            }
+          ],
+          "detalhe": "A fixed set of tasks and a success count. In LeRobot 0.6, several benchmarks run through the same lerobot-eval. LIBERO-plus and RoboTwin 2.0 are harder versions, created because LIBERO got saturated."
+        },
+        {
+          "icone": "robo",
+          "titulo": "Real world",
+          "sub": "where the real score comes from",
+          "itens": [
+            {
+              "icone": "grafico",
+              "t": "RoboArena: A/B between policies on real robots"
+            },
+            {
+              "icone": "x",
+              "t": "Reality gap"
+            }
+          ],
+          "detalhe": "What works in the simulator can fail on the real robot: different friction, lighting, camera, and motor delay. RoboArena compares policies in pairs on distributed real robots and builds a ranking."
+        }
+      ],
+      "volta": "Gap between sim and real? Randomize the simulator, measure the robot (sysid), and test again",
+      "legenda": "Simulation to fail cheaply; benchmark to compare; real world to decide.",
+      "dica": "Reality gap = the distance between what the policy sees and feels in the simulator and on the real robot."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "Three ideas so you don't fool yourself",
+      "sub": "Click each one.",
+      "passos": [
+        {
+          "titulo": "Saturated benchmark",
+          "sub": "LIBERO",
+          "texto": [
+            "In 2026 several models score above 97% on LIBERO: OpenVLA-OFT 97.1%, X-VLA 98.1%, MolmoAct 2-Think 98.1%. When everyone gets a top score, the test doesn't separate anyone.",
+            "That's why harder tests (LIBERO-plus, RoboTwin 2.0) and real-world evaluation (RoboArena, MolmoBot) are showing up."
+          ]
+        },
+        {
+          "titulo": "Randomization",
+          "sub": "domain randomization",
+          "texto": [
+            "Instead of a perfect simulator, you deliberately vary color, lighting, friction, mass, and camera position in every episode.",
+            "A policy that learns with that much variation treats the real world as just one more variation."
+          ]
+        },
+        {
+          "titulo": "Identification",
+          "sub": "system identification",
+          "texto": [
+            "You measure the real robot (mass, friction, motor delay) and tune the simulator to match.",
+            "MuJoCo 3.5.0 (Feb/2026) brought a Python toolbox for this, plus actuator and sensor delays."
+          ],
+          "exemplo": {
+            "rot": "In practice",
+            "texto": "Use both together: measure what you can measure and randomize the rest."
+          }
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Evaluate your policy on PushT",
+      "sub": "Install the simulated environment and run the policy you trained in lesson 5.",
+      "blocos": [
+        {
+          "rot": "Terminal · install the PushT environment",
+          "icone": "terminal",
+          "conteudo": "pip install \"lerobot[pusht]==0.6.1\""
+        },
+        {
+          "rot": "Terminal · evaluate on 10 episodes",
+          "icone": "alvo",
+          "conteudo": "lerobot-eval \\\n  --policy.path=outputs/train/act_pusht_teste/checkpoints/last/pretrained_model \\\n  --env.type=pusht \\\n  --eval.n_episodes=10 \\\n  --eval.batch_size=10 \\\n  --eval.use_async_envs=false \\\n  --policy.device=cuda \\\n  --output_dir=outputs/eval/act_200"
+        },
+        {
+          "rot": "Terminal · see the result and the videos",
+          "icone": "video",
+          "conteudo": "python -c \"import json; d = json.load(open('outputs/eval/act_200/eval_info.json')); print(d['overall'])\"\nls outputs/eval/act_200/videos/pusht_0/"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "Captured output (10/19/2026)",
+            "html": "<pre>INFO ... Overall Aggregated Metrics:\nINFO ... {'avg_sum_reward': 11.107..., 'avg_max_reward': 0.0824..., 'pc_success': 0.0, 'n_episodes': 10, 'eval_s': 9.46...}\nINFO ... End of eval\n\n# same evaluation with the 5000-step checkpoint (E3 from lesson 5), 20 episodes:\n{'avg_sum_reward': 19.45..., 'avg_max_reward': 0.275..., 'pc_success': 0.0, 'n_episodes': 20, 'eval_s': 14.0...}</pre><p>LeRobot 0.6.1. With 200 steps: 13 s total, on both GPU and CPU only (the evaluation is light). <b>pc_success</b> is the success rate in %; <b>avg_max_reward</b> shows how close the policy got to the target (higher is better). Both short trainings give 0% success: the policy still doesn't push the T to the target, but with 5000 steps it gets closer (0.08 → 0.28).</p>"
+          },
+          {
+            "rot": "Common mistakes",
+            "html": "<ul><li><b>\"Namespace gym_pusht not found\"</b>: happened here with more than one environment in parallel. The <code>--eval.use_async_envs=false</code> option fixed it.</li><li><b>Old checkpoint from the Hub</b>: <code>lerobot/diffusion_pusht</code> needs a format migration in 0.6 and doesn't run directly. Evaluate your own.</li><li><b>Reading 0% as \"it doesn't work\"</b>: with few steps it's expected. Look at the reward and the videos to see if it improved.</li><li><b>No display</b>: on a server without a monitor, use <code>SDL_VIDEODRIVER=dummy</code> before the command.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Practice: your first success rate",
+      "sub": "Use the checkpoint from lesson 5.",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · Evaluate 10 episodes",
+          "min": "15 min",
+          "texto": "Install lerobot[pusht] and run the lerobot-eval from the box (cpu or cuda).",
+          "pronto": "the terminal shows pc_success and n_episodes: 10, and outputs/eval/act_200/eval_info.json exists."
+        },
+        {
+          "id": "e2",
+          "titulo": "E2 · Watch the policy",
+          "min": "10 min",
+          "texto": "Open two videos in outputs/eval/act_200/videos/pusht_0/ and describe in one sentence what the policy does wrong.",
+          "pronto": "your sentence says where it fails (doesn't reach the block, pushes it the wrong way, stops midway)."
+        },
+        {
+          "id": "e3",
+          "titulo": "E3 · Compare two checkpoints",
+          "min": "10 min",
+          "texto": "If you did the 5000-step training, evaluate it too (change --policy.path and --output_dir) and compare avg_max_reward.",
+          "pronto": "you have both numbers side by side and can say which policy got closer to the target."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Test what you learned",
+      "sub": "The explanation appears after your answer.",
+      "perguntas": [
+        {
+          "p": "What does pc_success in lerobot-eval measure?",
+          "opcoes": [
+            "The training loss",
+            "The percentage of episodes in which the policy completed the task",
+            "The simulator speed",
+            "The model size"
+          ],
+          "certa": 1,
+          "explica": "It's the success rate over N episodes. Loss comes from training; success comes from the task. They are different numbers.",
+          "ref": "codigo",
+          "cert": true
+        },
+        {
+          "p": "Why is LIBERO alone no longer enough to compare VLAs?",
+          "opcoes": [
+            "Because it was discontinued.",
+            "Because it is saturated: several models score above 97%.",
+            "Because it only runs on a real robot.",
+            "Because it isn't in LeRobot."
+          ],
+          "certa": 1,
+          "explica": "With everyone near 100%, the test doesn't separate them. Use harder versions (LIBERO-plus, RoboTwin 2.0) or real-world evaluation (RoboArena).",
+          "ref": "passos"
+        },
+        {
+          "p": "Deliberately varying lighting, friction, and mass in the simulator on every episode is…",
+          "opcoes": [
+            "System identification",
+            "Domain randomization",
+            "Action chunking",
+            "Fine-tuning"
+          ],
+          "certa": 1,
+          "explica": "Randomization teaches the policy to tolerate variation. System identification does the opposite: it measures the robot and tunes the simulator to match it.",
+          "ref": "passos"
+        },
+        {
+          "p": "Your policy had 0% success and avg_max_reward went from 0.08 to 0.28 with more training. What do you conclude?",
+          "opcoes": [
+            "That LeRobot is broken.",
+            "That the policy improved, but still doesn't complete the task: it needs more training or data.",
+            "That it got worse.",
+            "That it's ready for the robot."
+          ],
+          "certa": 1,
+          "explica": "Success is binary per episode; the reward shows how close it got. Short training is for learning the loop, not for solving the task.",
+          "ref": "codigo"
+        }
+      ]
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Summary",
+      "itens": [
+        {
+          "t": "Simulate, compare, decide",
+          "texto": "Simulator to fail cheaply, benchmark to compare, real robot to decide."
+        },
+        {
+          "t": "One command",
+          "texto": "lerobot-eval runs N episodes and returns pc_success and videos."
+        },
+        {
+          "t": "Reality gap",
+          "texto": "Randomize what you can't measure and measure what you can (sysid)."
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Sources for this lesson",
+      "links": [
+        {
+          "t": "MuJoCo: changelog",
+          "href": "https://mujoco.readthedocs.io/en/latest/changelog.html",
+          "icone": "arquivo"
+        },
+        {
+          "t": "MuJoCo Warp (documentation)",
+          "href": "https://mujoco.readthedocs.io/en/3.5.0/mjwarp/",
+          "icone": "chip"
+        },
+        {
+          "t": "Isaac Lab: releases",
+          "href": "https://github.com/isaac-sim/IsaacLab/releases",
+          "icone": "git"
+        },
+        {
+          "t": "LeRobot v0.6.0: benchmarks in lerobot-eval",
+          "href": "https://huggingface.co/blog/lerobot-release-v060",
+          "icone": "alvo"
+        },
+        {
+          "t": "RoboArena (arXiv 2506.18123)",
+          "href": "https://arxiv.org/abs/2506.18123",
+          "icone": "grafico"
+        },
+        {
+          "t": "OpenVLA-OFT",
+          "href": "https://openvla-oft.github.io/",
+          "icone": "arquivo"
+        }
+      ]
+    }
+  ]
+}

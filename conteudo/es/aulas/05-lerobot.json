@@ -1,0 +1,319 @@
+{
+  "slug": "lerobot",
+  "num": 5,
+  "menu": "LeRobot",
+  "titulo": "Manos a la obra con LeRobot 0.6",
+  "titulo_curto": "Entrenar con LeRobot",
+  "minutos": 18,
+  "lead": "LeRobot, de Hugging Face, reúne en un solo lugar los datos, las políticas y los comandos para grabar, entrenar y ejecutar. En esta clase entrenas una política ACT de verdad, en pocos pasos, y terminas con un checkpoint en el disco. Sin robot y sin cuenta.",
+  "objetivo": "instalar LeRobot 0.6, entrenar una política pequeña y entender el ciclo grabar → entrenar → ejecutar.",
+  "competencias": [
+    "instalar-lerobot",
+    "entrenar-politica-act",
+    "leer-log-de-entrenamiento",
+    "dimensionar-hardware"
+  ],
+  "aprende": [
+    {
+      "icone": "fila",
+      "t": "El ciclo record → train → eval → rollout"
+    },
+    {
+      "icone": "terminal",
+      "t": "Entrenar una ACT en 200 pasos y encontrar el checkpoint"
+    },
+    {
+      "icone": "grafico",
+      "t": "Leer la loss en el log sin engañarte"
+    },
+    {
+      "icone": "chip",
+      "t": "Cuánto tarda en GPU y en CPU"
+    }
+  ],
+  "hero_alt": "Escritorio de desarrollador con un portátil que muestra una curva de entrenamiento junto a un brazo robótico pequeño y una cámara USB.",
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "El ciclo de LeRobot",
+      "sub": "Cuatro comandos. Los dos del medio no necesitan robot. Haz clic en cada uno.",
+      "nos": [
+        {
+          "icone": "video",
+          "titulo": "Grabar",
+          "sub": "lerobot-record",
+          "itens": [
+            {
+              "icone": "robo",
+              "t": "SO-101 líder + seguidor (opcional)"
+            },
+            {
+              "icone": "camadas",
+              "t": "Sale un LeRobotDataset"
+            }
+          ],
+          "detalhe": "Teleoperas el brazo y el comando graba cámaras, articulaciones y acciones en episodios. Necesita el robot. Sin robot, usa un dataset público del Hub, como el PushT de la clase 4."
+        },
+        {
+          "icone": "cerebro",
+          "titulo": "Entrenar",
+          "sub": "lerobot-train",
+          "forte": true,
+          "itens": [
+            {
+              "icone": "lista",
+              "t": "ACT, Diffusion, SmolVLA, Pi0.5, GR00T…"
+            },
+            {
+              "icone": "pasta",
+              "t": "Sale un checkpoint en outputs/"
+            }
+          ],
+          "detalhe": "La política aprende a imitar las acciones del dataset. Eliges el tipo con --policy.type. Es la práctica de esta clase."
+        },
+        {
+          "icone": "alvo",
+          "titulo": "Evaluar",
+          "sub": "lerobot-eval",
+          "itens": [
+            {
+              "icone": "chip",
+              "t": "Ejecuta N episodios en simulación"
+            },
+            {
+              "icone": "grafico",
+              "t": "Sale la tasa de éxito"
+            }
+          ],
+          "detalhe": "Pone la política en un entorno simulado y mide cuántas veces acierta. Es la clase 6."
+        },
+        {
+          "icone": "robo",
+          "titulo": "Ejecutar en el robot",
+          "sub": "lerobot-rollout",
+          "itens": [
+            {
+              "icone": "usuario",
+              "t": "Estrategia dagger: tú corriges"
+            },
+            {
+              "icone": "camadas",
+              "t": "Las correcciones se vuelven datos nuevos"
+            }
+          ],
+          "detalhe": "Novedad en la 0.6 (jul/2026). Ejecuta la política en el brazo real. Con la estrategia dagger, tomas el control cuando ella se equivoca, y cada corrección se graba con la marca de intervención para el siguiente ajuste fino."
+        }
+      ],
+      "volta": "Las correcciones del rollout vuelven como dataset para el siguiente entrenamiento",
+      "legenda": "Grabar y ejecutar necesitan el brazo. Entrenar y evaluar funcionan en cualquier computadora.",
+      "dica": "ACT = Action Chunking with Transformers: una política pequeña que devuelve chunks de acciones, la idea de la clase 2."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "Lo que necesitas saber antes de entrenar",
+      "sub": "Haz clic en cada paso.",
+      "passos": [
+        {
+          "titulo": "Instalación 0.6",
+          "sub": "extras",
+          "texto": [
+            "Desde la 0.6 el paquete base es ligero: para entrenar, instala lerobot[training]. Para simulación, extras como [pusht] o [aloha].",
+            "Python 3.12 y PyTorch 2.7 o más reciente. Algunas opciones cambiaron de nombre: eval_freq pasó a ser env_eval_freq, y --dataset.vcodec pasó a ser --dataset.rgb_encoder.vcodec."
+          ]
+        },
+        {
+          "titulo": "Hardware",
+          "sub": "con honestidad",
+          "texto": [
+            "Los 200 pasos de esta práctica tardaron 26 s en una GPU NVIDIA (GB10) y 321 s, unos 5 minutos, solo en la CPU de 20 núcleos de la misma máquina (19/10/2026). Una laptop común va a ser más lenta.",
+            "El entrenamiento de verdad es otra escala: la documentación de LeRobot dice que entrenar en tu robot toma varias horas. La guía de hardware de la 0.6 mide memoria y tiempo por familia de política."
+          ]
+        },
+        {
+          "titulo": "¿Sin GPU?",
+          "sub": "alternativas",
+          "texto": [
+            "Para esta práctica, la CPU basta. Para entrenamientos largos, la 0.6 acepta el mismo lerobot-train en la nube con --job.target, mediante HF Jobs, que se cobra por uso y requiere una cuenta.",
+            "No es necesario para el curso: todo aquí corre local."
+          ]
+        },
+        {
+          "titulo": "Con el SO-101",
+          "sub": "opcional",
+          "texto": [
+            "El SO-101 es el brazo de entrada de LeRobot. Con el par líder y seguidor grabas tu propio dataset con lerobot-record y entrenas igual.",
+            "LeLab hace todo el flujo en el navegador, sin línea de comandos, y hoy solo es compatible con el SO-ARM101."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Entrenar una ACT por 200 pasos",
+      "sub": "El mismo venv de la clase 4. Cambia cuda por cpu si no tienes GPU NVIDIA.",
+      "blocos": [
+        {
+          "rot": "Terminal · entrenamiento corto",
+          "icone": "terminal",
+          "conteudo": "lerobot-train \\\n  --policy.type=act \\\n  --dataset.repo_id=lerobot/pusht \\\n  --steps=200 \\\n  --save_freq=200 \\\n  --log_freq=50 \\\n  --batch_size=8 \\\n  --policy.device=cuda \\\n  --policy.push_to_hub=false \\\n  --wandb.enable=false \\\n  --output_dir=outputs/train/act_pusht_teste \\\n  --job_name=act_pusht_teste"
+        },
+        {
+          "rot": "Terminal · revisar el checkpoint",
+          "icone": "pasta",
+          "conteudo": "ls outputs/train/act_pusht_teste/checkpoints/\nls outputs/train/act_pusht_teste/checkpoints/last/pretrained_model/"
+        },
+        {
+          "rot": "Con el SO-101 (de la documentación, necesita el brazo)",
+          "icone": "robo",
+          "conteudo": "lerobot-record \\\n  --robot.type=so101_follower \\\n  --robot.port=<puerto del seguidor> \\\n  --teleop.type=so101_leader \\\n  --teleop.port=<puerto del líder> \\\n  --dataset.repo_id=<tu usuario>/meu-dataset \\\n  --dataset.num_episodes=5 \\\n  --dataset.single_task=\"Toma el cubo negro\" \\\n  --dataset.streaming_encoding=true \\\n  --dataset.encoder_threads=2"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "Salida capturada (19/10/2026)",
+            "html": "<pre>INFO ... cfg.steps=200 (200)\nINFO ... dataset.num_frames=25650 (26K)\nINFO ... dataset.num_episodes=206\nINFO ... num_learnable_params=51588994 (52M)\nINFO ... step:50 ... loss:14.587 ...\nINFO ... step:100 ... loss:4.694 ...\nINFO ... step:150 ... loss:3.878 ...\nINFO ... step:200 ... loss:3.473 ... mem_gb:0.95\nINFO ... Checkpoint policy after step 200\nINFO ... End of training\n\n$ ls outputs/train/act_pusht_teste/checkpoints/\n000200  last\n\n$ ls outputs/train/act_pusht_teste/checkpoints/last/pretrained_model/\nconfig.json  model.safetensors  policy_postprocessor.json ...\ntrain_config.json</pre><p>LeRobot 0.6.1, GPU NVIDIA GB10: 26 s en total. Solo en CPU: 321 s, loss final 3.536. Líneas acortadas con \"...\". La primera vez también descarga los pesos de la ResNet-18 que la ACT usa para ver.</p>"
+          },
+          {
+            "rot": "Errores comunes",
+            "html": "<ul><li><b>Olvidar <code>--policy.push_to_hub=false</code></b>: sin él, el entrenamiento se detiene al inicio con <code>ValueError: 'repo_id' argument missing. Please specify it to push the model to the hub.</code> (probado el 19/10/2026): por defecto quiere enviar la política al Hub.</li><li><b>Pensar que loss baja = robot bueno</b>: la loss mide la imitación del dataset. Quien dice si la política funciona es la evaluación de la clase 6.</li><li><b><code>--policy.device=cuda</code> sin GPU NVIDIA</b>: cámbialo por <code>cpu</code>.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Práctica: tu primer checkpoint",
+      "sub": "Unos 5 minutos en CPU, menos de 1 minuto en GPU.",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · Entrenar 200 pasos",
+          "min": "15 min",
+          "texto": "Ejecuta el lerobot-train del cuadro (con cpu o cuda). Cronometra.",
+          "pronto": "ls outputs/train/act_pusht_teste/checkpoints/ muestra 000200 y last."
+        },
+        {
+          "id": "e2",
+          "titulo": "E2 · Leer la loss",
+          "min": "5 min",
+          "texto": "En el log, busca las líneas step:50 y step:200 y anota la loss de ambas.",
+          "pronto": "la loss del paso 200 es menor que la del paso 50 y anotaste cuánto tiempo tardó el entrenamiento en tu máquina."
+        },
+        {
+          "id": "e3",
+          "titulo": "E3 · Más pasos (opcional, con GPU)",
+          "min": "15 min",
+          "texto": "Repite con --steps=5000 --save_freq=5000 --batch_size=32 y otro --output_dir. Guarda el checkpoint: la clase 6 compara los dos.",
+          "pronto": "existe la carpeta checkpoints/005000 (aquí tardó 474 s en la GPU, con loss final 0.329)."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Prueba lo que aprendiste",
+      "sub": "La explicación aparece después de tu respuesta.",
+      "perguntas": [
+        {
+          "p": "¿Qué comandos del ciclo corren sin robot?",
+          "opcoes": [
+            "lerobot-record y lerobot-rollout",
+            "lerobot-train y lerobot-eval",
+            "Solo lerobot-record",
+            "Ninguno"
+          ],
+          "certa": 1,
+          "explica": "Entrenar usa un dataset (puede ser del Hub) y evaluar usa simulación. Grabar y ejecutar necesitan el brazo.",
+          "ref": "diagrama",
+          "cert": true
+        },
+        {
+          "p": "¿Dónde queda el checkpoint después del entrenamiento?",
+          "opcoes": [
+            "En el Hub, siempre",
+            "En outputs/train/[nombre]/checkpoints/",
+            "En la carpeta del dataset",
+            "En ~/.cache"
+          ],
+          "certa": 1,
+          "explica": "Con --output_dir=outputs/train/act_pusht_teste, los checkpoints quedan en checkpoints/000200 y checkpoints/last. Con push_to_hub=false no se sube nada.",
+          "ref": "codigo"
+        },
+        {
+          "p": "La loss bajó de 14,6 a 3,5. ¿Qué garantiza eso?",
+          "opcoes": [
+            "Que la política acierta la tarea.",
+            "Que imita mejor el dataset; si acierta la tarea, solo la evaluación lo dice.",
+            "Que ya puede pasar al robot real.",
+            "Nada: la loss no significa nada."
+          ],
+          "certa": 1,
+          "explica": "La loss mide el error de imitación en los datos de entrenamiento. En la clase 6 verás que 200 pasos todavía dan 0% de éxito en PushT.",
+          "ref": "codigo"
+        },
+        {
+          "p": "¿Para qué sirve la estrategia dagger de lerobot-rollout?",
+          "opcoes": [
+            "Para entrenar más rápido en la GPU.",
+            "Para que tú tomes el control del brazo cuando la política se equivoca y grabes la corrección como dato nuevo.",
+            "Para simular el robot.",
+            "Para enviar el modelo al Hub."
+          ],
+          "certa": 1,
+          "explica": "Ejecutar, corregir y ajustar de nuevo: las correcciones quedan marcadas con intervention y entran en el próximo entrenamiento. Es el vínculo con la clase 7.",
+          "ref": "diagrama"
+        }
+      ]
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Resumen",
+      "itens": [
+        {
+          "t": "Cuatro comandos",
+          "texto": "record, train, eval, rollout. Train y eval no necesitan robot."
+        },
+        {
+          "t": "Instalación 0.6",
+          "texto": "lerobot[training], Python 3.12, push_to_hub=false para entrenar sin cuenta."
+        },
+        {
+          "t": "Tiempo real",
+          "texto": "200 pasos: 26 s en GPU, 5 min en CPU aquí. Entrenamiento de verdad: horas."
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Fuentes de esta clase",
+      "links": [
+        {
+          "t": "LeRobot en GitHub (README y releases)",
+          "href": "https://github.com/huggingface/lerobot",
+          "icone": "git"
+        },
+        {
+          "t": "LeRobot v0.6.0: qué cambió (blog)",
+          "href": "https://huggingface.co/blog/lerobot-release-v060",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Instalación de LeRobot",
+          "href": "https://huggingface.co/docs/lerobot/installation",
+          "icone": "terminal"
+        },
+        {
+          "t": "Imitation learning con robots reales (record y train)",
+          "href": "https://huggingface.co/docs/lerobot/il_robots",
+          "icone": "robo"
+        },
+        {
+          "t": "LeLab (interfaz en el navegador)",
+          "href": "https://github.com/huggingface/leLab",
+          "icone": "git"
+        }
+      ]
+    }
+  ]
+}

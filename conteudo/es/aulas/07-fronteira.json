@@ -1,0 +1,359 @@
+{
+  "slug": "fronteira",
+  "num": 7,
+  "menu": "Frontera",
+  "titulo": "Más allá de la imitación: RL, world models y memoria",
+  "titulo_curto": "RL, WAM y memoria",
+  "minutos": 16,
+  "lead": "Imitar tiene un techo: la política solo aprende lo que la persona mostró y no sabe salir de un error que nunca vio. En 2026 tres ideas empujan ese techo: aprender de la propia experiencia (RL), predecir el futuro en video (World Action Models) y recordar lo que ya hizo (memoria).",
+  "objetivo": "explicar RL después de la imitación, World Action Models y memoria larga con ejemplos de 2026.",
+  "competencias": [
+    "explicar-rl-pos-treino",
+    "explicar-world-action-model",
+    "explicar-memoria-longa"
+  ],
+  "aprende": [
+    {
+      "icone": "fila",
+      "t": "El ciclo imitar → ejecutar → fallar → corregir"
+    },
+    {
+      "icone": "grafico",
+      "t": "RL en el posentrenamiento: Recap y RL Token"
+    },
+    {
+      "icone": "video",
+      "t": "World Action Models: DreamZero, GR00T N2, Cosmos 3"
+    },
+    {
+      "icone": "memoria",
+      "t": "Memoria para tareas de más de 10 minutos"
+    }
+  ],
+  "hero_alt": "Brazo robótico colocando un plato en el escurridor en una cocina de pruebas, con un investigador observando al fondo.",
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "La línea de la frontera",
+      "sub": "Desplázate por la página: cada etapa enciende una parte.",
+      "estilo": "escada",
+      "nos": [
+        {
+          "icone": "usuario",
+          "titulo": "Imitación",
+          "sub": "la base",
+          "itens": [
+            {
+              "icone": "video",
+              "t": "Demostraciones humanas"
+            },
+            {
+              "icone": "robo",
+              "t": "ACT, Diffusion, VLAs"
+            }
+          ],
+          "detalhe": "Lo que hiciste en la clase 5: la política copia las acciones del dataset. Funciona, pero hereda los límites de las demostraciones."
+        },
+        {
+          "icone": "grafico",
+          "titulo": "RL después",
+          "sub": "aprender con la experiencia",
+          "forte": true,
+          "itens": [
+            {
+              "icone": "check",
+              "t": "Recap (π*0.6, nov/2025)"
+            },
+            {
+              "icone": "relogio",
+              "t": "RL Token (mar/2026)"
+            }
+          ],
+          "detalhe": "Después de imitar, la política se ejecuta, se equivoca y aprende del resultado y de las correcciones humanas. Según PI, Recap más que duplicó el throughput en tareas difíciles y redujo las fallas a la mitad o más."
+        },
+        {
+          "icone": "video",
+          "titulo": "World Action Model",
+          "sub": "predecir el futuro",
+          "itens": [
+            {
+              "icone": "video",
+              "t": "DreamZero (14B, feb/2026)"
+            },
+            {
+              "icone": "camadas",
+              "t": "Cosmos 3 (may/2026)"
+            }
+          ],
+          "detalhe": "El modelo predice el video de lo que va a pasar junto con la acción. La apuesta es que predecir el futuro enseña física mejor que predecir solo la acción."
+        },
+        {
+          "icone": "memoria",
+          "titulo": "Memoria",
+          "sub": "tareas largas",
+          "itens": [
+            {
+              "icone": "memoria",
+              "t": "MEM (PI, mar/2026)"
+            },
+            {
+              "icone": "lista",
+              "t": "BEHAVIOR 2026: 100 tareas"
+            }
+          ],
+          "detalhe": "Recordar lo que ya se hizo para no repetir ni saltarse pasos. El MEM de PI realizó tareas de más de 10 minutos, como limpiar toda la cocina."
+        }
+      ],
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "La frontera completa",
+        "texto": "La imitación da el comienzo; el RL corrige con la experiencia; el World Action Model predice el futuro; la memoria sostiene las tareas largas. Los modelos de punta de 2026 combinan más de una.",
+        "curto": "Imitar → corregir → predecir → recordar."
+      }
+    },
+    {
+      "tipo": "passos",
+      "titulo": "Los ejemplos de 2026",
+      "sub": "Haz clic en cada uno. Los números son los informados por las empresas.",
+      "passos": [
+        {
+          "titulo": "Recap",
+          "sub": "PI, 17/11/2025",
+          "texto": [
+            "RL con correcciones y políticas condicionadas a la ventaja: la política aprende qué salió mejor y qué salió peor en sus propios intentos, y con las correcciones de una persona.",
+            "Según PI, π*0.6 preparó espresso de 5:30 a 23:30, dobló 50 prendas nuevas y armó 59 cajas en una fábrica."
+          ]
+        },
+        {
+          "titulo": "RL Token",
+          "sub": "PI, 19/03/2026",
+          "texto": [
+            "El VLA aprende a emitir un \"RL token\" que resume lo que ve. Un actor-crítico pequeño entrena RL en tiempo real sobre ese token, con pocas horas o minutos de datos.",
+            "Probado en tareas de precisión como apretar un tornillo M3 con un destornillador eléctrico y encajar un cable ethernet."
+          ]
+        },
+        {
+          "titulo": "DreamZero",
+          "sub": "NVIDIA, feb/2026",
+          "texto": [
+            "World Action Model de 14B que predice video y acción juntos y controla en lazo cerrado a 7 Hz. Según el paper, generaliza más del doble que los VLAs de punta en tareas y entornos nuevos.",
+            "GR00T N2, anunciado en mar/2026 sobre esa arquitectura, estaba previsto para fines de 2026 y no tenía lanzamiento confirmado hasta oct/2026."
+          ]
+        },
+        {
+          "titulo": "MEM y π0.7",
+          "sub": "PI, mar y abr/2026",
+          "texto": [
+            "MEM le da al VLA memoria de corto y largo plazo, evaluado sobre π0.6, en tareas de más de 10 minutos.",
+            "π0.7 (abr/2026) acepta en el prompt metadatos de calidad y velocidad e imágenes de subobjetivo, y aprende con \"coaching\" por lenguaje a usar aparatos que no vio. Es cerrado."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "simfila",
+      "titulo": "El ciclo imitar → ejecutar → fallar → corregir",
+      "sub": "Ejecuta el ciclo. Un paso falla a propósito la primera vez: mira qué hace la corrección.",
+      "tarefas": [
+        "Imitar: entrenar la política con 50 demostraciones",
+        "Ejecutar: 20 intentos de tomar la taza",
+        "Corregir: una persona toma el brazo en las fallas (dagger)",
+        "Ajustar: nuevo entrenamiento con las correcciones y RL",
+        "Ejecutar de nuevo: 20 intentos"
+      ],
+      "falha": 1,
+      "rot": {
+        "entrada": "a fazer/",
+        "rodando": "rodando/",
+        "feito": "feito/",
+        "falhou": "falhou/",
+        "rodar": "Ejecutar el ciclo",
+        "parar": "Interrumpir",
+        "zerar": "Reiniciar"
+      },
+      "msg": {
+        "inicio": "5 pasos pendientes. Haz clic en \"Ejecutar el ciclo\".",
+        "rodando": "Un paso a la vez. La primera ronda en el robot va a encontrar un caso que las demostraciones no cubrían.",
+        "parou": "Interrumpido. El paso del medio quedó en rodando/. Ejecuta de nuevo para retomar.",
+        "retoma": "Retomado: lo que estaba en rodando/ volvió a la cola. Lo que ya está en feito/ no se rehace.",
+        "fim": "Ciclo completo: la segunda ronda usa lo que la corrección enseñó.",
+        "fimfalha": "Fin del ciclo. \"Ejecutar\" fue a falhou/: la taza volteada nunca apareció en las demostraciones. De ese caso se van a ocupar la corrección y el RL."
+      },
+      "legenda": "Simulación ilustrativa en el navegador: ningún robot se ejecuta de verdad. La falla es intencional, para mostrar dónde se detiene la imitación y dónde empieza la corrección."
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Registrar el ciclo",
+      "sub": "Copia el modelo y anota cada vuelta. Sin un número antes y después, no se puede decir qué paso ayudó.",
+      "blocos": [
+        {
+          "rot": "ciclo.md",
+          "icone": "arquivo",
+          "conteudo": "# Ciclo de mejora: <tarea>\n\n| Vuelta | Qué cambió | Intentos | Éxitos | Tasa | Falla más común |\n|---|---|---|---|---|---|\n| 1 | solo imitación (N demostraciones) | 20 | | | |\n| 2 | + correcciones humanas (dagger) | 20 | | | |\n| 3 | + ajuste con RL | 20 | | | |\n\nConclusión: el paso que más redujo la falla fue ______ porque ______."
+        },
+        {
+          "rot": "Con el brazo real: correcciones con dagger (de la documentación de LeRobot 0.6, no ejecutado aquí)",
+          "icone": "robo",
+          "conteudo": "lerobot-rollout \\\n  --strategy.type=dagger \\\n  --policy.path=<seu usuário>/minha_politica \\\n  --robot.type=so101_follower \\\n  --robot.port=/dev/ttyACM0 \\\n  --teleop.type=so101_leader \\\n  --teleop.port=/dev/ttyACM1 \\\n  --dataset.repo_id=<seu usuário>/correcoes_dagger \\\n  --dataset.single_task=\"Pegue o bloco\""
+        }
+      ],
+      "saida": {
+        "selo": "simulacao",
+        "abas": [
+          {
+            "rot": "Cómo leerlo",
+            "html": "<ul><li>Compara la tasa de una vuelta a la otra con el <b>mismo número de intentos</b>.</li><li>Cambia <b>una cosa por vuelta</b>; si cambias dos, no sabes cuál ayudó.</li><li>El comando dagger necesita el brazo (y una cuenta en el Hub para subir el dataset); está aquí para que reconozcas el flujo.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Práctica: ¿qué paso redujo la falla?",
+      "sub": "Usa la simulación de arriba y los ejemplos.",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · Ejecutar el ciclo",
+          "min": "5 min",
+          "texto": "Ejecuta la simulación hasta el final, interrúmpela una vez a la mitad y retómala.",
+          "pronto": "el paso \"Rodar\" aparece en falhou/ y los pasos de feito/ no se rehicieron al retomar."
+        },
+        {
+          "id": "e2",
+          "titulo": "E2 · Explicar la falla",
+          "min": "10 min",
+          "texto": "Escribe tres líneas: por qué falló la imitación, qué paso trata la falla y qué ejemplo de 2026 hace algo parecido.",
+          "pronto": "las tres líneas citan la falta del caso en las demostraciones, el paso de corrección o ajuste con RL y un ejemplo (Recap, RL Token o lerobot-rollout con dagger)."
+        },
+        {
+          "id": "e3",
+          "titulo": "E3 · Dónde entra el world model",
+          "min": "10 min",
+          "texto": "En una frase, di cómo un World Action Model podría ayudar antes de la primera ronda en el robot.",
+          "pronto": "la frase habla de predecir el resultado en video antes de actuar (o de usar video de humanos y de otros robots en el entrenamiento)."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Prueba lo que aprendiste",
+      "sub": "La explicación aparece después de tu respuesta.",
+      "perguntas": [
+        {
+          "p": "¿Cuál es el límite principal de la imitación pura?",
+          "opcoes": [
+            "Necesita GPU.",
+            "La política no sabe salir de situaciones que las demostraciones no mostraron.",
+            "No acepta cámara.",
+            "Solo funciona en simulación."
+          ],
+          "certa": 1,
+          "explica": "La política copia lo que vio. Un caso nuevo (la taza volcada) no está en los datos. El RL y la corrección humana tratan justamente ese hueco.",
+          "ref": "simfila",
+          "cert": true
+        },
+        {
+          "p": "¿Qué permite el RL Token de PI (mar/2026)?",
+          "opcoes": [
+            "Entrenar el VLA completo desde cero en minutos.",
+            "Ejecutar RL en línea en tiempo real con un actor-crítico pequeño sobre un token que resume el VLA.",
+            "Descargar el π0.7.",
+            "Generar video del futuro."
+          ],
+          "certa": 1,
+          "explica": "El VLA grande queda como está; un actor-crítico pequeño aprende sobre el RL token con pocas horas o minutos de datos.",
+          "ref": "passos"
+        },
+        {
+          "p": "¿Qué define a un World Action Model como DreamZero?",
+          "opcoes": [
+            "Predecir video futuro y acción juntos.",
+            "Tener más de 100B parámetros.",
+            "Ejecutarse solo en la nube.",
+            "No usar cámara."
+          ],
+          "certa": 0,
+          "explica": "Un WAM predice el futuro en video y la acción al mismo tiempo. DreamZero tiene 14B y controla a 7 Hz.",
+          "ref": "diagrama"
+        },
+        {
+          "p": "En oct/2026, ¿cuál es el estado de GR00T N2?",
+          "opcoes": [
+            "Lanzado con pesos abiertos.",
+            "Anunciado (mar/2026), previsto para fines de 2026, sin lanzamiento confirmado.",
+            "Cancelado.",
+            "Disponible solo por API."
+          ],
+          "certa": 1,
+          "explica": "NVIDIA mostró un adelanto el 16/03/2026 y dice que lidera algunos rankings, pero hasta oct/2026 no se encontró ningún lanzamiento. Un anuncio no es un producto.",
+          "ref": "passos"
+        }
+      ]
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Resumen",
+      "itens": [
+        {
+          "t": "Imitar y luego corregir",
+          "texto": "El RL y la corrección humana tratan lo que las demostraciones no cubrieron."
+        },
+        {
+          "t": "Predecir el futuro",
+          "texto": "Los World Action Models predicen video y acción juntos: DreamZero, GR00T N2 (anunciado), Cosmos 3 como base."
+        },
+        {
+          "t": "Recordar",
+          "texto": "La memoria (MEM) sostiene tareas de más de 10 minutos."
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Fuentes de esta clase",
+      "links": [
+        {
+          "t": "π*0.6 y Recap (Physical Intelligence)",
+          "href": "https://www.pi.website/blog/pistar06",
+          "icone": "arquivo"
+        },
+        {
+          "t": "RL Token (Physical Intelligence)",
+          "href": "https://www.pi.website/research/rlt",
+          "icone": "arquivo"
+        },
+        {
+          "t": "MEM: memoria para VLAs (Physical Intelligence)",
+          "href": "https://www.pi.website/research/memory",
+          "icone": "memoria"
+        },
+        {
+          "t": "π0.7 (Physical Intelligence)",
+          "href": "https://www.pi.website/blog/pi07",
+          "icone": "arquivo"
+        },
+        {
+          "t": "DreamZero (arXiv 2602.15922)",
+          "href": "https://arxiv.org/abs/2602.15922",
+          "icone": "video"
+        },
+        {
+          "t": "Cosmos 3 y world models abiertos (NVIDIA)",
+          "href": "https://blogs.nvidia.com/blog/open-world-models-physical-ai/",
+          "icone": "camadas"
+        },
+        {
+          "t": "1X World Model",
+          "href": "https://www.1x.tech/discover/world-model-self-learning",
+          "icone": "robo"
+        },
+        {
+          "t": "BEHAVIOR Challenge 2026",
+          "href": "https://behavior.stanford.edu/challenge/index.html",
+          "icone": "alvo"
+        }
+      ]
+    }
+  ]
+}

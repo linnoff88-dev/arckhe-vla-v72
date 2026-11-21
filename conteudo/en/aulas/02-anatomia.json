@@ -1,0 +1,335 @@
+{
+  "slug": "anatomia",
+  "num": 2,
+  "menu": "Anatomy",
+  "titulo": "Eye, brain, and hand: inside a VLA",
+  "titulo_curto": "Inside a VLA",
+  "minutos": 16,
+  "lead": "Every VLA has three parts: one that sees, one that understands, and one that turns the decision into movement. The movement part is where models differ the most, and where the clock gets tight: the arm waits for a command every few milliseconds.",
+  "objetivo": "explain the path from image + sentence → actions and why action chunking and flow matching exist.",
+  "competencias": [
+    "explicar-arquitetura-vla",
+    "comparar-action-heads",
+    "calcular-orcamento-de-tempo"
+  ],
+  "aprende": [
+    {
+      "icone": "camadas",
+      "t": "The three parts: visual encoder, backbone, and action head"
+    },
+    {
+      "icone": "grafico",
+      "t": "Three ways to generate action: bins, FAST, and flow matching"
+    },
+    {
+      "icone": "relogio",
+      "t": "Why the model returns a piece of actions (chunk)"
+    },
+    {
+      "icone": "cerebro",
+      "t": "The slow/fast hierarchy: S2, S1, and S0"
+    }
+  ],
+  "hero_alt": "Close-up of the wrist camera and the gripper of a robotic arm about to pick up a cup.",
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "The path from camera to motor",
+      "sub": "Scroll the page: each step lights up a part of the diagram.",
+      "nos": [
+        {
+          "icone": "video",
+          "titulo": "Visual encoder",
+          "sub": "the eye",
+          "itens": [
+            {
+              "icone": "video",
+              "t": "Cameras (fixed and wrist)"
+            },
+            {
+              "icone": "camadas",
+              "t": "Becomes vectors (image tokens)"
+            }
+          ],
+          "detalhe": "Turns each image into a sequence of vectors that the rest of the model understands. It usually comes ready-made from a pretrained VLM."
+        },
+        {
+          "icone": "cerebro",
+          "titulo": "Backbone",
+          "sub": "the brain",
+          "forte": true,
+          "itens": [
+            {
+              "icone": "chat",
+              "t": "Joins image + sentence + state"
+            },
+            {
+              "icone": "lupa",
+              "t": "Knows what \"cup\" and \"left\" mean"
+            }
+          ],
+          "detalhe": "A VLM that takes the image tokens, the instruction, and the robot's state. 2026 examples: GR00T N1.7 uses Cosmos-Reason2-2B; RDT2 uses Qwen2.5-VL-7B. This is where the \"understands\" in the course title comes from."
+        },
+        {
+          "icone": "seta",
+          "titulo": "Action head",
+          "sub": "the hand",
+          "itens": [
+            {
+              "icone": "lista",
+              "t": "Bins: pick from a list"
+            },
+            {
+              "icone": "arquivo",
+              "t": "FAST: compress the trajectory"
+            },
+            {
+              "icone": "grafico",
+              "t": "Flow / diffusion: generate continuously"
+            }
+          ],
+          "detalhe": "Turns the backbone's decision into motor numbers. You can pick values from a list (bins), write the compressed trajectory as tokens (FAST), or generate the continuous action with flow matching or diffusion."
+        },
+        {
+          "icone": "robo",
+          "titulo": "Action chunk",
+          "sub": "the piece that goes to the motor",
+          "itens": [
+            {
+              "icone": "relogio",
+              "t": "N actions at once"
+            },
+            {
+              "icone": "check",
+              "t": "The robot executes while the model thinks"
+            }
+          ],
+          "detalhe": "Instead of one action at a time, the model returns a chunk of N actions. The controller executes that chunk while the model computes the next one."
+        }
+      ],
+      "legenda": "In most 2026 VLAs the backbone is a pretrained VLM, and what changes from one model to another is the action head.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "The whole path",
+        "texto": "The camera becomes tokens, the backbone combines them with the sentence and the state, the action head returns a chunk of actions, and the motor executes while the next chunk is computed.",
+        "curto": "Camera → tokens → decision → chunk → motor."
+      }
+    },
+    {
+      "tipo": "passos",
+      "titulo": "Three ways to generate the action",
+      "sub": "Click each one. The difference is speed and precision.",
+      "passos": [
+        {
+          "titulo": "Bins",
+          "sub": "pick from a list",
+          "texto": [
+            "Each joint has its range of motion divided into little boxes (bins), and the model picks a box the way it would pick a word. Models like OpenVLA (7B, Jun/2024) follow this idea.",
+            "It's simple, but it gives one action at a time, and precision is limited by the size of the box."
+          ]
+        },
+        {
+          "titulo": "FAST",
+          "sub": "compress the trajectory",
+          "texto": [
+            "Physical Intelligence's FAST tokenization applies a transform (DCT) and compression (BPE) to a piece of the trajectory, which becomes a few tokens. According to PI, it trains 5 times faster.",
+            "In May/2026, Ai2's MolmoAct 2 published an open reimplementation of the FAST tokenizer, with open data."
+          ]
+        },
+        {
+          "titulo": "Flow matching",
+          "sub": "generate continuously",
+          "texto": [
+            "A part of the model dedicated to action (the action expert) starts from noise and pushes it toward the right action, in continuous values. This is the π0 approach.",
+            "Diffusion is a close relative: GR00T uses a 32-layer DiT (diffusion transformer), and the model from Boston Dynamics and TRI controls the entire Atlas at 30 Hz with a diffusion transformer and flow matching (Aug/2025)."
+          ],
+          "exemplo": {
+            "rot": "Rule of thumb",
+            "texto": "Fine, fast movement: continuous action in chunks. Step-by-step reasoning: tokens."
+          }
+        },
+        {
+          "titulo": "Slow and fast",
+          "sub": "S2, S1 and S0",
+          "texto": [
+            "A big model thinks slowly; a motor wants fast commands. The solution is to stack systems. In Figure's Helix (Feb/2025), S2 is a VLM at 7–9 Hz and S1 is a policy at 200 Hz.",
+            "Helix 02 (Jan/2026) added S0: a 10M-parameter whole-body controller at 1 kHz, which replaces 109,504 lines of C++."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "The control time budget",
+      "sub": "A ten-line script that answers: is there time for the model to think before the chunk runs out?",
+      "blocos": [
+        {
+          "rot": "orcamento.py",
+          "icone": "arquivo",
+          "conteudo": "# orcamento.py: how much time each chunk of actions covers\nhz = 50            # control frequency (commands per second)\nchunk = 25         # actions the model returns at once\ninferencia_ms = 180  # time for the model to generate a chunk\n\nperiodo_ms = 1000 / hz\ndura_chunk_ms = chunk * periodo_ms\nacoes_na_espera = inferencia_ms / periodo_ms\n\nprint(f\"control period: {periodo_ms:.0f} ms\")\nprint(f\"a chunk of {chunk} actions covers: {dura_chunk_ms:.0f} ms\")\nprint(f\"actions that go by while the model thinks: {acoes_na_espera:.0f}\")\nprint(\"is there time to think before the chunk runs out?\", \"yes\" if inferencia_ms < dura_chunk_ms else \"no\")"
+        },
+        {
+          "rot": "Terminal",
+          "icone": "terminal",
+          "conteudo": "python3 orcamento.py"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "Captured output (10/19/2026)",
+            "html": "<pre>$ python3 orcamento.py\ncontrol period: 20 ms\na chunk of 25 actions covers: 500 ms\nactions that go by while the model thinks: 9\nis there time to think before the chunk runs out? yes</pre><p>The 180 ms is the time of one MolmoAct 2 action call as reported by Ai2 (May/2026). On your robot, measure yours.</p>"
+          },
+          {
+            "rot": "Common mistakes",
+            "html": "<ul><li><b>Forgetting the wait</b>: while the model computes, the robot keeps moving. If the chunk runs out first, the arm stops or repeats the last action.</li><li><b>Mixing up Hz and ms</b>: 50 Hz is 50 commands per second, one every 20 ms.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Practice: your time budget",
+      "sub": "Do the math before running the script, then check it.",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · Run the script",
+          "min": "5 min",
+          "texto": "Copy orcamento.py, run it, and check that the output matches the one in the box.",
+          "pronto": "your terminal shows 20 ms, 500 ms, 9, and \"yes\"."
+        },
+        {
+          "id": "e2",
+          "titulo": "E2 · Chunk too short",
+          "min": "10 min",
+          "texto": "Change chunk to 8 and keep 50 Hz and 180 ms. Before running, write down on paper: how much the chunk covers, how many actions go by during the wait, and whether there is enough time.",
+          "pronto": "your paper and your terminal say the same thing: 160 ms, 9 actions, and \"no\" (the chunk ends before the next inference)."
+        },
+        {
+          "id": "e3",
+          "titulo": "E3 · The smallest chunk that works",
+          "min": "5 min",
+          "texto": "Still at 50 Hz and 180 ms, find the smallest chunk that gives enough time.",
+          "pronto": "you got to 10 actions (200 ms, greater than 180 ms) and you can explain why 9 is not enough."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Test what you learned",
+      "sub": "The explanation appears after your answer.",
+      "perguntas": [
+        {
+          "p": "A controller at 50 Hz with a chunk of 25 actions. How long does the chunk cover?",
+          "opcoes": [
+            "25 ms",
+            "50 ms",
+            "500 ms",
+            "1,250 ms"
+          ],
+          "certa": 2,
+          "explica": "50 Hz = one command every 20 ms. 25 × 20 ms = 500 ms. The common mistake is multiplying 25 by 50.",
+          "ref": "codigo",
+          "cert": true
+        },
+        {
+          "p": "Why does action chunking exist?",
+          "opcoes": [
+            "So the model can be smaller.",
+            "So the robot has actions to execute while the model, slower than the motor, computes the next ones.",
+            "To save on cameras.",
+            "Because the motor only accepts lists."
+          ],
+          "certa": 1,
+          "explica": "The large model takes hundreds of milliseconds; the motor wants a command every few milliseconds. The chunk covers that gap.",
+          "ref": "diagrama"
+        },
+        {
+          "p": "Which action head generates the action as a continuous value, starting from noise?",
+          "opcoes": [
+            "Bins",
+            "FAST",
+            "Flow matching",
+            "Backbone"
+          ],
+          "certa": 2,
+          "explica": "Flow matching (π0) and diffusion (GR00T's DiT) generate continuous values. Bins picks from a list; FAST writes the compressed trajectory as tokens.",
+          "ref": "passos"
+        },
+        {
+          "p": "In Helix 02, what does S0 do?",
+          "opcoes": [
+            "Understands the user's sentence at 7–9 Hz.",
+            "Controls the whole body at 1 kHz, with 10M parameters.",
+            "Records the training data.",
+            "Generates video of the future."
+          ],
+          "certa": 1,
+          "explica": "S2 understands slowly, S1 decides the joint targets at 200 Hz, and S0 controls the whole body at 1 kHz. Each layer at its own pace.",
+          "ref": "passos"
+        }
+      ]
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Summary",
+      "itens": [
+        {
+          "t": "Eye, brain, and hand",
+          "texto": "Visual encoder, backbone (a VLM), and action head."
+        },
+        {
+          "t": "The hand is where it changes",
+          "texto": "Bins, FAST, or flow matching/diffusion: a list, compressed tokens, or continuous."
+        },
+        {
+          "t": "The clock rules",
+          "texto": "A chunk of N actions at 50 Hz covers N × 20 ms, and it has to last longer than the inference."
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Sources for this lesson",
+      "links": [
+        {
+          "t": "FAST: action tokenization (Physical Intelligence)",
+          "href": "https://www.pi.website/research/fast",
+          "icone": "arquivo"
+        },
+        {
+          "t": "OpenVLA-OFT: fine-tuning recipe with chunking",
+          "href": "https://openvla-oft.github.io/",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Helix (Figure, Feb/2025)",
+          "href": "https://www.figure.ai/news/helix",
+          "icone": "robo"
+        },
+        {
+          "t": "Helix 02 (Figure, Jan/2026)",
+          "href": "https://www.figure.ai/news/helix-02",
+          "icone": "robo"
+        },
+        {
+          "t": "MolmoAct 2 (Ai2)",
+          "href": "https://allenai.org/blog/molmoact2",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Large Behavior Models on Atlas (Boston Dynamics)",
+          "href": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+          "icone": "robo"
+        },
+        {
+          "t": "Isaac GR00T (GitHub)",
+          "href": "https://github.com/NVIDIA/Isaac-GR00T",
+          "icone": "git"
+        }
+      ]
+    }
+  ]
+}

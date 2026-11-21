@@ -1,0 +1,351 @@
+{
+  "slug": "modelos",
+  "num": 3,
+  "menu": "Modelos",
+  "titulo": "El mapa de los modelos en 2026",
+  "titulo_curto": "Mapa de los modelos",
+  "minutos": 16,
+  "lead": "Hay decenas de VLA y el mejor del gráfico puede ser el que no puedes usar. Antes del tamaño y del número de benchmark, tres preguntas deciden: si los pesos se pueden descargar, si la licencia te deja usarlo en tu caso y si el acceso es libre, de pago o solo para socios.",
+  "objetivo": "elegir un modelo para un caso real según la licencia, el tamaño y el acceso (abierto, no comercial, API, early access).",
+  "competencias": [
+    "ler-model-card",
+    "classificar-licenca-modelo",
+    "escolher-modelo-por-caso"
+  ],
+  "aprende": [
+    {
+      "icone": "camadas",
+      "t": "Qué modelos son abiertos y cuáles son cerrados en oct/2026"
+    },
+    {
+      "icone": "cadeado",
+      "t": "Las cinco formas de acceso: Apache, licencia propia, no comercial, API y early access"
+    },
+    {
+      "icone": "lupa",
+      "t": "Dónde encontrar la licencia, el tamaño y los robots en un model card"
+    },
+    {
+      "icone": "alvo",
+      "t": "Por qué LIBERO ya no sirve para elegir modelo"
+    }
+  ],
+  "hero_alt": "Varios robots lado a lado en un laboratorio: brazo de mesa, brazo colaborativo, robot móvil y humanoide.",
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "Abiertos × cerrados",
+      "sub": "Haz clic en cada grupo. El orden va del más libre al más restringido.",
+      "nos": [
+        {
+          "icone": "check",
+          "titulo": "Abierto, uso libre",
+          "sub": "Apache-2.0",
+          "itens": [
+            {
+              "icone": "robo",
+              "t": "π0, π0-FAST, π0.5 (openpi)"
+            },
+            {
+              "icone": "robo",
+              "t": "SmolVLA (450M)"
+            },
+            {
+              "icone": "robo",
+              "t": "X-VLA"
+            }
+          ],
+          "detalhe": "Pesos descargables y licencia Apache-2.0: puedes estudiar, adaptar y usar comercialmente, respetando la licencia. openpi trae π0, π0-FAST y π0.5; el model card de SmolVLA declara apache-2.0; el repositorio de X-VLA también.",
+          "forte": true
+        },
+        {
+          "icone": "arquivo",
+          "titulo": "Abierto, licencia propia",
+          "sub": "lee antes de usar",
+          "itens": [
+            {
+              "icone": "robo",
+              "t": "GR00T N1.7 (3B)"
+            },
+            {
+              "icone": "camadas",
+              "t": "Cosmos 3 (OpenMDW 1.1)"
+            }
+          ],
+          "detalhe": "Pesos descargables, pero con licencia de la empresa. GR00T N1.7 tiene código Apache-2.0 y pesos bajo la NVIDIA Open Model License, que NVIDIA presenta como licencia comercial. Cosmos 3 usa la OpenMDW 1.1. MolmoAct 2 y Wall-OSS-0.5 tienen pesos en el Hub, pero la licencia de los pesos no se confirmó en esta investigación (el blog de MolmoAct 2 no la indica): revisa el model card antes de usar."
+        },
+        {
+          "icone": "x",
+          "titulo": "Abierto, no comercial",
+          "sub": "investigación y estudio",
+          "itens": [
+            {
+              "icone": "robo",
+              "t": "Galaxea G0.5"
+            }
+          ],
+          "detalhe": "Pesos en Hugging Face, pero la G0.5 Community License solo permite uso no comercial (investigación, uso personal, educación, evaluación). Un producto o servicio requiere otra licencia."
+        },
+        {
+          "icone": "nuvem",
+          "titulo": "Solo por API",
+          "sub": "de pago y con lista de espera",
+          "itens": [
+            {
+              "icone": "nuvem",
+              "t": "Pi API beta (13/10/2026)"
+            },
+            {
+              "icone": "nuvem",
+              "t": "Gemini Robotics-ER 2 (vista previa en AI Studio)"
+            }
+          ],
+          "detalhe": "No descargas el modelo. La Pi API hace fine-tuning e inferencia en la infraestructura de PI, con lista de espera, y el post no dice qué modelo hay detrás. El ER 2 de Google está en AI Studio como gemini-robotics-er-2-preview."
+        },
+        {
+          "icone": "cadeado",
+          "titulo": "Cerrado o socios",
+          "sub": "solo para leer el paper",
+          "itens": [
+            {
+              "icone": "robo",
+              "t": "π*0.6, π0.7"
+            },
+            {
+              "icone": "robo",
+              "t": "Gemini Robotics 2 VLA y On-Device 2"
+            },
+            {
+              "icone": "robo",
+              "t": "Helix 02 / 2.5 (Figure)"
+            }
+          ],
+          "detalhe": "Sirven para entender la frontera, no para usar. El VLA 2 y el On-Device 2 de Google están en early access para socios (jul/2026). π0.7 y Helix son cerrados."
+        }
+      ],
+      "legenda": "Abierto no quiere decir libre: lee la licencia de los pesos, que puede ser distinta de la licencia del código.",
+      "dica": "En Hugging Face la licencia está arriba del model card (campo license). Gated significa que hay que pedir acceso."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "Cómo elegir con cuatro preguntas",
+      "sub": "Haz clic en cada paso y responde para tu caso.",
+      "passos": [
+        {
+          "titulo": "¿Puedo descargarlo?",
+          "sub": "pesos y acceso",
+          "texto": [
+            "Si el modelo solo existe por API o para socios, dependes de otra empresa para cada prueba.",
+            "Atención al gated: GR00T N1.7 se descarga solo, pero carga el backbone nvidia/Cosmos-Reason2-2B, que es gated. Si no pides acceso en el Hub, la ejecución falla con GatedRepoError, según el README de Isaac-GR00T."
+          ]
+        },
+        {
+          "titulo": "¿Puedo usarlo en mi caso?",
+          "sub": "licencia",
+          "texto": [
+            "Estudio e investigación: casi todo lo que es abierto sirve, incluido G0.5.",
+            "Producto o cliente: Apache-2.0 o una licencia que permita uso comercial, leída hasta el final."
+          ],
+          "exemplo": {
+            "rot": "Caso",
+            "texto": "Una integradora quiere poner un brazo en una línea de empaque: G0.5 queda fuera por la licencia; GR00T N1.7 o π0.5 entran en la lista."
+          }
+        },
+        {
+          "titulo": "¿Cabe en mi hardware?",
+          "sub": "tamaño",
+          "texto": [
+            "SmolVLA tiene 450M y fue hecho para hardware de consumo. GR00T N1.7 tiene 3B y fue hecho para correr en GPU NVIDIA (revisa en el model card cuáles). DreamZero tiene 14B.",
+            "La guía de hardware de LeRobot 0.6 mide la memoria de video por familia de política: consúltala antes de comprar."
+          ]
+        },
+        {
+          "titulo": "¿Funciona en mi robot?",
+          "sub": "cuerpo y evaluación",
+          "texto": [
+            "Mira en qué robots fue validado el modelo. N1.7 fue validado en Unitree G1, YAM y AGIBot Genie 1; SmolVLA, en SO-100/101.",
+            "No elijas por LIBERO: en 2026 varios modelos pasan de 97% (X-VLA 98,1%; MolmoAct 2-Think 98,1%). Mira RoboArena, MolmoBot, RoboTwin 2.0 o evaluaciones de terceros."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "La ficha del model card",
+      "sub": "Copia y completa una por modelo.",
+      "blocos": [
+        {
+          "rot": "ficha-modelo.md",
+          "icone": "arquivo",
+          "conteudo": "# Ficha: <nombre del modelo>\nURL del model card: \nLicencia de los pesos (campo license): \nLicencia del código (repositorio): \n¿Uso comercial permitido? (sí / no / leer contrato): \n¿Gated? (¿hay que pedir acceso?): \nParámetros: \nRobots en los que fue validado: \nDatos de entrenamiento (lo que dice el card): \nCómo entrenar o ajustar (comando del card): "
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "Respuestas (leído el 19/10/2026)",
+            "html": "<ul><li><b>lerobot/smolvla_base</b>: license <code>apache-2.0</code>; base <code>HuggingFaceTB/SmolVLM2-500M-Video-Instruct</code>; no es gated; ajuste con <code>lerobot-train --policy.path=lerobot/smolvla_base</code>.</li><li><b>nvidia/GR00T-N1.7-3B</b>: pesos bajo la <b>NVIDIA Open Model License Agreement</b>; código en GitHub con Apache 2.0; 3.000.000.000 de parámetros; datos de entrenamiento \"Hybrid: Human, Robot, Simulated\", 13 datasets; el backbone Cosmos-Reason2-2B es gated.</li></ul>"
+          },
+          {
+            "rot": "Errores comunes",
+            "html": "<ul><li><b>Copiar la licencia del código</b>: en GR00T el código es Apache 2.0, pero los pesos no.</li><li><b>Creer que abierto = comercial</b>: G0.5 es abierto y no comercial.</li><li><b>Tomar el número de parámetros de un agregador</b>: usa el card o el paper; el \"5,4B\" de MolmoAct 2, por ejemplo, solo aparece en agregadores.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Práctica: leer dos model cards",
+      "sub": "No necesitas cuenta en Hugging Face para leer.",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · SmolVLA",
+          "min": "10 min",
+          "texto": "Abre huggingface.co/lerobot/smolvla_base y completa la ficha.",
+          "pronto": "el campo de licencia de los pesos dice apache-2.0 y anotaste el modelo base."
+        },
+        {
+          "id": "e2",
+          "titulo": "E2 · GR00T N1.7",
+          "min": "15 min",
+          "texto": "Abre huggingface.co/nvidia/GR00T-N1.7-3B y el README de Isaac-GR00T y completa la ficha.",
+          "pronto": "la ficha separa la licencia de los pesos (NVIDIA Open Model License) de la del código (Apache 2.0) y marca el backbone como gated."
+        },
+        {
+          "id": "e3",
+          "titulo": "E3 · Elegir para un caso",
+          "min": "10 min",
+          "texto": "Escribe un caso tuyo en una línea (estudio en casa, prototipo para un cliente, investigación). Di cuál de los dos modelos probarías primero y por qué.",
+          "pronto": "la justificación cita licencia, tamaño y acceso, no solo benchmark."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Prueba lo que aprendiste",
+      "sub": "La explicación aparece después de tu respuesta.",
+      "perguntas": [
+        {
+          "p": "Una empresa quiere vender un robot de empaque. ¿Qué modelo no puede usar sin otro contrato?",
+          "opcoes": [
+            "π0.5 (openpi, Apache-2.0)",
+            "SmolVLA (apache-2.0)",
+            "Galaxea G0.5 (licencia no comercial)",
+            "X-VLA (Apache-2.0)"
+          ],
+          "certa": 2,
+          "explica": "La G0.5 Community License permite solo uso no comercial. Un producto pide una licencia comercial aparte. Los otros tres son Apache-2.0.",
+          "ref": "diagrama",
+          "cert": true
+        },
+        {
+          "p": "En GR00T N1.7, ¿cuál es la licencia de los pesos?",
+          "opcoes": [
+            "Apache 2.0, igual que el código",
+            "NVIDIA Open Model License",
+            "No comercial",
+            "Solo por API"
+          ],
+          "certa": 1,
+          "explica": "El código está en Apache 2.0, pero los pesos están bajo la NVIDIA Open Model License. Es el error más común: copiar la licencia del repositorio a los pesos.",
+          "ref": "codigo"
+        },
+        {
+          "p": "¿Por qué LIBERO no basta para elegir un VLA en 2026?",
+          "opcoes": [
+            "Porque salió de LeRobot.",
+            "Porque varios modelos ya pasan del 97% y la diferencia entre ellos desaparece.",
+            "Porque solo sirve para humanoides.",
+            "Porque necesita un robot real."
+          ],
+          "certa": 1,
+          "explica": "Un benchmark saturado no separa los modelos. Por eso surgieron versiones más duras (LIBERO-plus, RoboTwin 2.0) y evaluaciones reales como RoboArena.",
+          "ref": "passos"
+        },
+        {
+          "p": "¿Qué ofrece la Pi API beta (13/10/2026)?",
+          "opcoes": [
+            "Pesos del π0.7 para descargar.",
+            "Fine-tuning e inferencia en la infraestructura de PI, con lista de espera.",
+            "Un simulador gratuito.",
+            "El código de π*0.6."
+          ],
+          "certa": 1,
+          "explica": "Es acceso comercial solo por API. El post habla de \"our latest models\" sin decir cuál. No descargas nada.",
+          "ref": "diagrama"
+        }
+      ]
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Resumen",
+      "itens": [
+        {
+          "t": "Tres preguntas antes del gráfico",
+          "texto": "¿Puedo descargarlo, puedo usarlo en mi caso, cabe en mi hardware?"
+        },
+        {
+          "t": "Código ≠ pesos",
+          "texto": "La licencia de los pesos puede ser otra. Gated pide acceso en el Hub."
+        },
+        {
+          "t": "LIBERO saturado",
+          "texto": "Por encima del 97% todos empatan. Usa evaluación real o un benchmark más duro."
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Fuentes de esta clase",
+      "links": [
+        {
+          "t": "SmolVLA base (model card)",
+          "href": "https://huggingface.co/lerobot/smolvla_base",
+          "icone": "arquivo"
+        },
+        {
+          "t": "GR00T N1.7 3B (model card)",
+          "href": "https://huggingface.co/nvidia/GR00T-N1.7-3B",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Isaac GR00T (GitHub, licencias y gated)",
+          "href": "https://github.com/NVIDIA/Isaac-GR00T",
+          "icone": "git"
+        },
+        {
+          "t": "openpi (GitHub)",
+          "href": "https://github.com/Physical-Intelligence/openpi",
+          "icone": "git"
+        },
+        {
+          "t": "X-VLA (GitHub)",
+          "href": "https://github.com/2toinf/X-VLA",
+          "icone": "git"
+        },
+        {
+          "t": "Galaxea G0.5 (GitHub, licencia)",
+          "href": "https://github.com/OpenGalaxea/GalaxeaVLA",
+          "icone": "git"
+        },
+        {
+          "t": "MolmoAct 2 (Ai2)",
+          "href": "https://allenai.org/blog/molmoact2",
+          "icone": "arquivo"
+        },
+        {
+          "t": "Pi API beta (Physical Intelligence)",
+          "href": "https://www.pi.website/blog/api-beta",
+          "icone": "nuvem"
+        },
+        {
+          "t": "Gemini Robotics (Google DeepMind)",
+          "href": "https://deepmind.google/models/gemini-robotics/",
+          "icone": "robo"
+        }
+      ]
+    }
+  ]
+}

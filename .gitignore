@@ -1,0 +1,8 @@
+__pycache__/
+longrun/*/logs/
+*.mp4
+.telas/
+.venv-teste/
+.img-tmp/
+teste/
+outputs/
