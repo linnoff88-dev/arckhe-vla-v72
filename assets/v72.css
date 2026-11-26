@@ -1,5 +1,5 @@
-/* INEMA Learning v7.2 — direçêo "cinematográfico editorial" (maquete H), camada sobre o v71.css.
-   Proposta livre para teste: cores e fontes ainda serêo validadas contra o inema-design. */
+/* ARCKHÉ Learning v7.2 — direçêo "cARCKHÉtográfico editorial" (maquete H), camada sobre o v71.css.
+   Proposta livre para teste: cores e fontes ainda serêo validadas contra o ARCKHÉ-design. */
 :root{
   --bg:#1c1c1f;--bg2:#222226;--card:#26262b;--card2:#2a2a30;--line:#33333a;--line2:#3f3f47;--line3:#55555f;
   --txt:#f3efe7;--txt2:#d9d4ca;--mut:#a7a196;--mut2:#7f7a72;
@@ -30,7 +30,7 @@ html[data-tema="papel"] .tema-btn .sol{display:block}
 html[data-tema="papel"] .tema-btn .lua{display:none}
 html[data-tema="papel"] .tema-btn{color:#7a5a12}
 
-/* abertura da aula: texto à esquerda, foto de cinema à direita fundindo no fundo */
+/* abertura da aula: texto à esquerda, foto de cARCKHÉ à direita fundindo no fundo */
 .aula-hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:center;min-height:0}
 .aula-hero.com-img{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
 .ah-txt{position:relative;z-index:2;padding:8px 0 24px}

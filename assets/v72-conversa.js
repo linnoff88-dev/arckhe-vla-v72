@@ -1,4 +1,4 @@
-/* INEMA Learning 7.5.1 — simconversa: conversa com cliente simulado.
+/* ARCKHÉ Learning 7.5.1 — simconversa: conversa com cliente simulado.
    O cliente fala, o aluno escolhe uma de 2–4 respostas, vê o comentário e o caminho segue conforme a escolha.
    No fim: placar (pontos do caminho / melhor caminho possível), liçêo e "recomeçar".
    Grava a conclusêo em localStorage "<data-curso>:conv:<slug>-s<N>". Todo texto vem do JSON (ui do curso). */

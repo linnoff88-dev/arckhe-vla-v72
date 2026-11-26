@@ -1,12 +1,12 @@
 {
   "id": "vla-v72",
   "lang": "es",
-  "url": "https://inematds.github.io/vla-v72/es/",
+  "url": "https://linnoff88-dev.github.io/arckhe-/es/",
   "nome": "VLA: robots que ven, entienden y actúan",
   "sub": "Visión, lenguaje y acción con LeRobot",
   "volta": {
-    "t": "INEMA.CLUB",
-    "href": "https://inema.club/"
+    "t": "ARCKHÉ AI",
+    "href": "https://ARCKHÉ AI/"
   },
   "lado_card": {
     "rot": "La herramienta de las prácticas",
@@ -15,7 +15,7 @@
     "link": "Abrir LeRobot en GitHub",
     "href": "https://github.com/huggingface/lerobot"
   },
-  "rodape": "INEMA.CLUB · contenido abierto y gratuito · formato INEMA Learning v7.2 · <a href=\"https://inema.club/\">inema.club</a> · <a href=\"https://github.com/huggingface/lerobot\">LeRobot en GitHub</a>",
+  "rodape": "ARCKHÉ AI · contenido abierto y gratuito · formato ARCKHÉ Learning v7.2 · <a href=\"https://ARCKHÉ AI/\">ARCKHÉ AI</a> · <a href=\"https://github.com/huggingface/lerobot\">LeRobot en GitHub</a>",
   "videos": {},
   "inicio": {
     "kicker": "Curso · 8 clases · robótica con IA",

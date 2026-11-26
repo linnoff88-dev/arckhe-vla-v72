@@ -1,4 +1,4 @@
-/* INEMA Learning v7.1 — layout do mock "Agentes de IA na Prática" + didática v7 */
+/* ARCKHÉ Learning v7.1 — layout do mock "Agentes de IA na Prática" + didática v7 */
 :root{
   --bg:#0c0c10;--bg2:#101016;--card:#16161e;--card2:#1b1b24;--line:#272730;--line2:#34343f;
   --txt:#e9e9ee;--mut:#9a9aa6;--mut2:#71717c;
@@ -20,7 +20,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sf2);border:1px so
 .skip:focus{top:10px}
 .ico{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
-/* barra do topo — padrêo dos cursos INEMA (v2): curso | INEMA.CLUB - PRO · aulas · Aa */
+/* barra do topo — padrêo dos cursos ARCKHÉ (v2): curso | ARCKHÉ AI - PRO · aulas · Aa */
 .topo{position:sticky;top:0;z-index:60;height:var(--top);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 24px;background:var(--topo-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .topo .esq{display:flex;align-items:center;gap:10px;min-width:0}
 .marca{display:inline-flex;align-items:center;gap:9px;color:var(--amb-t);text-decoration:none;font:700 17px/1 var(--sora);white-space:nowrap}
@@ -48,7 +48,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sf2);border:1px so
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 
-/* tema papel claro (regra INEMA: no fundo claro o amarelo nunca é letra; só preenchimento; links #854d0e) */
+/* tema papel claro (regra ARCKHÉ: no fundo claro o amarelo nunca é letra; só preenchimento; links #854d0e) */
 html[data-tema="papel"]{
   --bg:#F7F3EA;--bg2:#EFE8DA;--card:#FFFFFF;--card2:#FBF8F2;--line:#E2D9C8;--line2:#D3C8B4;--line3:#B9AC95;
   --txt:#221E18;--txt2:#3A342B;--mut:#5E5546;--mut2:#7A705F;

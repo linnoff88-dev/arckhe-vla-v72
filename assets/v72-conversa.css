@@ -1,4 +1,4 @@
-/* INEMA Learning 7.5.1 — simconversa (conversa com cliente simulado). Só variáveis do tema: escuro e papel saem juntos. */
+/* ARCKHÉ Learning 7.5.1 — simconversa (conversa com cliente simulado). Só variáveis do tema: escuro e papel saem juntos. */
 .conv{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:clamp(14px,2.2vw,24px);max-width:820px}
 .conv-cab{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .conv-av{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--sf2);color:var(--txt2);flex:none}

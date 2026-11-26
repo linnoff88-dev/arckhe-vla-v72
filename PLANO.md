@@ -1,6 +1,6 @@
 # PLANO — vla-v72 "VLA: robôs que veem, entendem e agem" (19/10/2026)
 
-Formato INEMA Learning v7.2 · 8 aulas · PT (EN/ES depois, pela sessêo principal) · substitui https://inematds.github.io/vla/ (repo `~/projetos/vla`, intocado).
+Formato ARCKHÉ Learning v7.2 · 8 aulas · PT (EN/ES depois, pela sessêo principal) · substitui https://linnoff88-dev.github.io/arckhe-/ (repo `~/projetos/vla`, intocado).
 Fontes de fato: `~/projetos/wifi/longrun/2026-10-19-vla-v72/PESQUISA-MODELOS.md` e `PESQUISA-ECOSSISTEMA.md` (só [FATO]; [2ª]/[incerto] com ressalva) + docs oficiais abaixo.
 
 ## Aulas

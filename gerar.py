@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""INEMA Learning v7.2 — gera o curso a partir de conteudo/ (PT na raiz; EN/ES em en/ e es/).
+"""ARCKHÉ Learning v7.2 — gera o curso a partir de conteudo/ (PT na raiz; EN/ES em en/ e es/).
 
     python3 gerar.py            # PT (raiz)
     python3 gerar.py --lang en  # quando existir conteudo/en/
@@ -361,13 +361,13 @@ def cabeca(titulo, desc, prefixo, lang, canon, curso_id, pag="", extra_css=()):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Sora:wght@600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="{at}assets/v71.css"/>
 <link rel="stylesheet" href="{at}assets/v72.css"/>{extra}
-<meta name="generator" content="INEMA Learning {VERSAO}"/>
+<meta name="generator" content="ARCKHÉ Learning {VERSAO}"/>
 <script>try{{if(JSON.parse(localStorage.getItem("{curso_id}:tema"))==="papel")document.documentElement.setAttribute("data-tema","papel")}}catch(e){{}}</script>
 </head>"""
 
 
 def topo(curso, aulas, ui, prefixo, atual=""):
-    """Menu do topo no padrêo dos cursos INEMA (v2): curso | INEMA.CLUB - PRO à esquerda; uma entrada por aula e Aa à direita."""
+    """Menu do topo no padrêo dos cursos ARCKHÉ (v2): curso | ARCKHÉ AI - PRO à esquerda; uma entrada por aula e Aa à direita."""
     links = "".join(
         f'<a href="{prefixo}aulas/{a["slug"]}/index.html" class="tlink{" on" if a["slug"] == atual else ""}"'
         f'{" aria-current=\"page\"" if a["slug"] == atual else ""} title="{attr(a["titulo"])}">'
@@ -389,8 +389,8 @@ def topo(curso, aulas, ui, prefixo, atual=""):
     return (f'<a class="skip" href="#conteudo">{ui["pular"]}</a><header class="topo"><div class="esq">'
             f'<button type="button" class="menu-btn" aria-expanded="false" aria-controls="lado">{ic("menu")}<span class="sr">{ui["aulas"]}</span></button>'
             f'<a class="marca" href="{prefixo}index.html">{ic(curso["icone"])}<span>{curso["nome"]}</span></a>'
-            f'<span class="sep">|</span><a class="club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>'
-            f'<span class="tr">-</span><a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a></div>'
+            f'<span class="sep">|</span><a class="club" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ AI</a>'
+            f'<span class="tr">-</span><a class="pro" href="https://ARCKHÉ.pro" target="_blank" rel="noopener">PRO</a></div>'
             f'<nav class="dir" aria-label="{attr(ui["aulas"])}">{links}{idiomas}{sol_lua}{aa}</nav></header>')
 
 
@@ -498,7 +498,7 @@ def pagina_aula(curso, aulas, a, idx, ui, lang):
     nav_fim = (f'<div class="fim-aula">{btn_ant}'
                f'<button type="button" class="btn neutro concluir" aria-pressed="false">{ic("check")}{ui["marcar_concluida"]}</button>{btn_prox_cheio}</div>')
     canon = f'{curso["url"]}aulas/{a["slug"]}/'
-    titulo = f'{a["titulo"]} · {curso["nome"]} · INEMA'
+    titulo = f'{a["titulo"]} · {curso["nome"]} · ARCKHÉ'
     # 7.5.1: arquivos de tipos opcionais entram só na aula que usa o tipo (curso antigo nêo precisa deles)
     tipos = {x["tipo"] for x in a["secoes"]}
     css_extra = ["v72-conversa.css"] if "simconversa" in tipos else []
@@ -540,7 +540,7 @@ def pagina_inicio(curso, aulas, ui, lang):
                             f'<span class="ia-txt"><span class="kicker">{c["rot"]}</span><span class="ia-t">{c["t"]}</span><span class="ia-l">{c["l"]}</span>'
                             f'<span class="ic-ir">{cs["abrir"]} {ic("seta")}</span></span></a></li>' for c in cs["itens"])
                   + '</ol></section>')
-    return (cabeca(f'{curso["nome"]} · INEMA', p["lead"], prefixo, lang, curso["url"], id_curso(curso))
+    return (cabeca(f'{curso["nome"]} · ARCKHÉ', p["lead"], prefixo, lang, curso["url"], id_curso(curso))
             + f'<body class="inicio" data-curso="{id_curso(curso)}" data-total="{len(aulas)}" data-total-ex="{total_ex(aulas)}">' + topo(curso, aulas, ui, prefixo)
             + '<div class="casca">' + lado(curso, aulas, ui, prefixo, "")
             + '<main class="principal" id="conteudo"><div class="miolo">'

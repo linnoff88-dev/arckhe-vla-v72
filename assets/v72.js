@@ -1,4 +1,4 @@
-/* INEMA Learning v7.2 — camada por cima do v71.js (nêo altera o comportamento dele) */
+/* ARCKHÉ Learning v7.2 — camada por cima do v71.js (nêo altera o comportamento dele) */
 (function () {
   /* sol/lua: atalho de um clique que usa os mesmos botões de tema do Aa (mesma gravaçêo) */
   var tb = document.querySelector(".tema-btn");
@@ -404,7 +404,7 @@
         try { dados[k.slice(P.length)] = JSON.parse(v); } catch (e) { dados[k.slice(P.length)] = v; }
       }
     } catch (e) {}
-    var obj = { formato: "inema-curso", versao: 1, curso: CURSO, exportado: new Date().toISOString(), dados: dados };
+    var obj = { formato: "ARCKHÉ-curso", versao: 1, curso: CURSO, exportado: new Date().toISOString(), dados: dados };
     var a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([JSON.stringify(obj, null, 2)], { type: "application/json" }));
     a.download = CURSO + "-" + new Date().toISOString().slice(0, 10) + ".json";
@@ -463,7 +463,7 @@
       var obj = null;
       try { obj = JSON.parse(rd.result); } catch (e) {}
       inp.value = "";
-      if (!obj || obj.formato !== "inema-curso" || !obj.dados || typeof obj.dados !== "object") { aviso(T.import_erro); return; }
+      if (!obj || obj.formato !== "ARCKHÉ-curso" || !obj.dados || typeof obj.dados !== "object") { aviso(T.import_erro); return; }
       if (obj.curso !== CURSO) { aviso(T.import_outro); return; }
       var n = mescla(obj.dados);
       aviso(T.import_ok.replace("{n}", n));

@@ -1,4 +1,4 @@
-/* INEMA Learning v7.1 — interações (sem dependências). Nenhum texto visível fica aqui: tudo vem do HTML. */
+/* ARCKHÉ Learning v7.1 — interações (sem dependências). Nenhum texto visível fica aqui: tudo vem do HTML. */
 (function () {
   "use strict";
   var CURSO = document.body.getAttribute("data-curso") || "curso";
@@ -343,8 +343,8 @@
     g.querySelector(".ger-baixa-ics").addEventListener("click", function () {
       if (!ultimo) return;
       var esc = function (t) { return t.replace(/[,;\\]/g, "\\$&"); };
-      var L = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//INEMA//" + D.curso + "//PT"];
-      ultimo.cal.forEach(function (c, i) { L.push("BEGIN:VEVENT", "UID:" + ymd(c.ini) + "-" + i + "@inema", "DTSTAMP:" + ymd(new Date()) + "T000000Z", "DTSTART;VALUE=DATE:" + ymd(c.ini), "DTEND;VALUE=DATE:" + ymd(soma(c.fim, 1)), "SUMMARY:" + esc(D.curso + " · " + c.t), "DESCRIPTION:" + esc(c.d), "END:VEVENT"); });
+      var L = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//ARCKHÉ//" + D.curso + "//PT"];
+      ultimo.cal.forEach(function (c, i) { L.push("BEGIN:VEVENT", "UID:" + ymd(c.ini) + "-" + i + "@ARCKHÉ", "DTSTAMP:" + ymd(new Date()) + "T000000Z", "DTSTART;VALUE=DATE:" + ymd(c.ini), "DTEND;VALUE=DATE:" + ymd(soma(c.fim, 1)), "SUMMARY:" + esc(D.curso + " · " + c.t), "DESCRIPTION:" + esc(c.d), "END:VEVENT"); });
       L.push("END:VCALENDAR");
       baixa("plano-" + (document.body.dataset.curso || "curso") + ".ics", "text/calendar", L.join("\r\n"));
     });
