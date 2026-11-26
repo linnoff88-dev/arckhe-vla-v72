@@ -5,7 +5,7 @@
   "titulo": "Do laboratório ao mundo real",
   "titulo_curto": "Mundo real e plano",
   "minutos": 18,
-  "lead": "Uma política que acerta no simulador ainda está longe de uma linha de produção. No meio do caminho estão o ROS 2, que liga o modelo aos motores, as camadas de segurança, que nenhum VLA dispensa, e o estado real do mercado, que é menos pronto do que as manchetes fazem parecer.",
+  "lead": "Uma política que acerta no simulador ainda está longe de uma linha de produçêo. No meio do caminho estêo o ROS 2, que liga o modelo aos motores, as camadas de segurança, que nenhum VLA dispensa, e o estado real do mercado, que é menos pronto do que as manchetes fazem parecer.",
   "objetivo": "ligar um VLA ao ROS 2, montar o checklist de segurança e traçar o seu próximo passo.",
   "competencias": [
     "integrar-vla-ros2",
@@ -31,7 +31,7 @@
       "t": "O seu plano de estudo com datas"
     }
   ],
-  "hero_alt": "Chão de fábrica com uma célula de robô colaborativo atrás de cortina de luz e marcações de segurança no piso.",
+  "hero_alt": "Chêo de fábrica com uma célula de robô colaborativo atrás de cortina de luz e marcações de segurança no piso.",
   "secoes": [
     {
       "tipo": "diagrama",
@@ -52,7 +52,7 @@
               "t": "Estado das juntas"
             }
           ],
-          "detalhe": "No ROS 2, cada câmera e o estado do robô publicam mensagens em tópicos. A distribuição atual é a Lyrical Luth (mai/2026), com suporte até mai/2031."
+          "detalhe": "No ROS 2, cada câmera e o estado do robô publicam mensagens em tópicos. A distribuiçêo atual é a Lyrical Luth (mai/2026), com suporte até mai/2031."
         },
         {
           "icone": "cerebro",
@@ -69,7 +69,7 @@
               "t": "Publica o chunk de ações"
             }
           ],
-          "detalhe": "A pesquisa deste curso não achou pacote oficial de VLA no ROS 2 (out/2026). Um desenho simples: um nó Python assina câmeras e estado, chama a política e publica comandos para o controlador."
+          "detalhe": "A pesquisa deste curso nêo achou pacote oficial de VLA no ROS 2 (out/2026). Um desenho simples: um nó Python assina câmeras e estado, chama a política e publica comandos para o controlador."
         },
         {
           "icone": "chip",
@@ -85,7 +85,7 @@
               "t": "Limites de junta e velocidade"
             }
           ],
-          "detalhe": "Recebe os alvos e fecha a malha dos motores no ritmo deles. É aqui que entram os limites de posição, velocidade e força."
+          "detalhe": "Recebe os alvos e fecha a malha dos motores no ritmo deles. É aqui que entram os limites de posiçêo, velocidade e força."
         },
         {
           "icone": "escudo",
@@ -116,31 +116,31 @@
           "titulo": "Normas",
           "sub": "segundo as fontes",
           "texto": [
-            "Segundo a página da ISO vista em resultado de busca, as ISO 10218-1 e 10218-2:2025 foram publicadas em fev/2025 e continuam em duas partes: a -1 para o robô e a -2 para a aplicação e a célula. Segundo fontes secundárias, a -2 absorveu o conteúdo da ISO/TS 15066 sobre robôs colaborativos.",
-            "Segundo a revista Drives & Controls (18/10/2026), a ISO 25785-1, para humanoides e outros robôs com equilíbrio ativo, ainda é rascunho (CD): nenhum fabricante pode alegar certificação nela."
+            "Segundo a página da ISO vista em resultado de busca, as ISO 10218-1 e 10218-2:2025 foram publicadas em fev/2025 e continuam em duas partes: a -1 para o robô e a -2 para a aplicaçêo e a célula. Segundo fontes secundárias, a -2 absorveu o conteúdo da ISO/TS 15066 sobre robôs colaborativos.",
+            "Segundo a revista Drives & Controls (18/10/2026), a ISO 25785-1, para humanoides e outros robôs com equilíbrio ativo, ainda é rascunho (CD): nenhum fabricante pode alegar certificaçêo nela."
           ]
         },
         {
           "titulo": "Europa",
           "sub": "AI Act e máquinas",
           "texto": [
-            "O portal da Comissão Europeia (ago/2026) informa que o Digital Omnibus adiou as regras de alto risco do AI Act e tirou as máquinas da lista do próprio AI Act: os requisitos de IA para máquinas vão para o Regulamento de Máquinas.",
-            "Segundo análises jurídicas (Freshfields, Gibson Dunn), os novos prazos são 02/12/2027 (Anexo III) e 02/08/2028 (Anexo I)."
+            "O portal da Comissêo Europeia (ago/2026) informa que o Digital Omnibus adiou as regras de alto risco do AI Act e tirou as máquinas da lista do próprio AI Act: os requisitos de IA para máquinas vêo para o Regulamento de Máquinas.",
+            "Segundo análises jurídicas (Freshfields, Gibson Dunn), os novos prazos sêo 02/12/2027 (Anexo III) e 02/08/2028 (Anexo I)."
           ]
         },
         {
           "titulo": "Mercado",
           "sub": "fatos de 2026",
           "texto": [
-            "Segundo a CNBC, a Unitree abriu capital em Xangai avaliada em cerca de US$ 9 bi (ago/2026). Foram noticiadas a rodada da Skild AI a mais de US$ 14 bi (jan/2026), a da Apptronik (US$ 520 mi, fev/2026), a fusão da Agility com uma SPAC (jun/2026) e o pedido de IPO da AgiBot em Hong Kong (jul/2026).",
-            "A rodada de ~US$ 1 bi da Physical Intelligence foi noticiada pela Bloomberg, sem anúncio oficial. Projeções de mercado de bancos têm escopos diferentes (2035 contra 2050, só hardware contra serviços) e não são comparáveis entre si."
+            "Segundo a CNBC, a Unitree abriu capital em Xangai avaliada em cerca de US$ 9 bi (ago/2026). Foram noticiadas a rodada da Skild AI a mais de US$ 14 bi (jan/2026), a da Apptronik (US$ 520 mi, fev/2026), a fusêo da Agility com uma SPAC (jun/2026) e o pedido de IPO da AgiBot em Hong Kong (jul/2026).",
+            "A rodada de ~US$ 1 bi da Physical Intelligence foi noticiada pela Bloomberg, sem anúncio oficial. Projeções de mercado de bancos têm escopos diferentes (2035 contra 2050, só hardware contra serviços) e nêo sêo comparáveis entre si."
           ]
         },
         {
           "titulo": "Humanoides",
           "sub": "status real",
           "texto": [
-            "Segundo a imprensa, o Atlas de produto foi lançado na CES 2026 com o lote do ano já comprometido; o NEO da 1X não tinha entrega a cliente confirmada até jul/2026; e o Optimus V3 da Tesla não tinha sido mostrado até ago/2026. A maioria das implantações ainda é piloto ou tarefa estreita.",
+            "Segundo a imprensa, o Atlas de produto foi lançado na CES 2026 com o lote do ano já comprometido; o NEO da 1X nêo tinha entrega a cliente confirmada até jul/2026; e o Optimus V3 da Tesla nêo tinha sido mostrado até ago/2026. A maioria das implantações ainda é piloto ou tarefa estreita.",
             "Compute: segundo o site CNX Software, o kit Jetson AGX Thor passou de US$ 3.499 para US$ 5.499 e o Orin Nano Super de US$ 249 para US$ 399 (jul/2026)."
           ]
         }
@@ -149,12 +149,12 @@
     {
       "tipo": "codigo",
       "titulo": "O checklist para levar um VLA ao mundo real",
-      "sub": "Copie e preencha para um caso seu. Cada linha sem resposta é um motivo para não ligar o robô.",
+      "sub": "Copie e preencha para um caso seu. Cada linha sem resposta é um motivo para nêo ligar o robô.",
       "blocos": [
         {
           "rot": "checklist-mundo-real.md",
           "icone": "lista",
-          "conteudo": "# Checklist: <tarefa> em <lugar>\n\n## Modelo\n- [ ] Licença dos pesos permite este uso? (qual: ______)\n- [ ] Avaliado em simulação: taxa de sucesso ____ % em ____ episódios\n- [ ] Avaliado no robô real: ____ % em ____ tentativas\n- [ ] Falha mais comum anotada: ______\n\n## Integração\n- [ ] Distribuição ROS 2 e data de fim de suporte: ______\n- [ ] Nó da política publica para o controlador (não direto no motor)\n- [ ] Tempo de inferência medido: ____ ms; chunk cobre ____ ms\n\n## Segurança (fora do modelo)\n- [ ] Parada de emergência testada\n- [ ] Limites de posição, velocidade e força no controlador\n- [ ] Zona de trabalho / proteção (cortina, cerca, área marcada)\n- [ ] Norma aplicável conferida com quem certifica (ISO 10218-1/-2:2025 ou local)\n- [ ] O que acontece se a câmera falhar ou o modelo travar: ______\n\n## Pessoas\n- [ ] Quem pode assumir o controle e como: ______\n- [ ] Registro de cada intervenção (vira dado de correção)"
+          "conteudo": "# Checklist: <tarefa> em <lugar>\n\n## Modelo\n- [ ] Licença dos pesos permite este uso? (qual: ______)\n- [ ] Avaliado em simulaçêo: taxa de sucesso ____ % em ____ episódios\n- [ ] Avaliado no robô real: ____ % em ____ tentativas\n- [ ] Falha mais comum anotada: ______\n\n## Integraçêo\n- [ ] Distribuiçêo ROS 2 e data de fim de suporte: ______\n- [ ] Nó da política publica para o controlador (nêo direto no motor)\n- [ ] Tempo de inferência medido: ____ ms; chunk cobre ____ ms\n\n## Segurança (fora do modelo)\n- [ ] Parada de emergência testada\n- [ ] Limites de posiçêo, velocidade e força no controlador\n- [ ] Zona de trabalho / proteçêo (cortina, cerca, área marcada)\n- [ ] Norma aplicável conferida com quem certifica (ISO 10218-1/-2:2025 ou local)\n- [ ] O que acontece se a câmera falhar ou o modelo travar: ______\n\n## Pessoas\n- [ ] Quem pode assumir o controle e como: ______\n- [ ] Registro de cada intervençêo (vira dado de correçêo)"
         }
       ],
       "saida": {
@@ -166,7 +166,7 @@
           },
           {
             "rot": "Erros comuns",
-            "html": "<ul><li><b>Pôr a segurança dentro do prompt</b>: \"não bata em ninguém\" na instrução não é proteção. Proteção é parada e limite fora do modelo.</li><li><b>Usar ranking como prova</b>: taxa de sucesso no seu caso, medida por você, vale mais que nota de benchmark.</li><li><b>Tratar anúncio como produto</b>: GR00T N2 e Optimus V3, por exemplo, não estavam disponíveis em out/2026.</li></ul>"
+            "html": "<ul><li><b>Pôr a segurança dentro do prompt</b>: \"nêo bata em ninguém\" na instruçêo nêo é proteçêo. Proteçêo é parada e limite fora do modelo.</li><li><b>Usar ranking como prova</b>: taxa de sucesso no seu caso, medida por você, vale mais que nota de benchmark.</li><li><b>Tratar anúncio como produto</b>: GR00T N2 e Optimus V3, por exemplo, nêo estavam disponíveis em out/2026.</li></ul>"
           }
         ]
       }
@@ -181,14 +181,14 @@
           "titulo": "E1 · Preencher o checklist",
           "min": "25 min",
           "texto": "Copie o checklist e preencha com os números das suas práticas (aulas 2, 5 e 6) e o modelo escolhido na aula 3.",
-          "pronto": "toda linha tem resposta ou está marcada \"falta\", e a seção Segurança não depende do modelo."
+          "pronto": "toda linha tem resposta ou está marcada \"falta\", e a seçêo Segurança nêo depende do modelo."
         },
         {
           "id": "e2",
           "titulo": "E2 · Separar fato de notícia",
           "min": "10 min",
-          "texto": "Escolha duas afirmações de mercado desta aula e marque cada uma como fato com fonte primária, notícia ou projeção.",
-          "pronto": "as duas estão marcadas e você sabe dizer por que a rodada da PI é só notícia."
+          "texto": "Escolha duas afirmações de mercado desta aula e marque cada uma como fato com fonte primária, notícia ou projeçêo.",
+          "pronto": "as duas estêo marcadas e você sabe dizer por que a rodada da PI é só notícia."
         },
         {
           "id": "e3",
@@ -202,7 +202,7 @@
     {
       "tipo": "quiz",
       "titulo": "Teste o que aprendeu",
-      "sub": "A explicação aparece depois da sua resposta.",
+      "sub": "A explicaçêo aparece depois da sua resposta.",
       "perguntas": [
         {
           "p": "Onde deve ficar a parada de emergência?",
@@ -218,7 +218,7 @@
           "cert": true
         },
         {
-          "p": "Qual distribuição de ROS 2 é a mais nova com suporte longo em out/2026?",
+          "p": "Qual distribuiçêo de ROS 2 é a mais nova com suporte longo em out/2026?",
           "opcoes": [
             "Humble (até mai/2027)",
             "Jazzy (até mai/2029)",
@@ -233,7 +233,7 @@
           "p": "Há norma ISO específica para VLA em out/2026?",
           "opcoes": [
             "Sim, a ISO 25785-1, já publicada.",
-            "Nenhuma foi encontrada. A ISO 25785-1 (humanoides) ainda é rascunho e não é sobre VLA.",
+            "Nenhuma foi encontrada. A ISO 25785-1 (humanoides) ainda é rascunho e nêo é sobre VLA.",
             "Sim, a ISO/TS 15066.",
             "Sim, o AI Act."
           ],
@@ -242,15 +242,15 @@
           "ref": "passos"
         },
         {
-          "p": "Por que não comparar a projeção de um banco para 2035 com a de outro para 2050?",
+          "p": "Por que nêo comparar a projeçêo de um banco para 2035 com a de outro para 2050?",
           "opcoes": [
             "Porque uma delas é falsa.",
-            "Porque têm escopos diferentes (ano, só hardware ou com serviços) e não medem a mesma coisa.",
-            "Porque bancos não fazem projeção.",
+            "Porque têm escopos diferentes (ano, só hardware ou com serviços) e nêo medem a mesma coisa.",
+            "Porque bancos nêo fazem projeçêo.",
             "Porque 2050 está longe."
           ],
           "certa": 1,
-          "explica": "Projeções variam de escopo e método. Para decidir, use fatos datados (rodadas, IPOs, status de produto) e trate projeção como opinião com fonte.",
+          "explica": "Projeções variam de escopo e método. Para decidir, use fatos datados (rodadas, IPOs, status de produto) e trate projeçêo como opiniêo com fonte.",
           "ref": "passos"
         }
       ]
@@ -283,9 +283,9 @@
           "icone": "alvo",
           "quando": "Semana 3",
           "titulo": "Avaliar",
-          "sub": "Simulação",
+          "sub": "Simulaçêo",
           "saida": "Uma taxa de sucesso medida por você.",
-          "passo": "Requer o checkpoint do degrau 2. Aula 6: lerobot-eval, vídeos e comparação entre dois treinos."
+          "passo": "Requer o checkpoint do degrau 2. Aula 6: lerobot-eval, vídeos e comparaçêo entre dois treinos."
         },
         {
           "aula": "mundo-real",
@@ -294,7 +294,7 @@
           "titulo": "Levar ao real",
           "sub": "ROS 2 e segurança",
           "saida": "O checklist preenchido para um caso seu.",
-          "passo": "Requer os três anteriores. Aulas 7 e 8: o ciclo de correção e o checklist, com a segurança fora do modelo."
+          "passo": "Requer os três anteriores. Aulas 7 e 8: o ciclo de correçêo e o checklist, com a segurança fora do modelo."
         }
       ],
       "resultado": {
@@ -336,7 +336,7 @@
           "aula": "lerobot"
         },
         {
-          "titulo": "Aula 6 · Simulação e avaliação",
+          "titulo": "Aula 6 · Simulaçêo e avaliaçêo",
           "aula": "simulacao"
         },
         {
@@ -367,11 +367,11 @@
       "itens": [
         {
           "t": "Olhe a saída e a licença",
-          "texto": "VLA devolve ação; escolha o modelo pelo que você pode baixar e usar."
+          "texto": "VLA devolve açêo; escolha o modelo pelo que você pode baixar e usar."
         },
         {
           "t": "Meça você mesmo",
-          "texto": "Dataset aberto, treino curto, lerobot-eval: a taxa de sucesso é sua, não do ranking."
+          "texto": "Dataset aberto, treino curto, lerobot-eval: a taxa de sucesso é sua, nêo do ranking."
         },
         {
           "t": "Segurança fora do modelo",
@@ -384,7 +384,7 @@
       "titulo": "Fontes desta aula",
       "links": [
         {
-          "t": "ROS 2 Lyrical Luth (notas da versão)",
+          "t": "ROS 2 Lyrical Luth (notas da versêo)",
           "href": "https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html",
           "icone": "arquivo"
         },
@@ -394,12 +394,12 @@
           "icone": "calendario"
         },
         {
-          "t": "AI Act e Digital Omnibus: prazos e máquinas (Comissão Europeia)",
+          "t": "AI Act e Digital Omnibus: prazos e máquinas (Comissêo Europeia)",
           "href": "https://transition-pathways.europa.eu/adv-man/legislation/ai-act-digital-omnibus-high-risk-deadlines-postponed-machinery-carved-out",
           "icone": "escudo"
         },
         {
-          "t": "A questão de segurança dos humanoides (Drives & Controls)",
+          "t": "A questêo de segurança dos humanoides (Drives & Controls)",
           "href": "https://drivesncontrols.com/the-safety-question-that-humanoid-robots-need-to-answer/",
           "icone": "escudo"
         },

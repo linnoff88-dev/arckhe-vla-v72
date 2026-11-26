@@ -3,7 +3,7 @@
   "lang": "pt-BR",
   "url": "https://inematds.github.io/vla-v72/",
   "nome": "VLA: robôs que veem, entendem e agem",
-  "sub": "Visão, linguagem e ação com LeRobot",
+  "sub": "Visêo, linguagem e açêo com LeRobot",
   "volta": {
     "t": "INEMA.CLUB",
     "href": "https://inema.club/"
@@ -11,7 +11,7 @@
   "lado_card": {
     "rot": "A ferramenta das práticas",
     "t": "LeRobot 0.6 (código aberto)",
-    "texto": "Biblioteca da Hugging Face para dados, treino e avaliação de políticas de robô. Os comandos das aulas 4 a 6 foram rodados na versão 0.6.1 em 19/10/2026.",
+    "texto": "Biblioteca da Hugging Face para dados, treino e avaliaçêo de políticas de robô. Os comandos das aulas 4 a 6 foram rodados na versêo 0.6.1 em 19/10/2026.",
     "link": "Abrir o LeRobot no GitHub",
     "href": "https://github.com/huggingface/lerobot"
   },
@@ -20,7 +20,7 @@
   "inicio": {
     "kicker": "Curso · 8 aulas · robótica com IA",
     "titulo": "VLA: robôs que veem, entendem e agem",
-    "lead": "Como um modelo olha uma câmera, lê uma frase e devolve movimentos de braço. Em oito aulas você entende a arquitetura, escolhe um modelo pela licença, abre dados reais de robô, treina e avalia uma política com o LeRobot e monta o checklist para levar ao mundo real. Não precisa ter robô.",
+    "lead": "Como um modelo olha uma câmera, lê uma frase e devolve movimentos de braço. Em oito aulas você entende a arquitetura, escolhe um modelo pela licença, abre dados reais de robô, treina e avalia uma política com o LeRobot e monta o checklist para levar ao mundo real. Nêo precisa ter robô.",
     "cta": "Começar pela aula 1",
     "cta2": {
       "t": "Ver o LeRobot no GitHub",
@@ -42,17 +42,17 @@
       },
       {
         "v": "0.6.1",
-        "t": "versão do LeRobot testada (19/10/2026)"
+        "t": "versêo do LeRobot testada (19/10/2026)"
       }
     ],
     "aulas_titulo": "As aulas",
-    "aulas_sub": "Do conceito à bancada: o que é um VLA, como ele funciona por dentro, quais modelos existem em out/2026, dados, treino, simulação, a fronteira da pesquisa e o caminho até o mundo real.",
+    "aulas_sub": "Do conceito à bancada: o que é um VLA, como ele funciona por dentro, quais modelos existem em out/2026, dados, treino, simulaçêo, a fronteira da pesquisa e o caminho até o mundo real.",
     "blocos": [
       {
         "t": "Para quem é",
         "itens": [
           "Quem programa um pouco em Python e quer entender robótica com IA sem decorar siglas.",
-          "Quem não tem robô: as práticas rodam com dados do Hugging Face Hub e em simulação. O braço SO-101 é opcional.",
+          "Quem nêo tem robô: as práticas rodam com dados do Hugging Face Hub e em simulaçêo. O braço SO-101 é opcional.",
           "Quem precisa decidir se um modelo serve para um caso real e quer olhar licença, acesso e segurança antes."
         ]
       },
@@ -61,7 +61,7 @@
         "itens": [
           "Dizer se um sistema é LLM, VLM, VLA ou World Action Model e por quê.",
           "Escolher um modelo pela licença, pelo tamanho e pelo tipo de acesso.",
-          "Abrir um dataset de robô, treinar uma política curta e medir a taxa de sucesso dela em simulação.",
+          "Abrir um dataset de robô, treinar uma política curta e medir a taxa de sucesso dela em simulaçêo.",
           "Montar o checklist de segurança e o seu plano de estudo com datas."
         ]
       }
@@ -81,7 +81,7 @@
     "dg_dica": "Clique em cada bloco do diagrama para ver o que ele faz.",
     "copiar": "Copiar",
     "copiado": "Copiado",
-    "selo_simulacao": "Simulação: exemplo ilustrativo",
+    "selo_simulacao": "Simulaçêo: exemplo ilustrativo",
     "selo_real": "Exemplo do repositório",
     "pronto_quando": "Pronto quando:",
     "fiz": "Fiz este exercício",
@@ -90,8 +90,8 @@
     "de": "de",
     "cert_tag": "competência",
     "correto": "Correto",
-    "errado": "Não é essa",
-    "quiz_aguarda": "Escolha uma alternativa. A explicação aparece depois da sua tentativa.",
+    "errado": "Nêo é essa",
+    "quiz_aguarda": "Escolha uma alternativa. A explicaçêo aparece depois da sua tentativa.",
     "proxima_pergunta": "Próxima pergunta",
     "quiz_ver": "Ver resultado",
     "quiz_fim": "Teste concluído",
@@ -118,7 +118,7 @@
     "baixar_ics": "Baixar para o calendário (.ics)",
     "ind_estudo": "Estudo (aulas)",
     "ind_pratica": "Prática declarada",
-    "ind_nota": "Prática = exercícios que você marcou como feitos. A comprovação vem na prova da certificação.",
+    "ind_nota": "Prática = exercícios que você marcou como feitos. A comprovaçêo vem na prova da certificaçêo.",
     "estudo": {
       "titulo": "Seu estudo",
       "continuar": "Continuar de onde parei",
@@ -131,7 +131,7 @@
       "notas": "Minhas anotações",
       "dados": "Copiar meus dados",
       "sem_testes": "Nenhum teste feito ainda. O teste fica no fim de cada aula.",
-      "nao_fez": "teste ainda não feito",
+      "nao_fez": "teste ainda nêo feito",
       "ultimo": "Último",
       "melhor": "Melhor",
       "tentativas": "tentativas",
@@ -140,21 +140,21 @@
       "rever": "Para rever",
       "resposta": "Resposta certa:",
       "ir_teste": "Refazer o teste",
-      "sem_notas": "Nenhuma anotação ainda. Na aula, selecione um trecho do texto e toque em Marcar ou Anotar.",
+      "sem_notas": "Nenhuma anotaçêo ainda. Na aula, selecione um trecho do texto e toque em Marcar ou Anotar.",
       "so_marcado": "(só marcado)",
       "marcar": "Marcar",
       "anotar": "Anotar",
       "salvar": "Salvar",
       "apagar": "Apagar marca",
       "fechar": "Fechar",
-      "nota_ph": "Escreva sua anotação sobre este trecho…",
+      "nota_ph": "Escreva sua anotaçêo sobre este trecho…",
       "um_bloco": "Marque dentro de um parágrafo só.",
-      "nao_marca": "Este trecho não pode ser marcado.",
-      "dados_exp": "Seu progresso, suas anotações e as notas dos testes ficam só neste navegador. Baixe uma cópia (.json) para guardar ou para continuar em outro computador ou navegador; lá, carregue a cópia. Carregar soma com o que já existe e não apaga nada.",
+      "nao_marca": "Este trecho nêo pode ser marcado.",
+      "dados_exp": "Seu progresso, suas anotações e as notas dos testes ficam só neste navegador. Baixe uma cópia (.json) para guardar ou para continuar em outro computador ou navegador; lá, carregue a cópia. Carregar soma com o que já existe e nêo apaga nada.",
       "exportar": "Baixar cópia",
       "importar": "Carregar cópia",
       "import_ok": "Cópia carregada ({n} itens). Atualizando a página…",
-      "import_erro": "Arquivo não reconhecido. Nada foi alterado.",
+      "import_erro": "Arquivo nêo reconhecido. Nada foi alterado.",
       "import_outro": "Esta cópia é de outro curso. Nada foi alterado.",
       "export_ok": "Cópia baixada."
     },
@@ -166,7 +166,7 @@
     "conv_ruim": "Escolha fraca",
     "conv_fim": "Fim da conversa",
     "conv_placar": "Você fez {p} de {m} pontos possíveis.",
-    "conv_licao": "Lição:",
+    "conv_licao": "Liçêo:",
     "conv_recomecar": "Recomeçar a conversa",
     "conv_feita": "Seu melhor placar: {p} de {m} pontos."
   },

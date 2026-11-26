@@ -1,5 +1,5 @@
-/* INEMA Learning v7.2 — direção "cinematográfico editorial" (maquete H), camada sobre o v71.css.
-   Proposta livre para teste: cores e fontes ainda serão validadas contra o inema-design. */
+/* INEMA Learning v7.2 — direçêo "cinematográfico editorial" (maquete H), camada sobre o v71.css.
+   Proposta livre para teste: cores e fontes ainda serêo validadas contra o inema-design. */
 :root{
   --bg:#1c1c1f;--bg2:#222226;--card:#26262b;--card2:#2a2a30;--line:#33333a;--line2:#3f3f47;--line3:#55555f;
   --txt:#f3efe7;--txt2:#d9d4ca;--mut:#a7a196;--mut2:#7f7a72;
@@ -15,7 +15,7 @@ html[data-tema="papel"]{
   --sf1:#FBF7EE;--sf2:#EFE6D4;--topo-bg:rgba(246,241,231,.95)}
 body{font-size:17px}
 
-/* sem barra lateral fixa: a lista de aulas e os indicadores viram gaveta (botão ☰), em qualquer largura */
+/* sem barra lateral fixa: a lista de aulas e os indicadores viram gaveta (botêo ☰), em qualquer largura */
 .casca{grid-template-columns:1fr}
 .lado{position:fixed;inset:var(--top) auto 0 0;width:min(340px,88vw);z-index:70;transform:translateX(-105%);transition:transform .25s;box-shadow:20px 0 60px rgba(0,0,0,.45)}
 body.lado-aberto .lado{transform:none}
@@ -68,12 +68,12 @@ body[data-aula] .sec-cab p,body.inicio .sec-cab p{margin-top:8px;font-size:17px}
 .sn{font-variant-numeric:lining-nums}
 .sp{color:var(--mut2)}
 
-/* painéis sem caixa: separação por espaço e linhas finas */
+/* painéis sem caixa: separaçêo por espaço e linhas finas */
 .painel{border:0;background:none;padding:0;box-shadow:none}
 .sc-fig .painel{box-shadow:none}
 .sc-fig{padding:14px 0 10px;border-bottom:1px solid var(--line)}
 
-/* diagrama: número + nome + linha de explicação, ícone grande embaixo; só o bloco principal tem moldura */
+/* diagrama: número + nome + linha de explicaçêo, ícone grande embaixo; só o bloco principal tem moldura */
 .dg-no{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"dn nome" "dn sub" "ic ic" "ul ul";column-gap:12px;row-gap:2px;align-content:start;
   border:1.5px solid transparent;background:none;padding:14px 12px;border-radius:16px}
 .dg-no:hover{transform:none;border-color:var(--line2)}
@@ -152,7 +152,7 @@ html[data-tema="papel"] .dg-seta{color:#a0700a}
   .dn{width:34px;height:34px;font-size:16px}
 }
 
-/* título da seção preso junto com o diagrama: some o original, aparece este */
+/* título da seçêo preso junto com o diagrama: some o original, aparece este */
 .sc-tit{display:none}
 .scrolly.fixo .sc-tit{display:flex;align-items:baseline;gap:10px;margin:0 0 8px;padding:2px 2px 0;font:600 19px/1.25 var(--serif);color:var(--txt);opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .25s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .scrolly.fixo.tit-on .sc-tit{opacity:1;transform:none}
@@ -163,7 +163,7 @@ html[data-tema="papel"] .dg-seta{color:#a0700a}
 .sc-tit .sc-t{flex:none}
 .sc-tit .sc-sub{min-width:0;overflow:hidden;text-overflow:ellipsis;font:400 15px var(--inter);color:var(--mut);margin-left:6px}
 
-/* ===== página inicial v7.2: mesma direção das aulas ===== */
+/* ===== página inicial v7.2: mesma direçêo das aulas ===== */
 .ini-hero h1{font-size:clamp(38px,4.6vw,62px)}
 .ini-hero .lead{max-width:40ch}
 .ini-acoes{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:baseline;margin-top:26px}
@@ -196,10 +196,10 @@ html[data-tema="papel"] .dg-seta{color:#a0700a}
 @media (max-width:900px){.ini-num{grid-template-columns:repeat(2,minmax(0,1fr))}.ini-duas{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){.ini-aulas{grid-template-columns:minmax(0,1fr)}.ia-img{aspect-ratio:16/9}}
 
-/* mapa da formação: a coluna também é .dg-no, mas não usa a grade do bloco do diagrama (no celular os exercícios caíam numa coluna de 0px) */
+/* mapa da formaçêo: a coluna também é .dg-no, mas nêo usa a grade do bloco do diagrama (no celular os exercícios caíam numa coluna de 0px) */
 .mp-col.dg-no{display:flex;flex-direction:column;grid-template-areas:none;grid-template-columns:none}
 
-/* ---------- seu estudo: marca-texto, anotação, gaveta (v7.2) ---------- */
+/* ---------- seu estudo: marca-texto, anotaçêo, gaveta (v7.2) ---------- */
 :root{--nt-bg:rgba(233,185,73,.34);--nt-sombra:0 18px 50px rgba(0,0,0,.5)}
 html[data-tema="papel"]{--nt-bg:rgba(226,177,60,.5);--nt-sombra:0 14px 40px rgba(60,40,10,.18)}
 mark.nt{background:linear-gradient(transparent 48%,var(--nt-bg) 48%);color:inherit;cursor:pointer;border-radius:2px;padding:0 1px}
@@ -267,7 +267,7 @@ html[data-tema="papel"] .idiomas a.on{background:#FACC15;color:#0c0c10}
 /* nome do curso encurta com reticências em vez de passar por baixo do seletor de idioma */
 .topo .esq{flex:1 1 auto}.topo .dir{flex:0 0 auto}
 .marca{min-width:0;overflow:hidden}.marca>span{overflow:hidden;text-overflow:ellipsis}
-/* 7.5.4: cartões dos cursos completos de uma formação (inicio.cursos) */
+/* 7.5.4: cartões dos cursos completos de uma formaçêo (inicio.cursos) */
 .ini-cursos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 32px}
 .ini-curso{display:flex;flex-direction:column;gap:16px;text-decoration:none;color:inherit}
 .ini-curso .ia-img{aspect-ratio:16/9}

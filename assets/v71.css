@@ -20,7 +20,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sf2);border:1px so
 .skip:focus{top:10px}
 .ico{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
-/* barra do topo — padrão dos cursos INEMA (v2): curso | INEMA.CLUB - PRO · aulas · Aa */
+/* barra do topo — padrêo dos cursos INEMA (v2): curso | INEMA.CLUB - PRO · aulas · Aa */
 .topo{position:sticky;top:0;z-index:60;height:var(--top);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 24px;background:var(--topo-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .topo .esq{display:flex;align-items:center;gap:10px;min-width:0}
 .marca{display:inline-flex;align-items:center;gap:9px;color:var(--amb-t);text-decoration:none;font:700 17px/1 var(--sora);white-space:nowrap}
@@ -156,7 +156,7 @@ h1{margin:0;font:800 clamp(30px,4vw,46px)/1.12 var(--sora);letter-spacing:-.02em
 .dg.escada .dg-seta{align-self:center}
 .dg.escada .dg-no:nth-of-type(2){margin-bottom:28px}.dg.escada .dg-no:nth-of-type(3){margin-bottom:56px}.dg.escada .dg-no:nth-of-type(4){margin-bottom:84px}
 
-/* passos (exploração) */
+/* passos (exploraçêo) */
 .passos-tabs{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:10px}
 .ptab{display:flex;gap:12px;align-items:center;text-align:left;border:1px solid var(--line2);background:var(--card);color:var(--txt);border-radius:12px;padding:12px 14px;cursor:pointer;font:inherit}
 .ptab .pn{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--sf2);color:var(--txt);font:700 14px var(--sora)}
@@ -301,7 +301,7 @@ h1{margin:0;font:800 clamp(30px,4vw,46px)/1.12 var(--sora);letter-spacing:-.02em
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
-/* simulação da fila */
+/* simulaçêo da fila */
 .simfila .sim-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .simfila .col{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:12px;min-height:220px}
 .simfila .col h3{margin:0 0 10px;display:flex;gap:8px;align-items:center;font:700 14.5px var(--sora)}
@@ -346,7 +346,7 @@ h1{margin:0;font:800 clamp(30px,4vw,46px)/1.12 var(--sora);letter-spacing:-.02em
 .scrolly .dg-no.foco{border-color:var(--amb);box-shadow:0 0 0 3px var(--amb-a),0 18px 50px -24px rgba(250,204,21,.45)}
 .scrolly>.dg-legenda{text-align:center}
 
-/* mapa da formação */
+/* mapa da formaçêo */
 .mapa-f{display:flex;align-items:stretch}
 .mp-col{flex:1 1 0;min-width:0;cursor:pointer;padding:14px 13px;gap:7px}
 .mp-cab{display:flex;gap:10px;align-items:center}
@@ -396,7 +396,7 @@ h1{margin:0;font:800 clamp(30px,4vw,46px)/1.12 var(--sora);letter-spacing:-.02em
 @media (min-width:901px) and (max-width:1200px){.mapa-f{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mp-dep{display:none}}
 .mp-exs,.mp-exs li,.mp-ex{min-width:0;max-width:100%}
 
-/* legenda da etapa dentro do painel: no desktop o texto não passa por trás do diagrama */
+/* legenda da etapa dentro do painel: no desktop o texto nêo passa por trás do diagrama */
 .sc-cap{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;min-height:118px;transition:opacity .25s}
 .sc-cap.troca{opacity:0}
 .sc-cap h3{margin:4px 0 6px;font:700 19px/1.3 var(--sora)}
@@ -416,7 +416,7 @@ h1{margin:0;font:800 clamp(30px,4vw,46px)/1.12 var(--sora);letter-spacing:-.02em
 .prog.pratica i{background:var(--ok)}
 .ind-nota{margin:8px 0 0;font-size:11.5px;line-height:1.4;color:var(--mut2)}
 
-/* conexão desenhada entre blocos + ponto de luz */
+/* conexêo desenhada entre blocos + ponto de luz */
 .dg-seta{position:relative;width:48px}
 .dg-seta svg{width:44px;height:14px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .dg-seta .pulso{position:absolute;left:4px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--amb);box-shadow:0 0 10px 2px rgba(250,204,21,.7);opacity:0}
@@ -444,7 +444,7 @@ h1{margin:0;font:800 clamp(30px,4vw,46px)/1.12 var(--sora);letter-spacing:-.02em
 .scrolly:not(.fixo) .sc-nav{display:none}
 .sc-nav+.sc-cap{margin-top:12px}
 
-/* mapa em duas camadas: visão geral fechada, coluna em foco abre os exercícios */
+/* mapa em duas camadas: visêo geral fechada, coluna em foco abre os exercícios */
 .mp-cont{margin:2px 0 0;font-size:13px;font-weight:600;color:var(--txt2)}
 .mp-feitos{color:var(--ok);margin-left:4px}
 .scrolly.fixo .mp-col .mp-exs{display:none}

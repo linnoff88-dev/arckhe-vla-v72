@@ -1,6 +1,6 @@
-/* INEMA Learning v7.2 — camada por cima do v71.js (não altera o comportamento dele) */
+/* INEMA Learning v7.2 — camada por cima do v71.js (nêo altera o comportamento dele) */
 (function () {
-  /* sol/lua: atalho de um clique que usa os mesmos botões de tema do Aa (mesma gravação) */
+  /* sol/lua: atalho de um clique que usa os mesmos botões de tema do Aa (mesma gravaçêo) */
   var tb = document.querySelector(".tema-btn");
   if (tb) tb.addEventListener("click", function () {
     var claro = document.documentElement.getAttribute("data-tema") === "papel";
@@ -23,7 +23,7 @@
   var lista = document.querySelector(".lista-aulas");
   if (lista && window.MutationObserver) new MutationObserver(pontos).observe(lista, { subtree: true, attributes: true, attributeFilter: ["class"] });
 
-  /* título preso do diagrama: aparece quando o título da seção sai pelo alto */
+  /* título preso do diagrama: aparece quando o título da seçêo sai pelo alto */
   document.querySelectorAll(".scrolly").forEach(function (sc) {
     var sec = sc.closest(".secao"), h = sec && sec.querySelector(".sec-cab h2");
     if (!h || !sc.querySelector(".sc-tit")) return;
@@ -220,7 +220,7 @@
     lista = (ler("notas", {})[AULA] || []).filter(function (r) { return r && r.id && typeof r.quote === "string"; });
     lista.forEach(function (r) { r.nota = typeof r.nota === "string" && r.nota ? r.nota : null; aplica(r); });
     refrescaCaps();
-    /* mouse: mostra ao soltar; toque (alças de seleção do celular): espera a seleção parar de mudar */
+    /* mouse: mostra ao soltar; toque (alças de seleçêo do celular): espera a seleçêo parar de mudar */
     var espera = null;
     document.addEventListener("selectionchange", function () { clearTimeout(espera); espera = setTimeout(mostraBarra, 350); });
     document.addEventListener("mouseup", function (e) { if (barra.contains(e.target) || pop.contains(e.target)) return; setTimeout(mostraBarra, 10); });
@@ -270,7 +270,7 @@
       rodada = { tipo: rodada.tipo, res: {} };
       pintaDesempenho();
     };
-    /* escuta por delegação: roda depois dos botões do v71.js, que já trataram o clique */
+    /* escuta por delegaçêo: roda depois dos botões do v71.js, que já trataram o clique */
     qz.addEventListener("click", function (e) {
       var op = e.target.closest(".q-op");
       if (op) { var k = itens.indexOf(op.closest(".q-item")); if (k >= 0 && !(k in rodada.res)) rodada.res[k] = op.getAttribute("data-certa") === "1"; return; }
@@ -378,7 +378,7 @@
       lk.appendChild(el("b", null, T.comecar));
     }
     box.appendChild(lk);
-    /* página inicial: o botão principal leva para onde parei */
+    /* página inicial: o botêo principal leva para onde parei */
     var cta = document.querySelector("body.inicio .ini-acoes .comecar");
     if (cta && a) {
       cta.href = link(a.slug, j.sec);

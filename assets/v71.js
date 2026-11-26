@@ -116,7 +116,7 @@
       if (col) col.classList.remove("aberto");
       sc.classList.toggle("fixo", cabe);
       fig.classList.toggle("solto", !cabe);
-      /* altura travada: abrir coluna ou trocar legenda não empurra as etapas durante a rolagem */
+      /* altura travada: abrir coluna ou trocar legenda nêo empurra as etapas durante a rolagem */
       fig.style.minHeight = cabe ? alto + "px" : "";
     }
     function legenda(html) {
@@ -255,7 +255,7 @@
     comeca(perguntas.map(function (_, k) { return k; }));
   });
 
-  /* simulação da fila caseira: entrada → rodando → feito / falhou; Ctrl+C deixa a tarefa em "rodando" e a próxima rodada a devolve para a entrada */
+  /* simulaçêo da fila caseira: entrada → rodando → feito / falhou; Ctrl+C deixa a tarefa em "rodando" e a próxima rodada a devolve para a entrada */
   document.querySelectorAll(".simfila").forEach(function (sim) {
     var col = function (n) { return sim.querySelector('[data-col="' + n + '"] .itens'); };
     var cols = { entrada: col("entrada"), rodando: col("rodando"), feito: col("feito"), falhou: col("falhou") };

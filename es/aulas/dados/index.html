@@ -34,7 +34,7 @@ print(&quot;episódio 0: quadros&quot;, ini, &quot;a&quot;, fim - 1, f&quot;({(f
 
 quadro = ds[ini]
 print(&quot;estado:&quot;, quadro[&quot;observation.state&quot;])
-print(&quot;ação:&quot;, quadro[&quot;action&quot;])
+print(&quot;açêo:&quot;, quadro[&quot;action&quot;])
 print(&quot;imagem:&quot;, tuple(quadro[&quot;observation.image&quot;].shape))</pre></div><div class="cod"><div class="cod-cab"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><b>Terminal</b><button type="button" class="copiar" data-rot="Copiar" data-ok="Copiado"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copiar</span></button></div><pre>python abrir_dataset.py</pre></div><div class="cod"><div class="cod-cab"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg><b>meta.py · solo los metadatos (no descarga los videos)</b><button type="button" class="copiar" data-rot="Copiar" data-ok="Copiado"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copiar</span></button></div><pre>from lerobot.datasets import LeRobotDatasetMetadata
 
 for repo in [&quot;lerobot/libero&quot;, &quot;lerobot/aloha_mobile_cabinet&quot;]:
@@ -47,7 +47,7 @@ quadros: 25650
 chaves: ['observation.image', 'observation.state', 'action', 'episode_index', 'frame_index', 'timestamp', 'next.reward', 'next.done', 'next.success', 'index', 'task_index']
 episódio 0: quadros 0 a 160 (16.1 s)
 estado: tensor([222.,  97.])
-ação: tensor([233.,  71.])
+açêo: tensor([233.,  71.])
 imagem: (3, 96, 96)
 
 $ python meta.py

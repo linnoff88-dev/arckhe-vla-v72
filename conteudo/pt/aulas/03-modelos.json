@@ -5,8 +5,8 @@
   "titulo": "O mapa dos modelos em 2026",
   "titulo_curto": "Mapa dos modelos",
   "minutos": 16,
-  "lead": "Há dezenas de VLAs e o melhor no gráfico pode ser o que você não pode usar. Antes do tamanho e do número de benchmark, três perguntas decidem: os pesos são baixáveis, a licença deixa usar no seu caso e o acesso é livre, pago ou só para parceiros.",
-  "objetivo": "escolher um modelo para um caso real pela licença, tamanho e acesso (aberto, não comercial, API, early access).",
+  "lead": "Há dezenas de VLAs e o melhor no gráfico pode ser o que você nêo pode usar. Antes do tamanho e do número de benchmark, três perguntas decidem: os pesos sêo baixáveis, a licença deixa usar no seu caso e o acesso é livre, pago ou só para parceiros.",
+  "objetivo": "escolher um modelo para um caso real pela licença, tamanho e acesso (aberto, nêo comercial, API, early access).",
   "competencias": [
     "ler-model-card",
     "classificar-licenca-modelo",
@@ -15,11 +15,11 @@
   "aprende": [
     {
       "icone": "camadas",
-      "t": "Quais modelos são abertos e quais são fechados em out/2026"
+      "t": "Quais modelos sêo abertos e quais sêo fechados em out/2026"
     },
     {
       "icone": "cadeado",
-      "t": "As cinco formas de acesso: Apache, licença própria, não comercial, API e early access"
+      "t": "As cinco formas de acesso: Apache, licença própria, nêo comercial, API e early access"
     },
     {
       "icone": "lupa",
@@ -27,7 +27,7 @@
     },
     {
       "icone": "alvo",
-      "t": "Por que LIBERO não serve mais para escolher modelo"
+      "t": "Por que LIBERO nêo serve mais para escolher modelo"
     }
   ],
   "hero_alt": "Vários robôs lado a lado num laboratório: braço de mesa, braço colaborativo, robô móvel e humanoide.",
@@ -72,11 +72,11 @@
               "t": "Cosmos 3 (OpenMDW 1.1)"
             }
           ],
-          "detalhe": "Pesos baixáveis, mas com licença da empresa. O GR00T N1.7 tem código Apache-2.0 e pesos sob a NVIDIA Open Model License, que a NVIDIA apresenta como licença comercial. O Cosmos 3 usa a OpenMDW 1.1. MolmoAct 2 e Wall-OSS-0.5 têm pesos no Hub, mas a licença dos pesos não foi confirmada nesta pesquisa (o blog do MolmoAct 2 não a diz): confira no model card antes de usar."
+          "detalhe": "Pesos baixáveis, mas com licença da empresa. O GR00T N1.7 tem código Apache-2.0 e pesos sob a NVIDIA Open Model License, que a NVIDIA apresenta como licença comercial. O Cosmos 3 usa a OpenMDW 1.1. MolmoAct 2 e Wall-OSS-0.5 têm pesos no Hub, mas a licença dos pesos nêo foi confirmada nesta pesquisa (o blog do MolmoAct 2 nêo a diz): confira no model card antes de usar."
         },
         {
           "icone": "x",
-          "titulo": "Aberto, não comercial",
+          "titulo": "Aberto, nêo comercial",
           "sub": "pesquisa e estudo",
           "itens": [
             {
@@ -84,7 +84,7 @@
               "t": "Galaxea G0.5"
             }
           ],
-          "detalhe": "Pesos no Hugging Face, mas a G0.5 Community License só permite uso não comercial (pesquisa, uso pessoal, educação, avaliação). Produto ou serviço pede outra licença."
+          "detalhe": "Pesos no Hugging Face, mas a G0.5 Community License só permite uso nêo comercial (pesquisa, uso pessoal, educaçêo, avaliaçêo). Produto ou serviço pede outra licença."
         },
         {
           "icone": "nuvem",
@@ -100,7 +100,7 @@
               "t": "Gemini Robotics-ER 2 (prévia no AI Studio)"
             }
           ],
-          "detalhe": "Você não baixa o modelo. A Pi API faz fine-tuning e inferência na infraestrutura da PI, com lista de espera, e o post não diz qual modelo está por trás. O ER 2 do Google está no AI Studio como gemini-robotics-er-2-preview."
+          "detalhe": "Você nêo baixa o modelo. A Pi API faz fine-tuning e inferência na infraestrutura da PI, com lista de espera, e o post nêo diz qual modelo está por trás. O ER 2 do Google está no AI Studio como gemini-robotics-er-2-preview."
         },
         {
           "icone": "cadeado",
@@ -120,10 +120,10 @@
               "t": "Helix 02 / 2.5 (Figure)"
             }
           ],
-          "detalhe": "Servem para entender a fronteira, não para usar. O VLA 2 e o On-Device 2 do Google estão em early access para parceiros (jul/2026). π0.7 e Helix são fechados."
+          "detalhe": "Servem para entender a fronteira, nêo para usar. O VLA 2 e o On-Device 2 do Google estêo em early access para parceiros (jul/2026). π0.7 e Helix sêo fechados."
         }
       ],
-      "legenda": "Aberto não quer dizer livre: leia a licença dos pesos, que pode ser diferente da licença do código.",
+      "legenda": "Aberto nêo quer dizer livre: leia a licença dos pesos, que pode ser diferente da licença do código.",
       "dica": "No Hugging Face a licença fica no topo do model card (campo license). Gated quer dizer que é preciso pedir acesso."
     },
     {
@@ -136,7 +136,7 @@
           "sub": "pesos e acesso",
           "texto": [
             "Se o modelo só existe por API ou para parceiros, você depende de outra empresa para cada teste.",
-            "Atenção ao gated: o GR00T N1.7 baixa sozinho, mas carrega o backbone nvidia/Cosmos-Reason2-2B, que é gated. Sem pedir acesso no Hub, a execução falha com GatedRepoError, segundo o README do Isaac-GR00T."
+            "Atençêo ao gated: o GR00T N1.7 baixa sozinho, mas carrega o backbone nvidia/Cosmos-Reason2-2B, que é gated. Sem pedir acesso no Hub, a execuçêo falha com GatedRepoError, segundo o README do Isaac-GR00T."
           ]
         },
         {
@@ -161,10 +161,10 @@
         },
         {
           "titulo": "Funciona no meu robô?",
-          "sub": "corpo e avaliação",
+          "sub": "corpo e avaliaçêo",
           "texto": [
             "Veja em que robôs o modelo foi validado. O N1.7 foi validado em Unitree G1, YAM e AGIBot Genie 1; o SmolVLA, no SO-100/101.",
-            "Não escolha pelo LIBERO: em 2026 vários modelos passam de 97% (X-VLA 98,1%; MolmoAct 2-Think 98,1%). Olhe RoboArena, MolmoBot, RoboTwin 2.0 ou avaliação de terceiros."
+            "Nêo escolha pelo LIBERO: em 2026 vários modelos passam de 97% (X-VLA 98,1%; MolmoAct 2-Think 98,1%). Olhe RoboArena, MolmoBot, RoboTwin 2.0 ou avaliaçêo de terceiros."
           ]
         }
       ]
@@ -177,7 +177,7 @@
         {
           "rot": "ficha-modelo.md",
           "icone": "arquivo",
-          "conteudo": "# Ficha: <nome do modelo>\nURL do model card: \nLicença dos pesos (campo license): \nLicença do código (repositório): \nUso comercial permitido? (sim / não / ler contrato): \nGated? (precisa pedir acesso?): \nParâmetros: \nRobôs em que foi validado: \nDados de treino (o que o card diz): \nComo treinar ou ajustar (comando do card): "
+          "conteudo": "# Ficha: <nome do modelo>\nURL do model card: \nLicença dos pesos (campo license): \nLicença do código (repositório): \nUso comercial permitido? (sim / nêo / ler contrato): \nGated? (precisa pedir acesso?): \nParâmetros: \nRobôs em que foi validado: \nDados de treino (o que o card diz): \nComo treinar ou ajustar (comando do card): "
         }
       ],
       "saida": {
@@ -185,11 +185,11 @@
         "abas": [
           {
             "rot": "Gabarito (lido em 19/10/2026)",
-            "html": "<ul><li><b>lerobot/smolvla_base</b>: license <code>apache-2.0</code>; base <code>HuggingFaceTB/SmolVLM2-500M-Video-Instruct</code>; não é gated; ajuste com <code>lerobot-train --policy.path=lerobot/smolvla_base</code>.</li><li><b>nvidia/GR00T-N1.7-3B</b>: pesos sob a <b>NVIDIA Open Model License Agreement</b>; código no GitHub em Apache 2.0; 3.000.000.000 parâmetros; dados de treino \"Hybrid: Human, Robot, Simulated\", 13 datasets; o backbone Cosmos-Reason2-2B é gated.</li></ul>"
+            "html": "<ul><li><b>lerobot/smolvla_base</b>: license <code>apache-2.0</code>; base <code>HuggingFaceTB/SmolVLM2-500M-Video-Instruct</code>; nêo é gated; ajuste com <code>lerobot-train --policy.path=lerobot/smolvla_base</code>.</li><li><b>nvidia/GR00T-N1.7-3B</b>: pesos sob a <b>NVIDIA Open Model License Agreement</b>; código no GitHub em Apache 2.0; 3.000.000.000 parâmetros; dados de treino \"Hybrid: Human, Robot, Simulated\", 13 datasets; o backbone Cosmos-Reason2-2B é gated.</li></ul>"
           },
           {
             "rot": "Erros comuns",
-            "html": "<ul><li><b>Copiar a licença do código</b>: no GR00T o código é Apache 2.0, mas os pesos não.</li><li><b>Achar que aberto = comercial</b>: o G0.5 é aberto e não comercial.</li><li><b>Pegar o número de parâmetros de agregador</b>: use o card ou o paper; o \"5,4B\" do MolmoAct 2, por exemplo, só aparece em agregador.</li></ul>"
+            "html": "<ul><li><b>Copiar a licença do código</b>: no GR00T o código é Apache 2.0, mas os pesos nêo.</li><li><b>Achar que aberto = comercial</b>: o G0.5 é aberto e nêo comercial.</li><li><b>Pegar o número de parâmetros de agregador</b>: use o card ou o paper; o \"5,4B\" do MolmoAct 2, por exemplo, só aparece em agregador.</li></ul>"
           }
         ]
       }
@@ -197,7 +197,7 @@
     {
       "tipo": "pratica",
       "titulo": "Prática: ler dois model cards",
-      "sub": "Não precisa de conta no Hugging Face para ler.",
+      "sub": "Nêo precisa de conta no Hugging Face para ler.",
       "exercicios": [
         {
           "id": "e1",
@@ -218,25 +218,25 @@
           "titulo": "E3 · Escolher para um caso",
           "min": "10 min",
           "texto": "Escreva um caso seu em uma linha (estudo em casa, protótipo para cliente, pesquisa). Diga qual dos dois modelos você testaria primeiro e por quê.",
-          "pronto": "a justificativa cita licença, tamanho e acesso, não só benchmark."
+          "pronto": "a justificativa cita licença, tamanho e acesso, nêo só benchmark."
         }
       ]
     },
     {
       "tipo": "quiz",
       "titulo": "Teste o que aprendeu",
-      "sub": "A explicação aparece depois da sua resposta.",
+      "sub": "A explicaçêo aparece depois da sua resposta.",
       "perguntas": [
         {
-          "p": "Uma empresa quer vender um robô de embalagem. Qual modelo ela não pode usar sem outro contrato?",
+          "p": "Uma empresa quer vender um robô de embalagem. Qual modelo ela nêo pode usar sem outro contrato?",
           "opcoes": [
             "π0.5 (openpi, Apache-2.0)",
             "SmolVLA (apache-2.0)",
-            "Galaxea G0.5 (licença não comercial)",
+            "Galaxea G0.5 (licença nêo comercial)",
             "X-VLA (Apache-2.0)"
           ],
           "certa": 2,
-          "explica": "A G0.5 Community License permite só uso não comercial. Produto pede licença comercial separada. Os outros três são Apache-2.0.",
+          "explica": "A G0.5 Community License permite só uso nêo comercial. Produto pede licença comercial separada. Os outros três sêo Apache-2.0.",
           "ref": "diagrama",
           "cert": true
         },
@@ -245,15 +245,15 @@
           "opcoes": [
             "Apache 2.0, igual ao código",
             "NVIDIA Open Model License",
-            "Não comercial",
+            "Nêo comercial",
             "Só por API"
           ],
           "certa": 1,
-          "explica": "O código está em Apache 2.0, mas os pesos estão sob a NVIDIA Open Model License. É o erro mais comum: copiar a licença do repositório para os pesos.",
+          "explica": "O código está em Apache 2.0, mas os pesos estêo sob a NVIDIA Open Model License. É o erro mais comum: copiar a licença do repositório para os pesos.",
           "ref": "codigo"
         },
         {
-          "p": "Por que LIBERO não basta para escolher um VLA em 2026?",
+          "p": "Por que LIBERO nêo basta para escolher um VLA em 2026?",
           "opcoes": [
             "Porque saiu do LeRobot.",
             "Porque vários modelos já passam de 97% e a diferença entre eles some.",
@@ -261,7 +261,7 @@
             "Porque precisa de robô real."
           ],
           "certa": 1,
-          "explica": "Benchmark saturado não separa os modelos. Por isso surgiram versões mais duras (LIBERO-plus, RoboTwin 2.0) e avaliações reais como o RoboArena.",
+          "explica": "Benchmark saturado nêo separa os modelos. Por isso surgiram versões mais duras (LIBERO-plus, RoboTwin 2.0) e avaliações reais como o RoboArena.",
           "ref": "passos"
         },
         {
@@ -273,7 +273,7 @@
             "O código do π*0.6."
           ],
           "certa": 1,
-          "explica": "É acesso comercial só por API. O post fala em \"our latest models\" sem dizer qual. Você não baixa nada.",
+          "explica": "É acesso comercial só por API. O post fala em \"our latest models\" sem dizer qual. Você nêo baixa nada.",
           "ref": "diagrama"
         }
       ]
@@ -292,7 +292,7 @@
         },
         {
           "t": "LIBERO saturado",
-          "texto": "Acima de 97% todo mundo empata. Use avaliação real ou benchmark mais duro."
+          "texto": "Acima de 97% todo mundo empata. Use avaliaçêo real ou benchmark mais duro."
         }
       ]
     },

@@ -2,11 +2,11 @@
   "slug": "fronteira",
   "num": 7,
   "menu": "Fronteira",
-  "titulo": "Além da imitação: RL, world models e memória",
+  "titulo": "Além da imitaçêo: RL, world models e memória",
   "titulo_curto": "RL, WAM e memória",
   "minutos": 16,
-  "lead": "Imitar tem um teto: a política só aprende o que a pessoa mostrou e não sabe sair de um erro que nunca viu. Em 2026 três ideias empurram esse teto: aprender com a própria experiência (RL), prever o futuro em vídeo (World Action Models) e lembrar do que já fez (memória).",
-  "objetivo": "explicar RL depois da imitação, World Action Models e memória longa com exemplos de 2026.",
+  "lead": "Imitar tem um teto: a política só aprende o que a pessoa mostrou e nêo sabe sair de um erro que nunca viu. Em 2026 três ideias empurram esse teto: aprender com a própria experiência (RL), prever o futuro em vídeo (World Action Models) e lembrar do que já fez (memória).",
+  "objetivo": "explicar RL depois da imitaçêo, World Action Models e memória longa com exemplos de 2026.",
   "competencias": [
     "explicar-rl-pos-treino",
     "explicar-world-action-model",
@@ -40,7 +40,7 @@
       "nos": [
         {
           "icone": "usuario",
-          "titulo": "Imitação",
+          "titulo": "Imitaçêo",
           "sub": "a base",
           "itens": [
             {
@@ -85,7 +85,7 @@
               "t": "Cosmos 3 (mai/2026)"
             }
           ],
-          "detalhe": "O modelo prevê o vídeo do que vai acontecer junto com a ação. A aposta é que prever o futuro ensina física melhor do que prever só a ação."
+          "detalhe": "O modelo prevê o vídeo do que vai acontecer junto com a açêo. A aposta é que prever o futuro ensina física melhor do que prever só a açêo."
         },
         {
           "icone": "memoria",
@@ -101,20 +101,20 @@
               "t": "BEHAVIOR 2026: 100 tarefas"
             }
           ],
-          "detalhe": "Lembrar o que já foi feito para não repetir nem pular etapa. O MEM da PI fez tarefas de mais de 10 minutos, como limpar a cozinha inteira."
+          "detalhe": "Lembrar o que já foi feito para nêo repetir nem pular etapa. O MEM da PI fez tarefas de mais de 10 minutos, como limpar a cozinha inteira."
         }
       ],
       "rolagem": true,
       "rolagem_fim": {
         "titulo": "A fronteira inteira",
-        "texto": "Imitação dá o começo; RL corrige com a experiência; o World Action Model prevê o futuro; a memória segura tarefas longas. Os modelos de ponta de 2026 combinam mais de uma.",
+        "texto": "Imitaçêo dá o começo; RL corrige com a experiência; o World Action Model prevê o futuro; a memória segura tarefas longas. Os modelos de ponta de 2026 combinam mais de uma.",
         "curto": "Imitar → corrigir → prever → lembrar."
       }
     },
     {
       "tipo": "passos",
       "titulo": "Os exemplos de 2026",
-      "sub": "Clique em cada um. Números são os informados pelas empresas.",
+      "sub": "Clique em cada um. Números sêo os informados pelas empresas.",
       "passos": [
         {
           "titulo": "Recap",
@@ -129,15 +129,15 @@
           "sub": "PI, 19/03/2026",
           "texto": [
             "O VLA aprende a emitir um \"RL token\" que resume o que ele vê. Um ator-crítico pequeno treina RL em tempo real sobre esse token, com poucas horas ou minutos de dados.",
-            "Testado em tarefas de precisão como apertar parafuso M3 com chave elétrica e encaixar cabo ethernet."
+            "Testado em tarefas de precisêo como apertar parafuso M3 com chave elétrica e encaixar cabo ethernet."
           ]
         },
         {
           "titulo": "DreamZero",
           "sub": "NVIDIA, fev/2026",
           "texto": [
-            "World Action Model de 14B que prevê vídeo e ação juntos e controla em malha fechada a 7 Hz. Segundo o paper, generaliza mais que o dobro dos VLAs de ponta em tarefas e ambientes novos.",
-            "O GR00T N2, anunciado em mar/2026 sobre essa arquitetura, estava previsto para o fim de 2026 e não tinha lançamento confirmado até out/2026."
+            "World Action Model de 14B que prevê vídeo e açêo juntos e controla em malha fechada a 7 Hz. Segundo o paper, generaliza mais que o dobro dos VLAs de ponta em tarefas e ambientes novos.",
+            "O GR00T N2, anunciado em mar/2026 sobre essa arquitetura, estava previsto para o fim de 2026 e nêo tinha lançamento confirmado até out/2026."
           ]
         },
         {
@@ -145,7 +145,7 @@
           "sub": "PI, mar e abr/2026",
           "texto": [
             "O MEM dá memória de curto e longo prazo ao VLA, avaliado sobre o π0.6, em tarefas de mais de 10 minutos.",
-            "O π0.7 (abr/2026) aceita no prompt metadados de qualidade e velocidade e imagens de subobjetivo, e aprende com \"coaching\" por linguagem a usar aparelhos que não viu. É fechado."
+            "O π0.7 (abr/2026) aceita no prompt metadados de qualidade e velocidade e imagens de subobjetivo, e aprende com \"coaching\" por linguagem a usar aparelhos que nêo viu. É fechado."
           ]
         }
       ]
@@ -153,7 +153,7 @@
     {
       "tipo": "simfila",
       "titulo": "O ciclo imitar → rodar → falhar → corrigir",
-      "sub": "Rode o ciclo. Uma etapa falha de propósito na primeira vez: veja o que a correção faz.",
+      "sub": "Rode o ciclo. Uma etapa falha de propósito na primeira vez: veja o que a correçêo faz.",
       "tarefas": [
         "Imitar: treinar a política com 50 demonstrações",
         "Rodar: 20 tentativas de pegar a xícara",
@@ -173,26 +173,26 @@
       },
       "msg": {
         "inicio": "5 etapas a fazer. Clique em \"Rodar o ciclo\".",
-        "rodando": "Uma etapa por vez. A primeira rodada no robô vai encontrar um caso que as demonstrações não cobriam.",
+        "rodando": "Uma etapa por vez. A primeira rodada no robô vai encontrar um caso que as demonstrações nêo cobriam.",
         "parou": "Interrompido. A etapa do meio ficou em rodando/. Rode de novo para retomar.",
-        "retoma": "Retomada: o que estava em rodando/ voltou para a fila. O que já está em feito/ não é refeito.",
-        "fim": "Ciclo completo: a segunda rodada usa o que a correção ensinou.",
-        "fimfalha": "Fim do ciclo. \"Rodar\" foi para falhou/: a xícara virada nunca apareceu nas demonstrações. É desse caso que a correção e o RL vão tratar."
+        "retoma": "Retomada: o que estava em rodando/ voltou para a fila. O que já está em feito/ nêo é refeito.",
+        "fim": "Ciclo completo: a segunda rodada usa o que a correçêo ensinou.",
+        "fimfalha": "Fim do ciclo. \"Rodar\" foi para falhou/: a xícara virada nunca apareceu nas demonstrações. É desse caso que a correçêo e o RL vêo tratar."
       },
-      "legenda": "Simulação ilustrativa no navegador: nenhum robô roda de verdade. A falha é proposital, para mostrar onde a imitação para e a correção começa."
+      "legenda": "Simulaçêo ilustrativa no navegador: nenhum robô roda de verdade. A falha é proposital, para mostrar onde a imitaçêo para e a correçêo começa."
     },
     {
       "tipo": "codigo",
       "titulo": "Registrar o ciclo",
-      "sub": "Copie o modelo e anote cada volta. Sem número antes e depois, não dá para dizer qual etapa ajudou.",
+      "sub": "Copie o modelo e anote cada volta. Sem número antes e depois, nêo dá para dizer qual etapa ajudou.",
       "blocos": [
         {
           "rot": "ciclo.md",
           "icone": "arquivo",
-          "conteudo": "# Ciclo de melhoria: <tarefa>\n\n| Volta | O que mudou | Tentativas | Sucessos | Taxa | Falha mais comum |\n|---|---|---|---|---|---|\n| 1 | só imitação (N demonstrações) | 20 | | | |\n| 2 | + correções humanas (dagger) | 20 | | | |\n| 3 | + ajuste com RL | 20 | | | |\n\nConclusão: a etapa que mais reduziu a falha foi ______ porque ______."
+          "conteudo": "# Ciclo de melhoria: <tarefa>\n\n| Volta | O que mudou | Tentativas | Sucessos | Taxa | Falha mais comum |\n|---|---|---|---|---|---|\n| 1 | só imitaçêo (N demonstrações) | 20 | | | |\n| 2 | + correções humanas (dagger) | 20 | | | |\n| 3 | + ajuste com RL | 20 | | | |\n\nConclusêo: a etapa que mais reduziu a falha foi ______ porque ______."
         },
         {
-          "rot": "Com o braço real: correções com dagger (da documentação do LeRobot 0.6, não rodado aqui)",
+          "rot": "Com o braço real: correções com dagger (da documentaçêo do LeRobot 0.6, nêo rodado aqui)",
           "icone": "robo",
           "conteudo": "lerobot-rollout \\\n  --strategy.type=dagger \\\n  --policy.path=<seu usuário>/minha_politica \\\n  --robot.type=so101_follower \\\n  --robot.port=/dev/ttyACM0 \\\n  --teleop.type=so101_leader \\\n  --teleop.port=/dev/ttyACM1 \\\n  --dataset.repo_id=<seu usuário>/correcoes_dagger \\\n  --dataset.single_task=\"Pegue o bloco\""
         }
@@ -202,7 +202,7 @@
         "abas": [
           {
             "rot": "Como ler",
-            "html": "<ul><li>Compare a taxa de uma volta para a outra com o <b>mesmo número de tentativas</b>.</li><li>Mude <b>uma coisa por volta</b>; se mudar duas, você não sabe qual ajudou.</li><li>O comando dagger precisa do braço (e de conta no Hub para enviar o dataset); está aqui para você reconhecer o fluxo.</li></ul>"
+            "html": "<ul><li>Compare a taxa de uma volta para a outra com o <b>mesmo número de tentativas</b>.</li><li>Mude <b>uma coisa por volta</b>; se mudar duas, você nêo sabe qual ajudou.</li><li>O comando dagger precisa do braço (e de conta no Hub para enviar o dataset); está aqui para você reconhecer o fluxo.</li></ul>"
           }
         ]
       }
@@ -210,21 +210,21 @@
     {
       "tipo": "pratica",
       "titulo": "Prática: qual etapa reduziu a falha?",
-      "sub": "Use a simulação acima e os exemplos.",
+      "sub": "Use a simulaçêo acima e os exemplos.",
       "exercicios": [
         {
           "id": "e1",
           "titulo": "E1 · Rodar o ciclo",
           "min": "5 min",
-          "texto": "Rode a simulação até o fim, interrompa uma vez no meio e retome.",
-          "pronto": "a etapa \"Rodar\" aparece em falhou/ e as etapas de feito/ não foram refeitas na retomada."
+          "texto": "Rode a simulaçêo até o fim, interrompa uma vez no meio e retome.",
+          "pronto": "a etapa \"Rodar\" aparece em falhou/ e as etapas de feito/ nêo foram refeitas na retomada."
         },
         {
           "id": "e2",
           "titulo": "E2 · Explicar a falha",
           "min": "10 min",
-          "texto": "Escreva três linhas: por que a imitação falhou, qual etapa trata a falha e qual exemplo de 2026 faz algo parecido.",
-          "pronto": "as três linhas citam a falta do caso nas demonstrações, a etapa de correção ou ajuste com RL e um exemplo (Recap, RL Token ou lerobot-rollout com dagger)."
+          "texto": "Escreva três linhas: por que a imitaçêo falhou, qual etapa trata a falha e qual exemplo de 2026 faz algo parecido.",
+          "pronto": "as três linhas citam a falta do caso nas demonstrações, a etapa de correçêo ou ajuste com RL e um exemplo (Recap, RL Token ou lerobot-rollout com dagger)."
         },
         {
           "id": "e3",
@@ -238,18 +238,18 @@
     {
       "tipo": "quiz",
       "titulo": "Teste o que aprendeu",
-      "sub": "A explicação aparece depois da sua resposta.",
+      "sub": "A explicaçêo aparece depois da sua resposta.",
       "perguntas": [
         {
-          "p": "Qual é o limite principal da imitação pura?",
+          "p": "Qual é o limite principal da imitaçêo pura?",
           "opcoes": [
             "Precisa de GPU.",
-            "A política não sabe sair de situações que as demonstrações não mostraram.",
-            "Não aceita câmera.",
-            "Só funciona em simulação."
+            "A política nêo sabe sair de situações que as demonstrações nêo mostraram.",
+            "Nêo aceita câmera.",
+            "Só funciona em simulaçêo."
           ],
           "certa": 1,
-          "explica": "A política copia o que viu. Caso novo (a xícara virada) não está nos dados. RL e correção humana tratam justamente esse buraco.",
+          "explica": "A política copia o que viu. Caso novo (a xícara virada) nêo está nos dados. RL e correçêo humana tratam justamente esse buraco.",
           "ref": "simfila",
           "cert": true
         },
@@ -268,13 +268,13 @@
         {
           "p": "O que define um World Action Model como o DreamZero?",
           "opcoes": [
-            "Prever vídeo futuro e ação juntos.",
+            "Prever vídeo futuro e açêo juntos.",
             "Ter mais de 100B parâmetros.",
             "Rodar só na nuvem.",
-            "Não usar câmera."
+            "Nêo usar câmera."
           ],
           "certa": 0,
-          "explica": "WAM prevê o futuro em vídeo e a ação ao mesmo tempo. O DreamZero tem 14B e controla a 7 Hz.",
+          "explica": "WAM prevê o futuro em vídeo e a açêo ao mesmo tempo. O DreamZero tem 14B e controla a 7 Hz.",
           "ref": "diagrama"
         },
         {
@@ -286,7 +286,7 @@
             "Disponível só por API."
           ],
           "certa": 1,
-          "explica": "A NVIDIA mostrou uma prévia em 16/03/2026 e diz que ele lidera alguns rankings, mas até out/2026 nenhum lançamento foi encontrado. Anúncio não é produto.",
+          "explica": "A NVIDIA mostrou uma prévia em 16/03/2026 e diz que ele lidera alguns rankings, mas até out/2026 nenhum lançamento foi encontrado. Anúncio nêo é produto.",
           "ref": "passos"
         }
       ]
@@ -297,11 +297,11 @@
       "itens": [
         {
           "t": "Imitar e depois corrigir",
-          "texto": "RL e correção humana tratam o que as demonstrações não cobriram."
+          "texto": "RL e correçêo humana tratam o que as demonstrações nêo cobriram."
         },
         {
           "t": "Prever o futuro",
-          "texto": "World Action Models preveem vídeo e ação juntos: DreamZero, GR00T N2 (anunciado), Cosmos 3 como base."
+          "texto": "World Action Models preveem vídeo e açêo juntos: DreamZero, GR00T N2 (anunciado), Cosmos 3 como base."
         },
         {
           "t": "Lembrar",

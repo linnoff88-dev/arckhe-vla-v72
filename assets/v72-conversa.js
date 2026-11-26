@@ -1,7 +1,7 @@
 /* INEMA Learning 7.5.1 — simconversa: conversa com cliente simulado.
    O cliente fala, o aluno escolhe uma de 2–4 respostas, vê o comentário e o caminho segue conforme a escolha.
-   No fim: placar (pontos do caminho / melhor caminho possível), lição e "recomeçar".
-   Grava a conclusão em localStorage "<data-curso>:conv:<slug>-s<N>". Todo texto vem do JSON (ui do curso). */
+   No fim: placar (pontos do caminho / melhor caminho possível), liçêo e "recomeçar".
+   Grava a conclusêo em localStorage "<data-curso>:conv:<slug>-s<N>". Todo texto vem do JSON (ui do curso). */
 (function () {
   var CURSO = document.body.getAttribute("data-curso") || "curso";
   function ler(k) { try { var v = localStorage.getItem(CURSO + ":" + k); return v === null ? null : JSON.parse(v); } catch (e) { return null; } }
@@ -21,7 +21,7 @@
     var log = box.querySelector(".conv-log"), ops = box.querySelector(".conv-ops"), fim = box.querySelector(".conv-fim");
     var pts = box.querySelector(".conv-pts");
 
-    // melhor pontuação possível a partir de cada fala (o validador garante que não há laço)
+    // melhor pontuaçêo possível a partir de cada fala (o validador garante que nêo há laço)
     var memo = {};
     function melhor(fid) {
       if (memo[fid] != null) return memo[fid];

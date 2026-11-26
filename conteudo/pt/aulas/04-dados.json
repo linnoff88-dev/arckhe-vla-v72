@@ -5,8 +5,8 @@
   "titulo": "Dados: o combustível que falta",
   "titulo_curto": "Dados de robô",
   "minutos": 16,
-  "lead": "Texto para treinar LLM existe aos montes na internet. Dados de robô, não: alguém precisa mover o braço, gravar a câmera e anotar a tarefa. Em 2026 a resposta virou vídeo de gente trabalhando, filmado em primeira pessoa. Nesta aula você abre um dataset de robô de verdade.",
-  "objetivo": "explicar de onde vêm os dados de robô (teleoperação, OXE/DROID, vídeo humano) e abrir um LeRobotDataset v3.",
+  "lead": "Texto para treinar LLM existe aos montes na internet. Dados de robô, nêo: alguém precisa mover o braço, gravar a câmera e anotar a tarefa. Em 2026 a resposta virou vídeo de gente trabalhando, filmado em primeira pessoa. Nesta aula você abre um dataset de robô de verdade.",
+  "objetivo": "explicar de onde vêm os dados de robô (teleoperaçêo, OXE/DROID, vídeo humano) e abrir um LeRobotDataset v3.",
   "competencias": [
     "explicar-fontes-de-dados-robo",
     "abrir-lerobotdataset",
@@ -15,7 +15,7 @@
   "aprende": [
     {
       "icone": "usuario",
-      "t": "Como a teleoperação gera um episódio"
+      "t": "Como a teleoperaçêo gera um episódio"
     },
     {
       "icone": "camadas",
@@ -39,7 +39,7 @@
       "nos": [
         {
           "icone": "usuario",
-          "titulo": "Teleoperação",
+          "titulo": "Teleoperaçêo",
           "sub": "uma pessoa guia o robô",
           "itens": [
             {
@@ -51,7 +51,7 @@
               "t": "Câmera + juntas gravadas"
             }
           ],
-          "detalhe": "A pessoa move um braço-líder e o seguidor copia. Cada tentativa vira um episódio com imagens, estado das juntas e ação. É o dado mais fiel ao robô e o mais caro de juntar. O BEHAVIOR Challenge 2026 traz 20.000 demonstrações e 1.950 h de teleoperação."
+          "detalhe": "A pessoa move um braço-líder e o seguidor copia. Cada tentativa vira um episódio com imagens, estado das juntas e açêo. É o dado mais fiel ao robô e o mais caro de juntar. O BEHAVIOR Challenge 2026 traz 20.000 demonstrações e 1.950 h de teleoperaçêo."
         },
         {
           "icone": "camadas",
@@ -92,34 +92,34 @@
         },
         {
           "icone": "chip",
-          "titulo": "Simulação",
+          "titulo": "Simulaçêo",
           "sub": "dados sintéticos",
           "itens": [
             {
               "icone": "chip",
-              "t": "Teleoperação dentro do simulador"
+              "t": "Teleoperaçêo dentro do simulador"
             },
             {
               "icone": "lista",
               "t": "Benchmarks de sim (RoboTwin 2.0, LIBERO)"
             }
           ],
-          "detalhe": "O simulador gera episódios sem gastar robô. O Isaac Sim 6.0 (jun/2026) trouxe teleoperação para coletar demonstrações dentro do simulador. A aula 6 trata da distância entre sim e mundo real."
+          "detalhe": "O simulador gera episódios sem gastar robô. O Isaac Sim 6.0 (jun/2026) trouxe teleoperaçêo para coletar demonstrações dentro do simulador. A aula 6 trata da distância entre sim e mundo real."
         }
       ],
-      "legenda": "Na prática os modelos de 2026 misturam as quatro fontes: muito vídeo humano no pré-treino, teleoperação do seu robô no ajuste fino.",
+      "legenda": "Na prática os modelos de 2026 misturam as quatro fontes: muito vídeo humano no pré-treino, teleoperaçêo do seu robô no ajuste fino.",
       "dica": "Episódio = uma tentativa do começo ao fim. fps = quantos quadros por segundo foram gravados."
     },
     {
       "tipo": "passos",
       "titulo": "Por dentro de um LeRobotDataset v3",
-      "sub": "O formato que o LeRobot usa desde a versão 0.4.",
+      "sub": "O formato que o LeRobot usa desde a versêo 0.4.",
       "passos": [
         {
           "titulo": "Poucos arquivos grandes",
           "sub": "o que mudou na v3",
           "texto": [
-            "Os dados de tabela (estado, ação, índices) ficam em Parquet. O vídeo de cada câmera fica em MP4 concatenado e fatiado. Os metadados ficam em JSON e Parquet.",
+            "Os dados de tabela (estado, açêo, índices) ficam em Parquet. O vídeo de cada câmera fica em MP4 concatenado e fatiado. Os metadados ficam em JSON e Parquet.",
             "Você continua lendo por episódio: a biblioteca esconde onde cada quadro está guardado."
           ]
         },
@@ -127,20 +127,20 @@
           "titulo": "Um quadro",
           "sub": "o que vem em cada índice",
           "texto": [
-            "Cada índice devolve um dicionário de tensores PyTorch: a imagem da câmera, o estado do robô, a ação daquele instante e o carimbo de tempo.",
-            "É exatamente o par (observação → ação) que a política vai aprender a imitar na aula 5."
+            "Cada índice devolve um dicionário de tensores PyTorch: a imagem da câmera, o estado do robô, a açêo daquele instante e o carimbo de tempo.",
+            "É exatamente o par (observaçêo → açêo) que a política vai aprender a imitar na aula 5."
           ],
           "exemplo": {
             "rot": "No PushT",
-            "texto": "observation.image (3×96×96), observation.state (posição do agente), action (para onde ir)."
+            "texto": "observation.image (3×96×96), observation.state (posiçêo do agente), action (para onde ir)."
           }
         },
         {
           "titulo": "Novidades da 0.6",
           "sub": "jul/2026",
           "texto": [
-            "O formato ganhou profundidade (câmeras de distância) e colunas de linguagem, com anotação automática de linguagem. Segundo o blog da versão, o carregamento ficou até 2× mais rápido.",
-            "Dataset antigo v2.1 tem script de conversão para v3."
+            "O formato ganhou profundidade (câmeras de distância) e colunas de linguagem, com anotaçêo automática de linguagem. Segundo o blog da versêo, o carregamento ficou até 2× mais rápido.",
+            "Dataset antigo v2.1 tem script de conversêo para v3."
           ]
         }
       ]
@@ -158,7 +158,7 @@
         {
           "rot": "abrir_dataset.py",
           "icone": "arquivo",
-          "conteudo": "from lerobot.datasets import LeRobotDataset\n\nds = LeRobotDataset(\"lerobot/pusht\")\nprint(\"episódios:\", ds.num_episodes)\nprint(\"fps:\", ds.fps)\nprint(\"quadros:\", ds.num_frames)\nprint(\"chaves:\", list(ds.features))\n\n# onde começa e termina o episódio 0\nini = ds.meta.episodes[\"dataset_from_index\"][0]\nfim = ds.meta.episodes[\"dataset_to_index\"][0]\nprint(\"episódio 0: quadros\", ini, \"a\", fim - 1, f\"({(fim - ini) / ds.fps:.1f} s)\")\n\nquadro = ds[ini]\nprint(\"estado:\", quadro[\"observation.state\"])\nprint(\"ação:\", quadro[\"action\"])\nprint(\"imagem:\", tuple(quadro[\"observation.image\"].shape))"
+          "conteudo": "from lerobot.datasets import LeRobotDataset\n\nds = LeRobotDataset(\"lerobot/pusht\")\nprint(\"episódios:\", ds.num_episodes)\nprint(\"fps:\", ds.fps)\nprint(\"quadros:\", ds.num_frames)\nprint(\"chaves:\", list(ds.features))\n\n# onde começa e termina o episódio 0\nini = ds.meta.episodes[\"dataset_from_index\"][0]\nfim = ds.meta.episodes[\"dataset_to_index\"][0]\nprint(\"episódio 0: quadros\", ini, \"a\", fim - 1, f\"({(fim - ini) / ds.fps:.1f} s)\")\n\nquadro = ds[ini]\nprint(\"estado:\", quadro[\"observation.state\"])\nprint(\"açêo:\", quadro[\"action\"])\nprint(\"imagem:\", tuple(quadro[\"observation.image\"].shape))"
         },
         {
           "rot": "Terminal",
@@ -166,7 +166,7 @@
           "conteudo": "python abrir_dataset.py"
         },
         {
-          "rot": "meta.py · só os metadados (não baixa os vídeos)",
+          "rot": "meta.py · só os metadados (nêo baixa os vídeos)",
           "icone": "arquivo",
           "conteudo": "from lerobot.datasets import LeRobotDatasetMetadata\n\nfor repo in [\"lerobot/libero\", \"lerobot/aloha_mobile_cabinet\"]:\n    m = LeRobotDatasetMetadata(repo)\n    print(repo, \"episódios:\", m.total_episodes, \"fps:\", m.fps, \"câmeras:\", m.camera_keys)"
         }
@@ -176,11 +176,11 @@
         "abas": [
           {
             "rot": "Saída capturada (19/10/2026)",
-            "html": "<pre>$ python abrir_dataset.py\nWarning: You are sending unauthenticated requests to the HF Hub. ...\nepisódios: 206\nfps: 10\nquadros: 25650\nchaves: ['observation.image', 'observation.state', 'action', 'episode_index', 'frame_index', 'timestamp', 'next.reward', 'next.done', 'next.success', 'index', 'task_index']\nepisódio 0: quadros 0 a 160 (16.1 s)\nestado: tensor([222.,  97.])\nação: tensor([233.,  71.])\nimagem: (3, 96, 96)\n\n$ python meta.py\nlerobot/libero episódios: 1693 fps: 10.0 câmeras: ['observation.images.image', 'observation.images.image2']\nlerobot/aloha_mobile_cabinet episódios: 85 fps: 50 câmeras: ['observation.images.cam_high', 'observation.images.cam_left_wrist', 'observation.images.cam_right_wrist']</pre><p>LeRobot 0.6.1, Python 3.12. O aviso de \"unauthenticated requests\" é normal sem conta: só limita a velocidade. A primeira vez baixa o dataset (levou 12 s aqui); depois fica no cache.</p>"
+            "html": "<pre>$ python abrir_dataset.py\nWarning: You are sending unauthenticated requests to the HF Hub. ...\nepisódios: 206\nfps: 10\nquadros: 25650\nchaves: ['observation.image', 'observation.state', 'action', 'episode_index', 'frame_index', 'timestamp', 'next.reward', 'next.done', 'next.success', 'index', 'task_index']\nepisódio 0: quadros 0 a 160 (16.1 s)\nestado: tensor([222.,  97.])\naçêo: tensor([233.,  71.])\nimagem: (3, 96, 96)\n\n$ python meta.py\nlerobot/libero episódios: 1693 fps: 10.0 câmeras: ['observation.images.image', 'observation.images.image2']\nlerobot/aloha_mobile_cabinet episódios: 85 fps: 50 câmeras: ['observation.images.cam_high', 'observation.images.cam_left_wrist', 'observation.images.cam_right_wrist']</pre><p>LeRobot 0.6.1, Python 3.12. O aviso de \"unauthenticated requests\" é normal sem conta: só limita a velocidade. A primeira vez baixa o dataset (levou 12 s aqui); depois fica no cache.</p>"
           },
           {
             "rot": "Erros comuns",
-            "html": "<ul><li><b><code>pip install lerobot</code> sozinho</b>: desde a 0.6 a instalação base é enxuta e não traz o suporte a datasets. Use o extra <code>[training]</code> (ou <code>[dataset]</code>).</li><li><b>Python antigo</b>: a 0.6 pede Python 3.12 e PyTorch 2.7 ou mais novo.</li><li><b>Erro de ffmpeg/torchcodec</b>: o LeRobot decodifica vídeo com TorchCodec, que precisa de ffmpeg; em Linux ARM e alguns outros sistemas ele usa o pyav sozinho. Veja a página de instalação.</li></ul>"
+            "html": "<ul><li><b><code>pip install lerobot</code> sozinho</b>: desde a 0.6 a instalaçêo base é enxuta e nêo traz o suporte a datasets. Use o extra <code>[training]</code> (ou <code>[dataset]</code>).</li><li><b>Python antigo</b>: a 0.6 pede Python 3.12 e PyTorch 2.7 ou mais novo.</li><li><b>Erro de ffmpeg/torchcodec</b>: o LeRobot decodifica vídeo com TorchCodec, que precisa de ffmpeg; em Linux ARM e alguns outros sistemas ele usa o pyav sozinho. Veja a página de instalaçêo.</li></ul>"
           }
         ]
       }
@@ -188,7 +188,7 @@
     {
       "tipo": "pratica",
       "titulo": "Prática: o seu primeiro dataset de robô",
-      "sub": "Roda em qualquer computador com Python 3.12. Não precisa de GPU.",
+      "sub": "Roda em qualquer computador com Python 3.12. Nêo precisa de GPU.",
       "exercicios": [
         {
           "id": "e1",
@@ -201,7 +201,7 @@
           "id": "e2",
           "titulo": "E2 · Ver um episódio",
           "min": "10 min",
-          "texto": "Abra huggingface.co/datasets/lerobot/pusht no navegador e assista ao episódio 0 no visualizador. Compare com a duração que o script calculou.",
+          "texto": "Abra huggingface.co/datasets/lerobot/pusht no navegador e assista ao episódio 0 no visualizador. Compare com a duraçêo que o script calculou.",
           "pronto": "você confirma que o episódio 0 dura cerca de 16 s e sabe dizer o que o agente empurra."
         },
         {
@@ -216,7 +216,7 @@
     {
       "tipo": "quiz",
       "titulo": "Teste o que aprendeu",
-      "sub": "A explicação aparece depois da sua resposta.",
+      "sub": "A explicaçêo aparece depois da sua resposta.",
       "perguntas": [
         {
           "p": "O que é um episódio num dataset de robô?",
@@ -248,18 +248,18 @@
           "opcoes": [
             "Texto da internet",
             "Vídeo humano em primeira pessoa",
-            "Só teleoperação",
-            "Só simulação"
+            "Só teleoperaçêo",
+            "Só simulaçêo"
           ],
           "certa": 1,
-          "explica": "Index da Figure, EgoVerse e o pré-treino do GR00T N1.7 apontam para vídeo humano egocêntrico. A teleoperação continua para o ajuste fino no seu robô.",
+          "explica": "Index da Figure, EgoVerse e o pré-treino do GR00T N1.7 apontam para vídeo humano egocêntrico. A teleoperaçêo continua para o ajuste fino no seu robô.",
           "ref": "diagrama"
         },
         {
-          "p": "Por que pip install lerobot sozinho não abre o dataset na 0.6?",
+          "p": "Por que pip install lerobot sozinho nêo abre o dataset na 0.6?",
           "opcoes": [
             "Porque precisa de login.",
-            "Porque a instalação base ficou enxuta e o suporte a datasets veio para os extras.",
+            "Porque a instalaçêo base ficou enxuta e o suporte a datasets veio para os extras.",
             "Porque o PushT foi removido.",
             "Porque precisa de GPU."
           ],
@@ -275,11 +275,11 @@
       "itens": [
         {
           "t": "Quatro fontes",
-          "texto": "Teleoperação, acervos abertos, vídeo humano e simulação."
+          "texto": "Teleoperaçêo, acervos abertos, vídeo humano e simulaçêo."
         },
         {
           "t": "2026 = vídeo humano",
-          "texto": "É o que mais escala no pré-treino; a teleoperação ajusta ao seu robô."
+          "texto": "É o que mais escala no pré-treino; a teleoperaçêo ajusta ao seu robô."
         },
         {
           "t": "LeRobotDataset v3",
@@ -292,12 +292,12 @@
       "titulo": "Fontes desta aula",
       "links": [
         {
-          "t": "LeRobotDataset v3.0 (documentação)",
+          "t": "LeRobotDataset v3.0 (documentaçêo)",
           "href": "https://huggingface.co/docs/lerobot/lerobot-dataset-v3",
           "icone": "arquivo"
         },
         {
-          "t": "Instalação do LeRobot (extras)",
+          "t": "Instalaçêo do LeRobot (extras)",
           "href": "https://huggingface.co/docs/lerobot/installation",
           "icone": "terminal"
         },

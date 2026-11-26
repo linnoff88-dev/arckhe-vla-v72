@@ -166,7 +166,7 @@
         {
           "rot": "orcamento.py",
           "icone": "arquivo",
-          "conteudo": "# orcamento.py: cuánto tiempo cubre cada pedazo (chunk) de acciones\nhz = 50            # frecuencia del control (comandos por segundo)\nchunk = 25         # acciones que el modelo devuelve de una vez\ninferencia_ms = 180  # tiempo para que el modelo genere un chunk\n\nperiodo_ms = 1000 / hz\ndura_chunk_ms = chunk * periodo_ms\nacoes_na_espera = inferencia_ms / periodo_ms\n\nprint(f\"período do controle: {periodo_ms:.0f} ms\")\nprint(f\"um chunk de {chunk} ações cobre: {dura_chunk_ms:.0f} ms\")\nprint(f\"ações que passam enquanto o modelo pensa: {acoes_na_espera:.0f}\")\nprint(\"dá tempo de pensar antes do chunk acabar?\", \"sim\" if inferencia_ms < dura_chunk_ms else \"não\")"
+          "conteudo": "# orcamento.py: cuánto tiempo cubre cada pedazo (chunk) de acciones\nhz = 50            # frecuencia del control (comandos por segundo)\nchunk = 25         # acciones que el modelo devuelve de una vez\ninferencia_ms = 180  # tiempo para que el modelo genere un chunk\n\nperiodo_ms = 1000 / hz\ndura_chunk_ms = chunk * periodo_ms\nacoes_na_espera = inferencia_ms / periodo_ms\n\nprint(f\"período do controle: {periodo_ms:.0f} ms\")\nprint(f\"um chunk de {chunk} ações cobre: {dura_chunk_ms:.0f} ms\")\nprint(f\"ações que passam enquanto o modelo pensa: {acoes_na_espera:.0f}\")\nprint(\"dá tempo de pensar antes do chunk acabar?\", \"sim\" if inferencia_ms < dura_chunk_ms else \"nêo\")"
         },
         {
           "rot": "Terminal",

@@ -1,12 +1,12 @@
 {
   "slug": "simulacao",
   "num": 6,
-  "menu": "Simulação",
-  "titulo": "Simular antes de quebrar: sim, avaliação e sim-to-real",
-  "titulo_curto": "Simulação e avaliação",
+  "menu": "Simulaçêo",
+  "titulo": "Simular antes de quebrar: sim, avaliaçêo e sim-to-real",
+  "titulo_curto": "Simulaçêo e avaliaçêo",
   "minutos": 16,
   "lead": "Testar no robô real custa tempo, peça e paciência. O simulador deixa errar mil vezes de graça e dá um número: a taxa de sucesso. Mas o número só vale se o teste for difícil o bastante e se o mundo simulado se parecer com o real.",
-  "objetivo": "avaliar uma política em simulação e saber por que LIBERO sozinho não basta mais.",
+  "objetivo": "avaliar uma política em simulaçêo e saber por que LIBERO sozinho nêo basta mais.",
   "competencias": [
     "avaliar-politica-em-sim",
     "ler-taxa-de-sucesso",
@@ -15,10 +15,10 @@
   "aprende": [
     { "icone": "chip", "t": "Os simuladores de 2026: MuJoCo, Isaac Sim/Lab e Newton" },
     { "icone": "alvo", "t": "Rodar lerobot-eval e ler a taxa de sucesso" },
-    { "icone": "grafico", "t": "Por que benchmark saturado não separa modelos" },
-    { "icone": "escudo", "t": "Randomização e identificação de sistema contra o reality gap" }
+    { "icone": "grafico", "t": "Por que benchmark saturado nêo separa modelos" },
+    { "icone": "escudo", "t": "Randomizaçêo e identificaçêo de sistema contra o reality gap" }
   ],
-  "hero_alt": "Monitor com simulação 3D de um braço empurrando um bloco em T ao lado do braço real na mesa.",
+  "hero_alt": "Monitor com simulaçêo 3D de um braço empurrando um bloco em T ao lado do braço real na mesa.",
   "secoes": [
     {
       "tipo": "diagrama",
@@ -30,7 +30,7 @@
           "titulo": "Simulador",
           "sub": "física no computador",
           "itens": [ { "icone": "chip", "t": "MuJoCo 3.16 + MuJoCo Warp" }, { "icone": "chip", "t": "Isaac Sim 6.1 / Isaac Lab 3.0 EA" }, { "icone": "chip", "t": "Newton (motor aberto)" } ],
-          "detalhe": "O MuJoCo está na 3.16.0 (14/10/2026); desde a 3.5.0 (fev/2026) tem o MuJoCo Warp, feito por NVIDIA e Google DeepMind para rodar muitas simulações em lote na GPU. O Isaac Sim 6.1 saiu em set/2026; o Isaac Lab 3.0 está em early access (16/09/2026) e ainda sem versão final."
+          "detalhe": "O MuJoCo está na 3.16.0 (14/10/2026); desde a 3.5.0 (fev/2026) tem o MuJoCo Warp, feito por NVIDIA e Google DeepMind para rodar muitas simulações em lote na GPU. O Isaac Sim 6.1 saiu em set/2026; o Isaac Lab 3.0 está em early access (16/09/2026) e ainda sem versêo final."
         },
         {
           "icone": "alvo",
@@ -38,7 +38,7 @@
           "sub": "o mesmo teste para todos",
           "forte": true,
           "itens": [ { "icone": "lista", "t": "LIBERO, LIBERO-plus, Meta-World" }, { "icone": "lista", "t": "RoboTwin 2.0, RoboCasa365, VLABench…" } ],
-          "detalhe": "Um conjunto fixo de tarefas e uma contagem de sucesso. Na 0.6 do LeRobot vários benchmarks rodam pelo mesmo lerobot-eval. O LIBERO-plus e o RoboTwin 2.0 são versões mais duras, criadas porque o LIBERO saturou."
+          "detalhe": "Um conjunto fixo de tarefas e uma contagem de sucesso. Na 0.6 do LeRobot vários benchmarks rodam pelo mesmo lerobot-eval. O LIBERO-plus e o RoboTwin 2.0 sêo versões mais duras, criadas porque o LIBERO saturou."
         },
         {
           "icone": "robo",
@@ -49,32 +49,32 @@
         }
       ],
       "volta": "Diferença entre sim e real? Randomize o simulador e meça o robô (sysid), e teste de novo",
-      "legenda": "Simulação para errar barato; benchmark para comparar; mundo real para decidir.",
+      "legenda": "Simulaçêo para errar barato; benchmark para comparar; mundo real para decidir.",
       "dica": "Reality gap = a distância entre o que a política vê e sente no simulador e no robô de verdade."
     },
     {
       "tipo": "passos",
-      "titulo": "Três ideias para não se enganar",
+      "titulo": "Três ideias para nêo se enganar",
       "sub": "Clique em cada uma.",
       "passos": [
         {
           "titulo": "Benchmark saturado",
           "sub": "LIBERO",
           "texto": [
-            "Em 2026 vários modelos passam de 97% no LIBERO: OpenVLA-OFT 97,1%, X-VLA 98,1%, MolmoAct 2-Think 98,1%. Quando todos tiram nota máxima, a prova não separa ninguém.",
-            "Por isso aparecem provas mais duras (LIBERO-plus, RoboTwin 2.0) e avaliação real (RoboArena, MolmoBot)."
+            "Em 2026 vários modelos passam de 97% no LIBERO: OpenVLA-OFT 97,1%, X-VLA 98,1%, MolmoAct 2-Think 98,1%. Quando todos tiram nota máxima, a prova nêo separa ninguém.",
+            "Por isso aparecem provas mais duras (LIBERO-plus, RoboTwin 2.0) e avaliaçêo real (RoboArena, MolmoBot)."
           ]
         },
         {
-          "titulo": "Randomização",
+          "titulo": "Randomizaçêo",
           "sub": "domain randomization",
           "texto": [
-            "Em vez de um simulador perfeito, você varia de propósito cor, luz, atrito, massa e posição da câmera em cada episódio.",
-            "A política que aprende com tanta variação trata o mundo real como só mais uma variação."
+            "Em vez de um simulador perfeito, você varia de propósito cor, luz, atrito, massa e posiçêo da câmera em cada episódio.",
+            "A política que aprende com tanta variaçêo trata o mundo real como só mais uma variaçêo."
           ]
         },
         {
-          "titulo": "Identificação",
+          "titulo": "Identificaçêo",
           "sub": "system identification",
           "texto": [
             "Você mede o robô real (massa, atrito, atraso dos motores) e ajusta o simulador para bater.",
@@ -110,11 +110,11 @@
         "abas": [
           {
             "rot": "Saída capturada (19/10/2026)",
-            "html": "<pre>INFO ... Overall Aggregated Metrics:\nINFO ... {'avg_sum_reward': 11.107..., 'avg_max_reward': 0.0824..., 'pc_success': 0.0, 'n_episodes': 10, 'eval_s': 9.46...}\nINFO ... End of eval\n\n# mesma avaliação com o checkpoint de 5000 passos (E3 da aula 5), 20 episódios:\n{'avg_sum_reward': 19.45..., 'avg_max_reward': 0.275..., 'pc_success': 0.0, 'n_episodes': 20, 'eval_s': 14.0...}</pre><p>LeRobot 0.6.1. Com 200 passos: 13 s no total, tanto na GPU quanto só na CPU (a avaliação é leve). <b>pc_success</b> é a taxa de sucesso em %; <b>avg_max_reward</b> mostra quanto a política chegou perto do alvo (maior é melhor). Os dois treinos curtos dão 0% de sucesso: a política ainda não empurra o T até o alvo, mas com 5000 passos chega mais perto (0,08 → 0,28).</p>"
+            "html": "<pre>INFO ... Overall Aggregated Metrics:\nINFO ... {'avg_sum_reward': 11.107..., 'avg_max_reward': 0.0824..., 'pc_success': 0.0, 'n_episodes': 10, 'eval_s': 9.46...}\nINFO ... End of eval\n\n# mesma avaliaçêo com o checkpoint de 5000 passos (E3 da aula 5), 20 episódios:\n{'avg_sum_reward': 19.45..., 'avg_max_reward': 0.275..., 'pc_success': 0.0, 'n_episodes': 20, 'eval_s': 14.0...}</pre><p>LeRobot 0.6.1. Com 200 passos: 13 s no total, tanto na GPU quanto só na CPU (a avaliaçêo é leve). <b>pc_success</b> é a taxa de sucesso em %; <b>avg_max_reward</b> mostra quanto a política chegou perto do alvo (maior é melhor). Os dois treinos curtos dêo 0% de sucesso: a política ainda nêo empurra o T até o alvo, mas com 5000 passos chega mais perto (0,08 → 0,28).</p>"
           },
           {
             "rot": "Erros comuns",
-            "html": "<ul><li><b>\"Namespace gym_pusht not found\"</b>: aconteceu aqui com mais de um ambiente em paralelo. A opção <code>--eval.use_async_envs=false</code> resolveu.</li><li><b>Checkpoint antigo do Hub</b>: o <code>lerobot/diffusion_pusht</code> pede migração de formato na 0.6 e não roda direto. Avalie o seu.</li><li><b>Ler 0% como \"não funciona\"</b>: com poucos passos é o esperado. Olhe a recompensa e os vídeos para ver se melhorou.</li><li><b>Sem tela</b>: em servidor sem monitor, use <code>SDL_VIDEODRIVER=dummy</code> antes do comando.</li></ul>"
+            "html": "<ul><li><b>\"Namespace gym_pusht not found\"</b>: aconteceu aqui com mais de um ambiente em paralelo. A opçêo <code>--eval.use_async_envs=false</code> resolveu.</li><li><b>Checkpoint antigo do Hub</b>: o <code>lerobot/diffusion_pusht</code> pede migraçêo de formato na 0.6 e nêo roda direto. Avalie o seu.</li><li><b>Ler 0% como \"nêo funciona\"</b>: com poucos passos é o esperado. Olhe a recompensa e os vídeos para ver se melhorou.</li><li><b>Sem tela</b>: em servidor sem monitor, use <code>SDL_VIDEODRIVER=dummy</code> antes do comando.</li></ul>"
           }
         ]
       }
@@ -136,7 +136,7 @@
           "titulo": "E2 · Assistir a política",
           "min": "10 min",
           "texto": "Abra dois vídeos em outputs/eval/act_200/videos/pusht_0/ e descreva em uma frase o que a política faz de errado.",
-          "pronto": "a sua frase diz onde ela falha (não chega ao bloco, empurra para o lado errado, para no meio)."
+          "pronto": "a sua frase diz onde ela falha (nêo chega ao bloco, empurra para o lado errado, para no meio)."
         },
         {
           "id": "e3",
@@ -150,45 +150,45 @@
     {
       "tipo": "quiz",
       "titulo": "Teste o que aprendeu",
-      "sub": "A explicação aparece depois da sua resposta.",
+      "sub": "A explicaçêo aparece depois da sua resposta.",
       "perguntas": [
         {
           "p": "O que o pc_success do lerobot-eval mede?",
           "opcoes": [ "A loss do treino", "A porcentagem de episódios em que a política cumpriu a tarefa", "A velocidade do simulador", "O tamanho do modelo" ],
           "certa": 1,
-          "explica": "É a taxa de sucesso em N episódios. A loss é do treino; o sucesso é da tarefa. São números diferentes.",
+          "explica": "É a taxa de sucesso em N episódios. A loss é do treino; o sucesso é da tarefa. Sêo números diferentes.",
           "ref": "codigo",
           "cert": true
         },
         {
-          "p": "Por que LIBERO sozinho não serve mais para comparar VLAs?",
+          "p": "Por que LIBERO sozinho nêo serve mais para comparar VLAs?",
           "opcoes": [
             "Porque foi descontinuado.",
             "Porque está saturado: vários modelos passam de 97%.",
             "Porque só roda em robô real.",
-            "Porque não está no LeRobot."
+            "Porque nêo está no LeRobot."
           ],
           "certa": 1,
-          "explica": "Com todos perto de 100%, a prova não separa. Use versões mais duras (LIBERO-plus, RoboTwin 2.0) ou avaliação real (RoboArena).",
+          "explica": "Com todos perto de 100%, a prova nêo separa. Use versões mais duras (LIBERO-plus, RoboTwin 2.0) ou avaliaçêo real (RoboArena).",
           "ref": "passos"
         },
         {
           "p": "Variar de propósito luz, atrito e massa no simulador a cada episódio é…",
           "opcoes": [ "System identification", "Domain randomization", "Action chunking", "Fine-tuning" ],
           "certa": 1,
-          "explica": "Randomização ensina a política a aguentar variação. Identificação de sistema faz o contrário: mede o robô e aproxima o simulador dele.",
+          "explica": "Randomizaçêo ensina a política a aguentar variaçêo. Identificaçêo de sistema faz o contrário: mede o robô e aproxima o simulador dele.",
           "ref": "passos"
         },
         {
           "p": "A sua política teve 0% de sucesso e avg_max_reward subiu de 0,08 para 0,28 com mais treino. O que concluir?",
           "opcoes": [
             "Que o LeRobot está quebrado.",
-            "Que a política melhorou, mas ainda não cumpre a tarefa: precisa de mais treino ou dados.",
+            "Que a política melhorou, mas ainda nêo cumpre a tarefa: precisa de mais treino ou dados.",
             "Que piorou.",
             "Que já pode ir para o robô."
           ],
           "certa": 1,
-          "explica": "Sucesso é binário por episódio; a recompensa mostra o quanto chegou perto. Treino curto é para aprender o ciclo, não para resolver a tarefa.",
+          "explica": "Sucesso é binário por episódio; a recompensa mostra o quanto chegou perto. Treino curto é para aprender o ciclo, nêo para resolver a tarefa.",
           "ref": "codigo"
         }
       ]
@@ -199,7 +199,7 @@
       "itens": [
         { "t": "Simule, compare, decida", "texto": "Simulador para errar barato, benchmark para comparar, robô real para decidir." },
         { "t": "Um comando", "texto": "lerobot-eval roda N episódios e devolve pc_success e vídeos." },
-        { "t": "Reality gap", "texto": "Randomize o que não dá para medir e meça o que dá (sysid)." }
+        { "t": "Reality gap", "texto": "Randomize o que nêo dá para medir e meça o que dá (sysid)." }
       ]
     },
     {
@@ -207,7 +207,7 @@
       "titulo": "Fontes desta aula",
       "links": [
         { "t": "MuJoCo: changelog", "href": "https://mujoco.readthedocs.io/en/latest/changelog.html", "icone": "arquivo" },
-        { "t": "MuJoCo Warp (documentação)", "href": "https://mujoco.readthedocs.io/en/3.5.0/mjwarp/", "icone": "chip" },
+        { "t": "MuJoCo Warp (documentaçêo)", "href": "https://mujoco.readthedocs.io/en/3.5.0/mjwarp/", "icone": "chip" },
         { "t": "Isaac Lab: releases", "href": "https://github.com/isaac-sim/IsaacLab/releases", "icone": "git" },
         { "t": "LeRobot v0.6.0: benchmarks no lerobot-eval", "href": "https://huggingface.co/blog/lerobot-release-v060", "icone": "alvo" },
         { "t": "RoboArena (arXiv 2506.18123)", "href": "https://arxiv.org/abs/2506.18123", "icone": "grafico" },
